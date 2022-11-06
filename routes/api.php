@@ -1,8 +1,11 @@
 <?php
 
+namespace App\Http\Controllers\Api;
+
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,10 +18,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
 
 Route::get('/', function(){
-    return User::find(1);
+    return 'hello (~.~) go to /v1';
+});
+
+Route::prefix('v1')->group(function(){
+
+    Route::get('/', function(){
+        return 'hello';
+    });
+
+    Route::controller(AuthController::class)->prefix('/auth')->group(function (){
+        Route::post('/register', 'registerUser');
+        Route::post('/login', 'loginUser');
+        Route::post('/logout', 'logout')->middleware('auth:sanctum');
+    });
+
+    Route::put('user/{user}/update', [UserController::class, 'update'])->middleware('auth:sanctum');
 });
