@@ -38,6 +38,15 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+    protected static function boot(){
+
+        parent::boot();
+
+        static::created(function ($user){
+            $user->profile()->create();
+        });
+    }
+
     /**
      * The attributes that should be cast.
      *
@@ -46,4 +55,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function profile(){
+        return $this->hasOne(Profile::class);
+    }
 }

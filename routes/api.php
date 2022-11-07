@@ -29,11 +29,31 @@ Route::prefix('v1')->group(function(){
         return 'hello';
     });
 
+    // Auth routes
     Route::controller(AuthController::class)->prefix('/auth')->group(function (){
         Route::post('/register', 'registerUser');
         Route::post('/login', 'loginUser');
         Route::post('/logout', 'logout')->middleware('auth:sanctum');
     });
+    // user
+    Route::controller(UserController::class)->prefix('/users')->group(function (){
+        Route::get('/', 'index');
+        Route::get('/{user}', 'show');
+        Route::get('/{user}/profile', 'profile');
+        Route::put('/',  'update')->middleware('auth:sanctum');
+        // todo after asking on it
+        Route::delete('/{user}', 'delete')->middleware('auth:sanctum');
+    });
+    
 
-    Route::put('user/{user}/update', [UserController::class, 'update'])->middleware('auth:sanctum');
+    // profile
+    Route::controller(ProfileController::class)->prefix('/profiles')->group(function (){
+
+        Route::get('/', 'index');
+        Route::get('/{profile}', 'show');
+        Route::get('/{profile}/user', 'user');
+        Route::put('/', 'update')->middleware('auth:sanctum');
+        // todo after asking on it
+        Route::post('/delete', 'delete');
+    });
 });
