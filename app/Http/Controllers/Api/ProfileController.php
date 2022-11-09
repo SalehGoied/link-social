@@ -14,7 +14,9 @@ class ProfileController extends Controller
         return response()->json([
             'status' => true,
             'message' => 'Profiles',
-            'profiles' => Profile::all(),
+            'data'=>[
+                'profiles' => Profile::all(),
+            ],
         ], 200);
     }
 
@@ -22,9 +24,11 @@ class ProfileController extends Controller
         return response()->json([
             'status' => true,
             'message' => 'Profile',
-            'profile' => $profile,
-            'followres' => $profile->followers,
-            'following' => $profile->user->following,
+            'data'=> [
+                'profile' => $profile,
+                'followres' => $profile->followers,
+                'following' => $profile->user->following,
+            ],
         ], 200);
     }
 
@@ -32,7 +36,9 @@ class ProfileController extends Controller
         return response()->json([
             'status' => true,
             'message' => 'User for Profile',
-            'user' => $profile->user,
+            'data'=>[
+                'user' => $profile->user,
+            ],
         ], 200);
     }
 

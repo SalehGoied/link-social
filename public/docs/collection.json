@@ -1,0 +1,690 @@
+{
+    "variable": [
+        {
+            "id": "baseUrl",
+            "key": "baseUrl",
+            "type": "string",
+            "name": "string",
+            "value": "http:\/\/localhost"
+        }
+    ],
+    "info": {
+        "name": "Laravel",
+        "_postman_id": "6a5d3bb8-ad7d-49fe-97e2-82111c63638a",
+        "description": "",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "Endpoints",
+            "description": "",
+            "item": [
+                {
+                    "name": "GET api\/v1",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "content-type",
+                                    "value": "text\/html; charset=UTF-8"
+                                },
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "59"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "hello",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Create User",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/auth\/register",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/auth\/register"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"user_name\":\"et\",\"email\":\"mossie89@example.net\",\"password\":\"et\",\"first_name\":\"delectus\",\"last_name\":\"molestiae\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Login The User",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/auth\/login",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/auth\/login"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "POST api\/v1\/auth\/logout",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/auth\/logout",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/auth\/logout"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "GET api\/v1\/users",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/users",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/users"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "58"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"status\":true,\"message\":\"Users\",\"data\":{\"users\":[{\"id\":1,\"first_name\":\"first\",\"last_name\":\"last\",\"user_name\":\"saleh\",\"phone\":null,\"age\":null,\"gender\":null,\"email\":\"mail@exampel.com\",\"email_verified_at\":null,\"created_at\":\"2022-11-07T18:42:36.000000Z\",\"updated_at\":\"2022-11-07T18:42:36.000000Z\"},{\"id\":2,\"first_name\":\"first\",\"last_name\":\"last\",\"user_name\":\"saleh\",\"phone\":null,\"age\":15,\"gender\":null,\"email\":\"mail1@exampel.com\",\"email_verified_at\":null,\"created_at\":\"2022-11-08T20:38:24.000000Z\",\"updated_at\":\"2022-11-08T20:38:24.000000Z\"},{\"id\":3,\"first_name\":\"first\",\"last_name\":\"last\",\"user_name\":\"saleh\",\"phone\":null,\"age\":null,\"gender\":null,\"email\":\"mail4@exampel.com\",\"email_verified_at\":null,\"created_at\":\"2022-11-09T01:01:30.000000Z\",\"updated_at\":\"2022-11-09T01:01:30.000000Z\"}]}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET api\/v1\/users\/{user_id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/users\/:user_id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/users\/:user_id",
+                            "variable": [
+                                {
+                                    "id": "user_id",
+                                    "key": "user_id",
+                                    "value": "1",
+                                    "description": "The ID of the user."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "57"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"status\":true,\"message\":\"User\",\"data\":{\"user\":{\"id\":1,\"first_name\":\"first\",\"last_name\":\"last\",\"user_name\":\"saleh\",\"phone\":null,\"age\":null,\"gender\":null,\"email\":\"mail@exampel.com\",\"email_verified_at\":null,\"created_at\":\"2022-11-07T18:42:36.000000Z\",\"updated_at\":\"2022-11-07T18:42:36.000000Z\",\"profile\":{\"id\":1,\"user_id\":1,\"description\":\"13456\",\"avatar\":null,\"cover\":null,\"created_at\":\"2022-11-07T18:42:36.000000Z\",\"updated_at\":\"2022-11-08T21:13:14.000000Z\",\"followers\":[{\"id\":3,\"first_name\":\"first\",\"last_name\":\"last\",\"user_name\":\"saleh\",\"phone\":null,\"age\":null,\"gender\":null,\"email\":\"mail4@exampel.com\",\"email_verified_at\":null,\"created_at\":\"2022-11-09T01:01:30.000000Z\",\"updated_at\":\"2022-11-09T01:01:30.000000Z\",\"pivot\":{\"profile_id\":1,\"user_id\":3}}]},\"following\":[]},\"followres\":[{\"id\":3,\"first_name\":\"first\",\"last_name\":\"last\",\"user_name\":\"saleh\",\"phone\":null,\"age\":null,\"gender\":null,\"email\":\"mail4@exampel.com\",\"email_verified_at\":null,\"created_at\":\"2022-11-09T01:01:30.000000Z\",\"updated_at\":\"2022-11-09T01:01:30.000000Z\",\"pivot\":{\"profile_id\":1,\"user_id\":3}}],\"following\":[]}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET api\/v1\/users\/{user_id}\/profile",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/users\/:user_id\/profile",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/users\/:user_id\/profile",
+                            "variable": [
+                                {
+                                    "id": "user_id",
+                                    "key": "user_id",
+                                    "value": "1",
+                                    "description": "The ID of the user."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "56"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"status\":true,\"message\":\"Profile for User\",\"data\":{\"profile\":{\"id\":1,\"user_id\":1,\"description\":\"13456\",\"avatar\":null,\"cover\":null,\"created_at\":\"2022-11-07T18:42:36.000000Z\",\"updated_at\":\"2022-11-08T21:13:14.000000Z\"}}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "PUT api\/v1\/users",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/users",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/users"
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "GET api\/v1\/profiles",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/profiles",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/profiles"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "55"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"status\":true,\"message\":\"Profiles\",\"data\":{\"profiles\":[{\"id\":1,\"user_id\":1,\"description\":\"13456\",\"avatar\":null,\"cover\":null,\"created_at\":\"2022-11-07T18:42:36.000000Z\",\"updated_at\":\"2022-11-08T21:13:14.000000Z\"},{\"id\":2,\"user_id\":2,\"description\":null,\"avatar\":null,\"cover\":null,\"created_at\":\"2022-11-08T20:38:24.000000Z\",\"updated_at\":\"2022-11-08T20:38:24.000000Z\"},{\"id\":3,\"user_id\":3,\"description\":null,\"avatar\":null,\"cover\":null,\"created_at\":\"2022-11-09T01:01:30.000000Z\",\"updated_at\":\"2022-11-09T01:01:30.000000Z\"}]}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET api\/v1\/profiles\/{profile_id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/profiles\/:profile_id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/profiles\/:profile_id",
+                            "variable": [
+                                {
+                                    "id": "profile_id",
+                                    "key": "profile_id",
+                                    "value": "1",
+                                    "description": "The ID of the profile."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "54"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"status\":true,\"message\":\"Profile\",\"data\":{\"profile\":{\"id\":1,\"user_id\":1,\"description\":\"13456\",\"avatar\":null,\"cover\":null,\"created_at\":\"2022-11-07T18:42:36.000000Z\",\"updated_at\":\"2022-11-08T21:13:14.000000Z\",\"followers\":[{\"id\":3,\"first_name\":\"first\",\"last_name\":\"last\",\"user_name\":\"saleh\",\"phone\":null,\"age\":null,\"gender\":null,\"email\":\"mail4@exampel.com\",\"email_verified_at\":null,\"created_at\":\"2022-11-09T01:01:30.000000Z\",\"updated_at\":\"2022-11-09T01:01:30.000000Z\",\"pivot\":{\"profile_id\":1,\"user_id\":3}}],\"user\":{\"id\":1,\"first_name\":\"first\",\"last_name\":\"last\",\"user_name\":\"saleh\",\"phone\":null,\"age\":null,\"gender\":null,\"email\":\"mail@exampel.com\",\"email_verified_at\":null,\"created_at\":\"2022-11-07T18:42:36.000000Z\",\"updated_at\":\"2022-11-07T18:42:36.000000Z\",\"following\":[]}},\"followres\":[{\"id\":3,\"first_name\":\"first\",\"last_name\":\"last\",\"user_name\":\"saleh\",\"phone\":null,\"age\":null,\"gender\":null,\"email\":\"mail4@exampel.com\",\"email_verified_at\":null,\"created_at\":\"2022-11-09T01:01:30.000000Z\",\"updated_at\":\"2022-11-09T01:01:30.000000Z\",\"pivot\":{\"profile_id\":1,\"user_id\":3}}],\"following\":[]}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET api\/v1\/profiles\/{profile_id}\/user",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/profiles\/:profile_id\/user",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/profiles\/:profile_id\/user",
+                            "variable": [
+                                {
+                                    "id": "profile_id",
+                                    "key": "profile_id",
+                                    "value": "1",
+                                    "description": "The ID of the profile."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "53"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"status\":true,\"message\":\"User for Profile\",\"data\":{\"user\":{\"id\":1,\"first_name\":\"first\",\"last_name\":\"last\",\"user_name\":\"saleh\",\"phone\":null,\"age\":null,\"gender\":null,\"email\":\"mail@exampel.com\",\"email_verified_at\":null,\"created_at\":\"2022-11-07T18:42:36.000000Z\",\"updated_at\":\"2022-11-07T18:42:36.000000Z\"}}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "PUT api\/v1\/profiles",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/profiles",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/profiles"
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "POST api\/v1\/follow\/{profile_id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/follow\/:profile_id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/follow\/:profile_id",
+                            "variable": [
+                                {
+                                    "id": "profile_id",
+                                    "key": "profile_id",
+                                    "value": "1",
+                                    "description": "The ID of the profile."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "GET api\/v1\/follow\/{profile_id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/follow\/:profile_id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/follow\/:profile_id",
+                            "variable": [
+                                {
+                                    "id": "profile_id",
+                                    "key": "profile_id",
+                                    "value": "1",
+                                    "description": "The ID of the profile."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "auth": {
+        "type": "noauth"
+    }
+}

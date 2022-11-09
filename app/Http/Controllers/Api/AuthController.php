@@ -18,27 +18,28 @@ class AuthController extends Controller
      */
     public function registerUser(Request $request)
     {
-        try {
-            //Validated
-            $validateUser = Validator::make($request->all(), 
-            [
-                'user_name' => 'required',
-                'email' => 'required|email|unique:users,email',
-                'password' => 'required',
-                'first_name'=>'required',
-                'last_name'=>'required',
-                'phone'=> 'nullable',
-                'age'=>'nullable',
-                'gender'=>'nullable',
-            ]);
+        //Validated
+        $validateUser = Validator::make($request->all(), 
+        [
+            'user_name' => 'required',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required',
+            'first_name'=>'required',
+            'last_name'=>'required',
+            'phone'=> 'nullable',
+            'age'=>'nullable',
+            'gender'=>'nullable',
+        ]);
 
-            if($validateUser->fails()){
-                return response()->json([
-                    'status' => false,
-                    'message' => 'validation error',
-                    'errors' => $validateUser->errors()
-                ], 401);
-            }
+        if($validateUser->fails()){
+            return response()->json([
+                'status' => false,
+                'message' => 'validation error',
+                'errors' => $validateUser->errors()
+            ], 401);
+        }
+        try {
+            
 
             $user = User::create([
                 'user_name' => $request->user_name,
@@ -54,8 +55,11 @@ class AuthController extends Controller
             return response()->json([
                 'status' => true,
                 'message' => 'User Created Successfully',
-                'user' => $user,
-                'token' => $user->createToken("API TOKEN")->plainTextToken
+                'data'=>[
+                    'user' => $user,
+                    'token' => $user->createToken("API TOKEN")->plainTextToken
+                ],
+                
             ], 200);
 
         } catch (\Throwable $th) {
@@ -73,20 +77,20 @@ class AuthController extends Controller
      */
     public function loginUser(Request $request)
     {
-        try {
-            $validateUser = Validator::make($request->all(), 
-            [
-                'email' => 'required|email',
-                'password' => 'required'
-            ]);
+        $validateUser = Validator::make($request->all(), 
+        [
+            'email' => 'required|email',
+            'password' => 'required'
+        ]);
 
-            if($validateUser->fails()){
-                return response()->json([
-                    'status' => false,
-                    'message' => 'validation error',
-                    'errors' => $validateUser->errors()
-                ], 401);
-            }
+        if($validateUser->fails()){
+            return response()->json([
+                'status' => false,
+                'message' => 'validation error',
+                'errors' => $validateUser->errors()
+            ], 401);
+        }
+        try {
 
             if(! Auth::attempt($request->only(['email', 'password']))){
                 return response()->json([
@@ -100,8 +104,11 @@ class AuthController extends Controller
             return response()->json([
                 'status' => true,
                 'message' => 'User Logged In Successfully',
-                'user' => $user,
-                'token' => $user->createToken("API TOKEN")->plainTextToken
+                'data'=>[
+                    'user' => $user,
+                    'token' => $user->createToken("API TOKEN")->plainTextToken
+                ]
+                
             ], 200);
 
         } catch (\Throwable $th) {
@@ -122,9 +129,9 @@ class AuthController extends Controller
     
             return response()->json([
                 'status' => true,
-                "message" => 'User Logged In Successfully',
+                "message" => 'User Logout Successfully',
             ],200);
-            
+                
         }catch(\Throwable $th){
 
             return response()->json([

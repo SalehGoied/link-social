@@ -17,7 +17,10 @@ class UserController extends Controller
         return response()->json([
             'status' => true,
             'message' => 'Users',
-            'users' => User::all(),
+            'data'=>[
+                'users' => User::all(),
+            ]
+            
         ], 200);
     }
 
@@ -26,9 +29,11 @@ class UserController extends Controller
         return response()->json([
             'status' => true,
             'message' => 'User',
-            'user' => $user,
-            'followres' => $user->rpofile->followers,
-            'following' => $user->following,
+            'data'=>[
+                'user' => $user,
+                'followres' => $user->profile->followers,
+                'following' => $user->following,
+            ],
         ], 200);
     }
 
@@ -37,7 +42,9 @@ class UserController extends Controller
         return response()->json([
             'status' => true,
             'message' => 'Profile for User',
-            'profile' => $user->profile,
+            'data'=>[
+                'profile' => $user->profile,
+            ],
         ], 200);
     }
 
@@ -72,7 +79,9 @@ class UserController extends Controller
         return response()->json([
             'status' => true,
             'message' => 'User Updated Successfully',
-            'user' => $user,
+            'data'=>[
+                'user' => $user,
+            ],
         ], 200);
     }
 }

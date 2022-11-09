@@ -1,0 +1,990 @@
+openapi: 3.0.3
+info:
+  title: Laravel
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost'
+paths:
+  /api/v1:
+    get:
+      summary: ''
+      operationId: getApiV1
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: hello
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/auth/register:
+    post:
+      summary: 'Create User'
+      operationId: createUser
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_name:
+                  type: string
+                  description: ''
+                  example: et
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: mossie89@example.net
+                password:
+                  type: string
+                  description: ''
+                  example: et
+                first_name:
+                  type: string
+                  description: ''
+                  example: delectus
+                last_name:
+                  type: string
+                  description: ''
+                  example: molestiae
+                phone:
+                  type: string
+                  description: ''
+                  example: null
+                age:
+                  type: string
+                  description: ''
+                  example: null
+                gender:
+                  type: string
+                  description: ''
+                  example: null
+              required:
+                - user_name
+                - email
+                - password
+                - first_name
+                - last_name
+      security: []
+  /api/v1/auth/login:
+    post:
+      summary: 'Login The User'
+      operationId: loginTheUser
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/auth/logout:
+    post:
+      summary: ''
+      operationId: postApiV1AuthLogout
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/users:
+    get:
+      summary: ''
+      operationId: getApiV1Users
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: true
+                  message: Users
+                  data:
+                    users:
+                      -
+                        id: 1
+                        first_name: first
+                        last_name: last
+                        user_name: saleh
+                        phone: null
+                        age: null
+                        gender: null
+                        email: mail@exampel.com
+                        email_verified_at: null
+                        created_at: '2022-11-07T18:42:36.000000Z'
+                        updated_at: '2022-11-07T18:42:36.000000Z'
+                      -
+                        id: 2
+                        first_name: first
+                        last_name: last
+                        user_name: saleh
+                        phone: null
+                        age: 15
+                        gender: null
+                        email: mail1@exampel.com
+                        email_verified_at: null
+                        created_at: '2022-11-08T20:38:24.000000Z'
+                        updated_at: '2022-11-08T20:38:24.000000Z'
+                      -
+                        id: 3
+                        first_name: first
+                        last_name: last
+                        user_name: saleh
+                        phone: null
+                        age: null
+                        gender: null
+                        email: mail4@exampel.com
+                        email_verified_at: null
+                        created_at: '2022-11-09T01:01:30.000000Z'
+                        updated_at: '2022-11-09T01:01:30.000000Z'
+                properties:
+                  status:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: Users
+                  data:
+                    type: object
+                    example:
+                      users:
+                        -
+                          id: 1
+                          first_name: first
+                          last_name: last
+                          user_name: saleh
+                          phone: null
+                          age: null
+                          gender: null
+                          email: mail@exampel.com
+                          email_verified_at: null
+                          created_at: '2022-11-07T18:42:36.000000Z'
+                          updated_at: '2022-11-07T18:42:36.000000Z'
+                        -
+                          id: 2
+                          first_name: first
+                          last_name: last
+                          user_name: saleh
+                          phone: null
+                          age: 15
+                          gender: null
+                          email: mail1@exampel.com
+                          email_verified_at: null
+                          created_at: '2022-11-08T20:38:24.000000Z'
+                          updated_at: '2022-11-08T20:38:24.000000Z'
+                        -
+                          id: 3
+                          first_name: first
+                          last_name: last
+                          user_name: saleh
+                          phone: null
+                          age: null
+                          gender: null
+                          email: mail4@exampel.com
+                          email_verified_at: null
+                          created_at: '2022-11-09T01:01:30.000000Z'
+                          updated_at: '2022-11-09T01:01:30.000000Z'
+      tags:
+        - Endpoints
+      security: []
+    put:
+      summary: ''
+      operationId: putApiV1Users
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_name:
+                  type: string
+                  description: ''
+                  example: null
+                password:
+                  type: string
+                  description: ''
+                  example: null
+                first_name:
+                  type: string
+                  description: ''
+                  example: null
+                last_name:
+                  type: string
+                  description: ''
+                  example: null
+                phone:
+                  type: string
+                  description: ''
+                  example: null
+                age:
+                  type: string
+                  description: ''
+                  example: null
+                gender:
+                  type: string
+                  description: ''
+                  example: null
+      security: []
+  '/api/v1/users/{user_id}':
+    get:
+      summary: ''
+      operationId: getApiV1UsersUser_id
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: true
+                  message: User
+                  data:
+                    user:
+                      id: 1
+                      first_name: first
+                      last_name: last
+                      user_name: saleh
+                      phone: null
+                      age: null
+                      gender: null
+                      email: mail@exampel.com
+                      email_verified_at: null
+                      created_at: '2022-11-07T18:42:36.000000Z'
+                      updated_at: '2022-11-07T18:42:36.000000Z'
+                      profile:
+                        id: 1
+                        user_id: 1
+                        description: '13456'
+                        avatar: null
+                        cover: null
+                        created_at: '2022-11-07T18:42:36.000000Z'
+                        updated_at: '2022-11-08T21:13:14.000000Z'
+                        followers:
+                          -
+                            id: 3
+                            first_name: first
+                            last_name: last
+                            user_name: saleh
+                            phone: null
+                            age: null
+                            gender: null
+                            email: mail4@exampel.com
+                            email_verified_at: null
+                            created_at: '2022-11-09T01:01:30.000000Z'
+                            updated_at: '2022-11-09T01:01:30.000000Z'
+                            pivot:
+                              profile_id: 1
+                              user_id: 3
+                      following: []
+                    followres:
+                      -
+                        id: 3
+                        first_name: first
+                        last_name: last
+                        user_name: saleh
+                        phone: null
+                        age: null
+                        gender: null
+                        email: mail4@exampel.com
+                        email_verified_at: null
+                        created_at: '2022-11-09T01:01:30.000000Z'
+                        updated_at: '2022-11-09T01:01:30.000000Z'
+                        pivot:
+                          profile_id: 1
+                          user_id: 3
+                    following: []
+                properties:
+                  status:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: User
+                  data:
+                    type: object
+                    example:
+                      user:
+                        id: 1
+                        first_name: first
+                        last_name: last
+                        user_name: saleh
+                        phone: null
+                        age: null
+                        gender: null
+                        email: mail@exampel.com
+                        email_verified_at: null
+                        created_at: '2022-11-07T18:42:36.000000Z'
+                        updated_at: '2022-11-07T18:42:36.000000Z'
+                        profile:
+                          id: 1
+                          user_id: 1
+                          description: '13456'
+                          avatar: null
+                          cover: null
+                          created_at: '2022-11-07T18:42:36.000000Z'
+                          updated_at: '2022-11-08T21:13:14.000000Z'
+                          followers:
+                            -
+                              id: 3
+                              first_name: first
+                              last_name: last
+                              user_name: saleh
+                              phone: null
+                              age: null
+                              gender: null
+                              email: mail4@exampel.com
+                              email_verified_at: null
+                              created_at: '2022-11-09T01:01:30.000000Z'
+                              updated_at: '2022-11-09T01:01:30.000000Z'
+                              pivot:
+                                profile_id: 1
+                                user_id: 3
+                        following: []
+                      followres:
+                        -
+                          id: 3
+                          first_name: first
+                          last_name: last
+                          user_name: saleh
+                          phone: null
+                          age: null
+                          gender: null
+                          email: mail4@exampel.com
+                          email_verified_at: null
+                          created_at: '2022-11-09T01:01:30.000000Z'
+                          updated_at: '2022-11-09T01:01:30.000000Z'
+                          pivot:
+                            profile_id: 1
+                            user_id: 3
+                      following: []
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: user_id
+        description: 'The ID of the user.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  '/api/v1/users/{user_id}/profile':
+    get:
+      summary: ''
+      operationId: getApiV1UsersUser_idProfile
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: true
+                  message: 'Profile for User'
+                  data:
+                    profile:
+                      id: 1
+                      user_id: 1
+                      description: '13456'
+                      avatar: null
+                      cover: null
+                      created_at: '2022-11-07T18:42:36.000000Z'
+                      updated_at: '2022-11-08T21:13:14.000000Z'
+                properties:
+                  status:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: 'Profile for User'
+                  data:
+                    type: object
+                    example:
+                      profile:
+                        id: 1
+                        user_id: 1
+                        description: '13456'
+                        avatar: null
+                        cover: null
+                        created_at: '2022-11-07T18:42:36.000000Z'
+                        updated_at: '2022-11-08T21:13:14.000000Z'
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: user_id
+        description: 'The ID of the user.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/v1/profiles:
+    get:
+      summary: ''
+      operationId: getApiV1Profiles
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: true
+                  message: Profiles
+                  data:
+                    profiles:
+                      -
+                        id: 1
+                        user_id: 1
+                        description: '13456'
+                        avatar: null
+                        cover: null
+                        created_at: '2022-11-07T18:42:36.000000Z'
+                        updated_at: '2022-11-08T21:13:14.000000Z'
+                      -
+                        id: 2
+                        user_id: 2
+                        description: null
+                        avatar: null
+                        cover: null
+                        created_at: '2022-11-08T20:38:24.000000Z'
+                        updated_at: '2022-11-08T20:38:24.000000Z'
+                      -
+                        id: 3
+                        user_id: 3
+                        description: null
+                        avatar: null
+                        cover: null
+                        created_at: '2022-11-09T01:01:30.000000Z'
+                        updated_at: '2022-11-09T01:01:30.000000Z'
+                properties:
+                  status:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: Profiles
+                  data:
+                    type: object
+                    example:
+                      profiles:
+                        -
+                          id: 1
+                          user_id: 1
+                          description: '13456'
+                          avatar: null
+                          cover: null
+                          created_at: '2022-11-07T18:42:36.000000Z'
+                          updated_at: '2022-11-08T21:13:14.000000Z'
+                        -
+                          id: 2
+                          user_id: 2
+                          description: null
+                          avatar: null
+                          cover: null
+                          created_at: '2022-11-08T20:38:24.000000Z'
+                          updated_at: '2022-11-08T20:38:24.000000Z'
+                        -
+                          id: 3
+                          user_id: 3
+                          description: null
+                          avatar: null
+                          cover: null
+                          created_at: '2022-11-09T01:01:30.000000Z'
+                          updated_at: '2022-11-09T01:01:30.000000Z'
+      tags:
+        - Endpoints
+      security: []
+    put:
+      summary: ''
+      operationId: putApiV1Profiles
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  '/api/v1/profiles/{profile_id}':
+    get:
+      summary: ''
+      operationId: getApiV1ProfilesProfile_id
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: true
+                  message: Profile
+                  data:
+                    profile:
+                      id: 1
+                      user_id: 1
+                      description: '13456'
+                      avatar: null
+                      cover: null
+                      created_at: '2022-11-07T18:42:36.000000Z'
+                      updated_at: '2022-11-08T21:13:14.000000Z'
+                      followers:
+                        -
+                          id: 3
+                          first_name: first
+                          last_name: last
+                          user_name: saleh
+                          phone: null
+                          age: null
+                          gender: null
+                          email: mail4@exampel.com
+                          email_verified_at: null
+                          created_at: '2022-11-09T01:01:30.000000Z'
+                          updated_at: '2022-11-09T01:01:30.000000Z'
+                          pivot:
+                            profile_id: 1
+                            user_id: 3
+                      user:
+                        id: 1
+                        first_name: first
+                        last_name: last
+                        user_name: saleh
+                        phone: null
+                        age: null
+                        gender: null
+                        email: mail@exampel.com
+                        email_verified_at: null
+                        created_at: '2022-11-07T18:42:36.000000Z'
+                        updated_at: '2022-11-07T18:42:36.000000Z'
+                        following: []
+                    followres:
+                      -
+                        id: 3
+                        first_name: first
+                        last_name: last
+                        user_name: saleh
+                        phone: null
+                        age: null
+                        gender: null
+                        email: mail4@exampel.com
+                        email_verified_at: null
+                        created_at: '2022-11-09T01:01:30.000000Z'
+                        updated_at: '2022-11-09T01:01:30.000000Z'
+                        pivot:
+                          profile_id: 1
+                          user_id: 3
+                    following: []
+                properties:
+                  status:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: Profile
+                  data:
+                    type: object
+                    example:
+                      profile:
+                        id: 1
+                        user_id: 1
+                        description: '13456'
+                        avatar: null
+                        cover: null
+                        created_at: '2022-11-07T18:42:36.000000Z'
+                        updated_at: '2022-11-08T21:13:14.000000Z'
+                        followers:
+                          -
+                            id: 3
+                            first_name: first
+                            last_name: last
+                            user_name: saleh
+                            phone: null
+                            age: null
+                            gender: null
+                            email: mail4@exampel.com
+                            email_verified_at: null
+                            created_at: '2022-11-09T01:01:30.000000Z'
+                            updated_at: '2022-11-09T01:01:30.000000Z'
+                            pivot:
+                              profile_id: 1
+                              user_id: 3
+                        user:
+                          id: 1
+                          first_name: first
+                          last_name: last
+                          user_name: saleh
+                          phone: null
+                          age: null
+                          gender: null
+                          email: mail@exampel.com
+                          email_verified_at: null
+                          created_at: '2022-11-07T18:42:36.000000Z'
+                          updated_at: '2022-11-07T18:42:36.000000Z'
+                          following: []
+                      followres:
+                        -
+                          id: 3
+                          first_name: first
+                          last_name: last
+                          user_name: saleh
+                          phone: null
+                          age: null
+                          gender: null
+                          email: mail4@exampel.com
+                          email_verified_at: null
+                          created_at: '2022-11-09T01:01:30.000000Z'
+                          updated_at: '2022-11-09T01:01:30.000000Z'
+                          pivot:
+                            profile_id: 1
+                            user_id: 3
+                      following: []
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: profile_id
+        description: 'The ID of the profile.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  '/api/v1/profiles/{profile_id}/user':
+    get:
+      summary: ''
+      operationId: getApiV1ProfilesProfile_idUser
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: true
+                  message: 'User for Profile'
+                  data:
+                    user:
+                      id: 1
+                      first_name: first
+                      last_name: last
+                      user_name: saleh
+                      phone: null
+                      age: null
+                      gender: null
+                      email: mail@exampel.com
+                      email_verified_at: null
+                      created_at: '2022-11-07T18:42:36.000000Z'
+                      updated_at: '2022-11-07T18:42:36.000000Z'
+                properties:
+                  status:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: 'User for Profile'
+                  data:
+                    type: object
+                    example:
+                      user:
+                        id: 1
+                        first_name: first
+                        last_name: last
+                        user_name: saleh
+                        phone: null
+                        age: null
+                        gender: null
+                        email: mail@exampel.com
+                        email_verified_at: null
+                        created_at: '2022-11-07T18:42:36.000000Z'
+                        updated_at: '2022-11-07T18:42:36.000000Z'
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: profile_id
+        description: 'The ID of the profile.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  '/api/v1/follow/{profile_id}':
+    post:
+      summary: ''
+      operationId: postApiV1FollowProfile_id
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    get:
+      summary: ''
+      operationId: getApiV1FollowProfile_id
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: profile_id
+        description: 'The ID of the profile.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+tags:
+  -
+    name: Endpoints
+    description: ''
