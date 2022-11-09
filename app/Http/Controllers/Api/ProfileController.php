@@ -23,6 +23,8 @@ class ProfileController extends Controller
             'status' => true,
             'message' => 'Profile',
             'profile' => $profile,
+            'followres' => $profile->followers,
+            'following' => $profile->user->following,
         ], 200);
     }
 
@@ -51,7 +53,7 @@ class ProfileController extends Controller
         if ($request->hasFile('cover')){
             $cover = $request->file('cover');
             $filename = time() . "." . $cover->getClientOriginalExtension();
-            Image::make($cover)->resize(600,400)->save(public_path('/profile/'.$filename)); 
+            Image::make($cover)->save(public_path('/uploads/profile/'.$filename)); 
             $path_cover = 'profile/'.$filename;
         }
         else{

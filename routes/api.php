@@ -57,4 +57,7 @@ Route::prefix('v1')->group(function(){
         // todo after asking on it
         Route::post('/delete', 'delete');
     });
+
+    Route::post('/follow/{profile}', [FollowsController::class, 'store'])->middleware('auth:sanctum');
+    Route::get('/follow/{profile}', [FollowsController::class, 'show'])->middleware('auth:sanctum');
 });

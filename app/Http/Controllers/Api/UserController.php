@@ -27,6 +27,8 @@ class UserController extends Controller
             'status' => true,
             'message' => 'User',
             'user' => $user,
+            'followres' => $user->rpofile->followers,
+            'following' => $user->following,
         ], 200);
     }
 
