@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Laravel",
-        "_postman_id": "6a5d3bb8-ad7d-49fe-97e2-82111c63638a",
+        "_postman_id": "47440bce-bd6f-471c-a6af-3fe68de9815c",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -97,7 +97,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"user_name\":\"et\",\"email\":\"mossie89@example.net\",\"password\":\"et\",\"first_name\":\"delectus\",\"last_name\":\"molestiae\"}"
+                            "raw": "{\"user_name\":\"a\",\"email\":\"mcglynn.destin@example.org\",\"password\":\"est\",\"first_name\":\"aut\",\"last_name\":\"consequuntur\"}"
                         },
                         "description": "",
                         "auth": {
@@ -126,7 +126,10 @@
                                 "value": "application\/json"
                             }
                         ],
-                        "body": null,
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"email\":\"braxton.upton@example.com\",\"password\":\"numquam\"}"
+                        },
                         "description": "",
                         "auth": {
                             "type": "noauth"
@@ -213,7 +216,7 @@
                                 }
                             ],
                             "code": 200,
-                            "body": "{\"status\":true,\"message\":\"Users\",\"data\":{\"users\":[{\"id\":1,\"first_name\":\"first\",\"last_name\":\"last\",\"user_name\":\"saleh\",\"phone\":null,\"age\":null,\"gender\":null,\"email\":\"mail@exampel.com\",\"email_verified_at\":null,\"created_at\":\"2022-11-07T18:42:36.000000Z\",\"updated_at\":\"2022-11-07T18:42:36.000000Z\"},{\"id\":2,\"first_name\":\"first\",\"last_name\":\"last\",\"user_name\":\"saleh\",\"phone\":null,\"age\":15,\"gender\":null,\"email\":\"mail1@exampel.com\",\"email_verified_at\":null,\"created_at\":\"2022-11-08T20:38:24.000000Z\",\"updated_at\":\"2022-11-08T20:38:24.000000Z\"},{\"id\":3,\"first_name\":\"first\",\"last_name\":\"last\",\"user_name\":\"saleh\",\"phone\":null,\"age\":null,\"gender\":null,\"email\":\"mail4@exampel.com\",\"email_verified_at\":null,\"created_at\":\"2022-11-09T01:01:30.000000Z\",\"updated_at\":\"2022-11-09T01:01:30.000000Z\"}]}}",
+                            "body": "{\"status\":true,\"message\":\"Users\",\"data\":{\"users\":[{\"id\":1,\"first_name\":\"first\",\"last_name\":\"saleh222\",\"user_name\":\"saleh\",\"phone\":\"011234567899\",\"age\":33,\"gender\":null,\"email\":\"mail@exampel.com\",\"email_verified_at\":null,\"created_at\":\"2022-11-07T18:42:36.000000Z\",\"updated_at\":\"2022-11-09T20:37:45.000000Z\"},{\"id\":2,\"first_name\":\"first\",\"last_name\":\"last\",\"user_name\":\"saleh\",\"phone\":null,\"age\":15,\"gender\":null,\"email\":\"mail1@exampel.com\",\"email_verified_at\":null,\"created_at\":\"2022-11-08T20:38:24.000000Z\",\"updated_at\":\"2022-11-08T20:38:24.000000Z\"},{\"id\":3,\"first_name\":\"first\",\"last_name\":\"last\",\"user_name\":\"saleh\",\"phone\":null,\"age\":null,\"gender\":null,\"email\":\"mail4@exampel.com\",\"email_verified_at\":null,\"created_at\":\"2022-11-09T01:01:30.000000Z\",\"updated_at\":\"2022-11-09T01:01:30.000000Z\"}]}}",
                             "name": ""
                         }
                     ]
@@ -277,7 +280,7 @@
                                 }
                             ],
                             "code": 200,
-                            "body": "{\"status\":true,\"message\":\"User\",\"data\":{\"user\":{\"id\":1,\"first_name\":\"first\",\"last_name\":\"last\",\"user_name\":\"saleh\",\"phone\":null,\"age\":null,\"gender\":null,\"email\":\"mail@exampel.com\",\"email_verified_at\":null,\"created_at\":\"2022-11-07T18:42:36.000000Z\",\"updated_at\":\"2022-11-07T18:42:36.000000Z\",\"profile\":{\"id\":1,\"user_id\":1,\"description\":\"13456\",\"avatar\":null,\"cover\":null,\"created_at\":\"2022-11-07T18:42:36.000000Z\",\"updated_at\":\"2022-11-08T21:13:14.000000Z\",\"followers\":[{\"id\":3,\"first_name\":\"first\",\"last_name\":\"last\",\"user_name\":\"saleh\",\"phone\":null,\"age\":null,\"gender\":null,\"email\":\"mail4@exampel.com\",\"email_verified_at\":null,\"created_at\":\"2022-11-09T01:01:30.000000Z\",\"updated_at\":\"2022-11-09T01:01:30.000000Z\",\"pivot\":{\"profile_id\":1,\"user_id\":3}}]},\"following\":[]},\"followres\":[{\"id\":3,\"first_name\":\"first\",\"last_name\":\"last\",\"user_name\":\"saleh\",\"phone\":null,\"age\":null,\"gender\":null,\"email\":\"mail4@exampel.com\",\"email_verified_at\":null,\"created_at\":\"2022-11-09T01:01:30.000000Z\",\"updated_at\":\"2022-11-09T01:01:30.000000Z\",\"pivot\":{\"profile_id\":1,\"user_id\":3}}],\"following\":[]}}",
+                            "body": "{\"status\":true,\"message\":\"User\",\"data\":{\"user\":{\"id\":1,\"first_name\":\"first\",\"last_name\":\"saleh222\",\"user_name\":\"saleh\",\"phone\":\"011234567899\",\"age\":33,\"gender\":null,\"email\":\"mail@exampel.com\",\"email_verified_at\":null,\"created_at\":\"2022-11-07T18:42:36.000000Z\",\"updated_at\":\"2022-11-09T20:37:45.000000Z\",\"profile\":{\"id\":1,\"user_id\":1,\"description\":\"13456\",\"avatar\":null,\"cover\":null,\"created_at\":\"2022-11-07T18:42:36.000000Z\",\"updated_at\":\"2022-11-08T21:13:14.000000Z\",\"followers\":[{\"id\":3,\"first_name\":\"first\",\"last_name\":\"last\",\"user_name\":\"saleh\",\"phone\":null,\"age\":null,\"gender\":null,\"email\":\"mail4@exampel.com\",\"email_verified_at\":null,\"created_at\":\"2022-11-09T01:01:30.000000Z\",\"updated_at\":\"2022-11-09T01:01:30.000000Z\",\"pivot\":{\"profile_id\":1,\"user_id\":3}}]},\"following\":[{\"id\":3,\"user_id\":3,\"description\":null,\"avatar\":null,\"cover\":null,\"created_at\":\"2022-11-09T01:01:30.000000Z\",\"updated_at\":\"2022-11-09T01:01:30.000000Z\",\"pivot\":{\"user_id\":1,\"profile_id\":3}}]},\"followres\":[{\"id\":3,\"first_name\":\"first\",\"last_name\":\"last\",\"user_name\":\"saleh\",\"phone\":null,\"age\":null,\"gender\":null,\"email\":\"mail4@exampel.com\",\"email_verified_at\":null,\"created_at\":\"2022-11-09T01:01:30.000000Z\",\"updated_at\":\"2022-11-09T01:01:30.000000Z\",\"pivot\":{\"profile_id\":1,\"user_id\":3}}],\"following\":[{\"id\":3,\"user_id\":3,\"description\":null,\"avatar\":null,\"cover\":null,\"created_at\":\"2022-11-09T01:01:30.000000Z\",\"updated_at\":\"2022-11-09T01:01:30.000000Z\",\"pivot\":{\"user_id\":1,\"profile_id\":3}}]}}",
                             "name": ""
                         }
                     ]
@@ -333,7 +336,7 @@
                                 },
                                 {
                                     "key": "x-ratelimit-remaining",
-                                    "value": "56"
+                                    "value": "60"
                                 },
                                 {
                                     "key": "access-control-allow-origin",
@@ -420,7 +423,7 @@
                                 },
                                 {
                                     "key": "x-ratelimit-remaining",
-                                    "value": "55"
+                                    "value": "59"
                                 },
                                 {
                                     "key": "access-control-allow-origin",
@@ -484,7 +487,7 @@
                                 },
                                 {
                                     "key": "x-ratelimit-remaining",
-                                    "value": "54"
+                                    "value": "58"
                                 },
                                 {
                                     "key": "access-control-allow-origin",
@@ -492,7 +495,7 @@
                                 }
                             ],
                             "code": 200,
-                            "body": "{\"status\":true,\"message\":\"Profile\",\"data\":{\"profile\":{\"id\":1,\"user_id\":1,\"description\":\"13456\",\"avatar\":null,\"cover\":null,\"created_at\":\"2022-11-07T18:42:36.000000Z\",\"updated_at\":\"2022-11-08T21:13:14.000000Z\",\"followers\":[{\"id\":3,\"first_name\":\"first\",\"last_name\":\"last\",\"user_name\":\"saleh\",\"phone\":null,\"age\":null,\"gender\":null,\"email\":\"mail4@exampel.com\",\"email_verified_at\":null,\"created_at\":\"2022-11-09T01:01:30.000000Z\",\"updated_at\":\"2022-11-09T01:01:30.000000Z\",\"pivot\":{\"profile_id\":1,\"user_id\":3}}],\"user\":{\"id\":1,\"first_name\":\"first\",\"last_name\":\"last\",\"user_name\":\"saleh\",\"phone\":null,\"age\":null,\"gender\":null,\"email\":\"mail@exampel.com\",\"email_verified_at\":null,\"created_at\":\"2022-11-07T18:42:36.000000Z\",\"updated_at\":\"2022-11-07T18:42:36.000000Z\",\"following\":[]}},\"followres\":[{\"id\":3,\"first_name\":\"first\",\"last_name\":\"last\",\"user_name\":\"saleh\",\"phone\":null,\"age\":null,\"gender\":null,\"email\":\"mail4@exampel.com\",\"email_verified_at\":null,\"created_at\":\"2022-11-09T01:01:30.000000Z\",\"updated_at\":\"2022-11-09T01:01:30.000000Z\",\"pivot\":{\"profile_id\":1,\"user_id\":3}}],\"following\":[]}}",
+                            "body": "{\"status\":true,\"message\":\"Profile\",\"data\":{\"profile\":{\"id\":1,\"user_id\":1,\"description\":\"13456\",\"avatar\":null,\"cover\":null,\"created_at\":\"2022-11-07T18:42:36.000000Z\",\"updated_at\":\"2022-11-08T21:13:14.000000Z\",\"followers\":[{\"id\":3,\"first_name\":\"first\",\"last_name\":\"last\",\"user_name\":\"saleh\",\"phone\":null,\"age\":null,\"gender\":null,\"email\":\"mail4@exampel.com\",\"email_verified_at\":null,\"created_at\":\"2022-11-09T01:01:30.000000Z\",\"updated_at\":\"2022-11-09T01:01:30.000000Z\",\"pivot\":{\"profile_id\":1,\"user_id\":3}}],\"user\":{\"id\":1,\"first_name\":\"first\",\"last_name\":\"saleh222\",\"user_name\":\"saleh\",\"phone\":\"011234567899\",\"age\":33,\"gender\":null,\"email\":\"mail@exampel.com\",\"email_verified_at\":null,\"created_at\":\"2022-11-07T18:42:36.000000Z\",\"updated_at\":\"2022-11-09T20:37:45.000000Z\",\"following\":[{\"id\":3,\"user_id\":3,\"description\":null,\"avatar\":null,\"cover\":null,\"created_at\":\"2022-11-09T01:01:30.000000Z\",\"updated_at\":\"2022-11-09T01:01:30.000000Z\",\"pivot\":{\"user_id\":1,\"profile_id\":3}}]}},\"followres\":[{\"id\":3,\"first_name\":\"first\",\"last_name\":\"last\",\"user_name\":\"saleh\",\"phone\":null,\"age\":null,\"gender\":null,\"email\":\"mail4@exampel.com\",\"email_verified_at\":null,\"created_at\":\"2022-11-09T01:01:30.000000Z\",\"updated_at\":\"2022-11-09T01:01:30.000000Z\",\"pivot\":{\"profile_id\":1,\"user_id\":3}}],\"following\":[{\"id\":3,\"user_id\":3,\"description\":null,\"avatar\":null,\"cover\":null,\"created_at\":\"2022-11-09T01:01:30.000000Z\",\"updated_at\":\"2022-11-09T01:01:30.000000Z\",\"pivot\":{\"user_id\":1,\"profile_id\":3}}]}}",
                             "name": ""
                         }
                     ]
@@ -548,7 +551,7 @@
                                 },
                                 {
                                     "key": "x-ratelimit-remaining",
-                                    "value": "53"
+                                    "value": "57"
                                 },
                                 {
                                     "key": "access-control-allow-origin",
@@ -556,7 +559,7 @@
                                 }
                             ],
                             "code": 200,
-                            "body": "{\"status\":true,\"message\":\"User for Profile\",\"data\":{\"user\":{\"id\":1,\"first_name\":\"first\",\"last_name\":\"last\",\"user_name\":\"saleh\",\"phone\":null,\"age\":null,\"gender\":null,\"email\":\"mail@exampel.com\",\"email_verified_at\":null,\"created_at\":\"2022-11-07T18:42:36.000000Z\",\"updated_at\":\"2022-11-07T18:42:36.000000Z\"}}}",
+                            "body": "{\"status\":true,\"message\":\"User for Profile\",\"data\":{\"user\":{\"id\":1,\"first_name\":\"first\",\"last_name\":\"saleh222\",\"user_name\":\"saleh\",\"phone\":\"011234567899\",\"age\":33,\"gender\":null,\"email\":\"mail@exampel.com\",\"email_verified_at\":null,\"created_at\":\"2022-11-07T18:42:36.000000Z\",\"updated_at\":\"2022-11-09T20:37:45.000000Z\"}}}",
                             "name": ""
                         }
                     ]

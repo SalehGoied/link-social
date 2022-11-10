@@ -67,35 +67,35 @@ endpoints:
         name: user_name
         description: ''
         required: true
-        example: et
+        example: a
         type: string
         custom: []
       email:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: mossie89@example.net
+        example: mcglynn.destin@example.org
         type: string
         custom: []
       password:
         name: password
         description: ''
         required: true
-        example: et
+        example: est
         type: string
         custom: []
       first_name:
         name: first_name
         description: ''
         required: true
-        example: delectus
+        example: aut
         type: string
         custom: []
       last_name:
         name: last_name
         description: ''
         required: true
-        example: molestiae
+        example: consequuntur
         type: string
         custom: []
       phone:
@@ -120,11 +120,11 @@ endpoints:
         type: string
         custom: []
     cleanBodyParameters:
-      user_name: et
-      email: mossie89@example.net
-      password: et
-      first_name: delectus
-      last_name: molestiae
+      user_name: a
+      email: mcglynn.destin@example.org
+      password: est
+      first_name: aut
+      last_name: consequuntur
     fileParameters: []
     responses: []
     responseFields: []
@@ -153,8 +153,24 @@ endpoints:
     cleanUrlParameters: []
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
+    bodyParameters:
+      email:
+        name: email
+        description: 'Must be a valid email address.'
+        required: true
+        example: braxton.upton@example.com
+        type: string
+        custom: []
+      password:
+        name: password
+        description: ''
+        required: true
+        example: numquam
+        type: string
+        custom: []
+    cleanBodyParameters:
+      email: braxton.upton@example.com
+      password: numquam
     fileParameters: []
     responses: []
     responseFields: []
@@ -219,7 +235,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"status":true,"message":"Users","data":{"users":[{"id":1,"first_name":"first","last_name":"last","user_name":"saleh","phone":null,"age":null,"gender":null,"email":"mail@exampel.com","email_verified_at":null,"created_at":"2022-11-07T18:42:36.000000Z","updated_at":"2022-11-07T18:42:36.000000Z"},{"id":2,"first_name":"first","last_name":"last","user_name":"saleh","phone":null,"age":15,"gender":null,"email":"mail1@exampel.com","email_verified_at":null,"created_at":"2022-11-08T20:38:24.000000Z","updated_at":"2022-11-08T20:38:24.000000Z"},{"id":3,"first_name":"first","last_name":"last","user_name":"saleh","phone":null,"age":null,"gender":null,"email":"mail4@exampel.com","email_verified_at":null,"created_at":"2022-11-09T01:01:30.000000Z","updated_at":"2022-11-09T01:01:30.000000Z"}]}}'
+        content: '{"status":true,"message":"Users","data":{"users":[{"id":1,"first_name":"first","last_name":"saleh222","user_name":"saleh","phone":"011234567899","age":33,"gender":null,"email":"mail@exampel.com","email_verified_at":null,"created_at":"2022-11-07T18:42:36.000000Z","updated_at":"2022-11-09T20:37:45.000000Z"},{"id":2,"first_name":"first","last_name":"last","user_name":"saleh","phone":null,"age":15,"gender":null,"email":"mail1@exampel.com","email_verified_at":null,"created_at":"2022-11-08T20:38:24.000000Z","updated_at":"2022-11-08T20:38:24.000000Z"},{"id":3,"first_name":"first","last_name":"last","user_name":"saleh","phone":null,"age":null,"gender":null,"email":"mail4@exampel.com","email_verified_at":null,"created_at":"2022-11-09T01:01:30.000000Z","updated_at":"2022-11-09T01:01:30.000000Z"}]}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -268,7 +284,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"status":true,"message":"User","data":{"user":{"id":1,"first_name":"first","last_name":"last","user_name":"saleh","phone":null,"age":null,"gender":null,"email":"mail@exampel.com","email_verified_at":null,"created_at":"2022-11-07T18:42:36.000000Z","updated_at":"2022-11-07T18:42:36.000000Z","profile":{"id":1,"user_id":1,"description":"13456","avatar":null,"cover":null,"created_at":"2022-11-07T18:42:36.000000Z","updated_at":"2022-11-08T21:13:14.000000Z","followers":[{"id":3,"first_name":"first","last_name":"last","user_name":"saleh","phone":null,"age":null,"gender":null,"email":"mail4@exampel.com","email_verified_at":null,"created_at":"2022-11-09T01:01:30.000000Z","updated_at":"2022-11-09T01:01:30.000000Z","pivot":{"profile_id":1,"user_id":3}}]},"following":[]},"followres":[{"id":3,"first_name":"first","last_name":"last","user_name":"saleh","phone":null,"age":null,"gender":null,"email":"mail4@exampel.com","email_verified_at":null,"created_at":"2022-11-09T01:01:30.000000Z","updated_at":"2022-11-09T01:01:30.000000Z","pivot":{"profile_id":1,"user_id":3}}],"following":[]}}'
+        content: '{"status":true,"message":"User","data":{"user":{"id":1,"first_name":"first","last_name":"saleh222","user_name":"saleh","phone":"011234567899","age":33,"gender":null,"email":"mail@exampel.com","email_verified_at":null,"created_at":"2022-11-07T18:42:36.000000Z","updated_at":"2022-11-09T20:37:45.000000Z","profile":{"id":1,"user_id":1,"description":"13456","avatar":null,"cover":null,"created_at":"2022-11-07T18:42:36.000000Z","updated_at":"2022-11-08T21:13:14.000000Z","followers":[{"id":3,"first_name":"first","last_name":"last","user_name":"saleh","phone":null,"age":null,"gender":null,"email":"mail4@exampel.com","email_verified_at":null,"created_at":"2022-11-09T01:01:30.000000Z","updated_at":"2022-11-09T01:01:30.000000Z","pivot":{"profile_id":1,"user_id":3}}]},"following":[{"id":3,"user_id":3,"description":null,"avatar":null,"cover":null,"created_at":"2022-11-09T01:01:30.000000Z","updated_at":"2022-11-09T01:01:30.000000Z","pivot":{"user_id":1,"profile_id":3}}]},"followres":[{"id":3,"first_name":"first","last_name":"last","user_name":"saleh","phone":null,"age":null,"gender":null,"email":"mail4@exampel.com","email_verified_at":null,"created_at":"2022-11-09T01:01:30.000000Z","updated_at":"2022-11-09T01:01:30.000000Z","pivot":{"profile_id":1,"user_id":3}}],"following":[{"id":3,"user_id":3,"description":null,"avatar":null,"cover":null,"created_at":"2022-11-09T01:01:30.000000Z","updated_at":"2022-11-09T01:01:30.000000Z","pivot":{"user_id":1,"profile_id":3}}]}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -322,7 +338,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '56'
+          x-ratelimit-remaining: '60'
           access-control-allow-origin: '*'
         description: null
         custom: []
@@ -442,7 +458,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '55'
+          x-ratelimit-remaining: '59'
           access-control-allow-origin: '*'
         description: null
         custom: []
@@ -486,12 +502,12 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"status":true,"message":"Profile","data":{"profile":{"id":1,"user_id":1,"description":"13456","avatar":null,"cover":null,"created_at":"2022-11-07T18:42:36.000000Z","updated_at":"2022-11-08T21:13:14.000000Z","followers":[{"id":3,"first_name":"first","last_name":"last","user_name":"saleh","phone":null,"age":null,"gender":null,"email":"mail4@exampel.com","email_verified_at":null,"created_at":"2022-11-09T01:01:30.000000Z","updated_at":"2022-11-09T01:01:30.000000Z","pivot":{"profile_id":1,"user_id":3}}],"user":{"id":1,"first_name":"first","last_name":"last","user_name":"saleh","phone":null,"age":null,"gender":null,"email":"mail@exampel.com","email_verified_at":null,"created_at":"2022-11-07T18:42:36.000000Z","updated_at":"2022-11-07T18:42:36.000000Z","following":[]}},"followres":[{"id":3,"first_name":"first","last_name":"last","user_name":"saleh","phone":null,"age":null,"gender":null,"email":"mail4@exampel.com","email_verified_at":null,"created_at":"2022-11-09T01:01:30.000000Z","updated_at":"2022-11-09T01:01:30.000000Z","pivot":{"profile_id":1,"user_id":3}}],"following":[]}}'
+        content: '{"status":true,"message":"Profile","data":{"profile":{"id":1,"user_id":1,"description":"13456","avatar":null,"cover":null,"created_at":"2022-11-07T18:42:36.000000Z","updated_at":"2022-11-08T21:13:14.000000Z","followers":[{"id":3,"first_name":"first","last_name":"last","user_name":"saleh","phone":null,"age":null,"gender":null,"email":"mail4@exampel.com","email_verified_at":null,"created_at":"2022-11-09T01:01:30.000000Z","updated_at":"2022-11-09T01:01:30.000000Z","pivot":{"profile_id":1,"user_id":3}}],"user":{"id":1,"first_name":"first","last_name":"saleh222","user_name":"saleh","phone":"011234567899","age":33,"gender":null,"email":"mail@exampel.com","email_verified_at":null,"created_at":"2022-11-07T18:42:36.000000Z","updated_at":"2022-11-09T20:37:45.000000Z","following":[{"id":3,"user_id":3,"description":null,"avatar":null,"cover":null,"created_at":"2022-11-09T01:01:30.000000Z","updated_at":"2022-11-09T01:01:30.000000Z","pivot":{"user_id":1,"profile_id":3}}]}},"followres":[{"id":3,"first_name":"first","last_name":"last","user_name":"saleh","phone":null,"age":null,"gender":null,"email":"mail4@exampel.com","email_verified_at":null,"created_at":"2022-11-09T01:01:30.000000Z","updated_at":"2022-11-09T01:01:30.000000Z","pivot":{"profile_id":1,"user_id":3}}],"following":[{"id":3,"user_id":3,"description":null,"avatar":null,"cover":null,"created_at":"2022-11-09T01:01:30.000000Z","updated_at":"2022-11-09T01:01:30.000000Z","pivot":{"user_id":1,"profile_id":3}}]}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
           x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '54'
+          x-ratelimit-remaining: '58'
           access-control-allow-origin: '*'
         description: null
         custom: []
@@ -535,12 +551,12 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"status":true,"message":"User for Profile","data":{"user":{"id":1,"first_name":"first","last_name":"last","user_name":"saleh","phone":null,"age":null,"gender":null,"email":"mail@exampel.com","email_verified_at":null,"created_at":"2022-11-07T18:42:36.000000Z","updated_at":"2022-11-07T18:42:36.000000Z"}}}'
+        content: '{"status":true,"message":"User for Profile","data":{"user":{"id":1,"first_name":"first","last_name":"saleh222","user_name":"saleh","phone":"011234567899","age":33,"gender":null,"email":"mail@exampel.com","email_verified_at":null,"created_at":"2022-11-07T18:42:36.000000Z","updated_at":"2022-11-09T20:37:45.000000Z"}}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
           x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '53'
+          x-ratelimit-remaining: '57'
           access-control-allow-origin: '*'
         description: null
         custom: []
