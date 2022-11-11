@@ -54,15 +54,42 @@ class UserController extends Controller
 
         $validateUser = Validator::make($request->all(), 
             [
-                'user_name' => 'nullable',
-                'password' => 'nullable',
-                'first_name'=>'nullable',
-                'last_name'=>'nullable',
+                'user_name' => 'nullable|string',
+                'current_password'=> 'nullable|string',
+                'new_password' => 'nullable|confirmed|min:8',
+                'first_name'=>'nullable|string',
+                'last_name'=>'nullable|string',
                 'phone'=> 'nullable',
                 'age'=>'nullable',
                 'gender'=>'nullable',
             ]);
 
+        if($request->has('current_password')){
+
+            if(! Hash::check( $request->current_password ,$user->password)){
+                return response()->json([
+                    'status' => false,
+                    'message' => 'Password does not match with our record.',
+                ], 401);
+            }
+
+            $validatepass = Validator::make($request->all(), 
+            [
+                'new_password' => 'required|confirmed|min:8',
+            ]);
+
+            if($validatepass->fails()){
+                return response()->json([
+                    'status' => false,
+                    'message' => 'validation error',
+                    'errors' => $validatepass->errors()
+                ], 401);
+            }
+
+            User::find($user->id)->update([
+                'password' =>Hash::make($request->new_password),
+            ]);
+        }
         
         User::find($user->id)->update([
             'user_name' => $request->user_name ? :$user->user_name,
@@ -71,10 +98,9 @@ class UserController extends Controller
             'phone'=> $request->phone? :$user->phone,
             'age'=> $request->age? :$user->age,
             'gender'=>$request->gender? :$user->gender,
-            'password' => $request->password? Hash::make($request->password):$user->password,
         ]);
+        
         $user = User::find($user->id);
-
 
         return response()->json([
             'status' => true,
