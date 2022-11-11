@@ -63,6 +63,21 @@ class UserController extends Controller
                 'age'=>'nullable',
                 'gender'=>'nullable',
             ]);
+        if($request->has('user_name')){
+            $validate_user_name = Validator::make($request->all(), 
+            [
+                'user_name' => 'required|string|unique:users,user_name',
+            ]);
+
+            if($validate_user_name->fails()){
+                return response()->json([
+                    'status' => false,
+                    'message' => 'validation error',
+                    'errors' => $validate_user_name->errors()
+                ], 400);
+            }
+
+        }
 
         if($request->has('current_password')){
 

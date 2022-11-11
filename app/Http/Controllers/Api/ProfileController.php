@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Profile;
+use App\Models\ProfileImage;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 use Intervention\Image\Facades\Image;
 
 class ProfileController extends Controller
@@ -32,7 +34,7 @@ class ProfileController extends Controller
         ], 200);
     }
 
-    public function user(Request $request, Profile $profile){
+    public function showUser(Request $request, Profile $profile){
         return response()->json([
             'status' => true,
             'message' => 'User for Profile',
@@ -47,20 +49,34 @@ class ProfileController extends Controller
         $profile = auth()->user()->profile;
 
         if ($request->hasFile('avatar')){
-            $avatar = $request->file('avatar');
-            $filename = time() . "." . $avatar->getClientOriginalExtension();
-            Image::make($avatar)->resize(300,300)->save(public_path('/profile/'.$filename)); 
-            $path_avatat = 'profile/'.$filename;
+            $validatefile = Validator::make([$request->avatar],  [ 'avatar' => 'mimes:jpeg,jpg,png,gif|max:10000' ]);
+
+            if($validatefile->fails()){
+                return response()->json([
+                    'status' => false,
+                    'message' => 'validation error',
+                    'errors' => $validatefile->errors()
+                ], 400);
+            }
+            
+            $path_avatat = $this->image($request->file('avatar'), 'profile', 'avatar', $profile->id);
         }
         else{
             $path_avatat = $profile->avatar;
         }
 
         if ($request->hasFile('cover')){
-            $cover = $request->file('cover');
-            $filename = time() . "." . $cover->getClientOriginalExtension();
-            Image::make($cover)->save(public_path('/uploads/profile/'.$filename)); 
-            $path_cover = 'profile/'.$filename;
+            $validatefile = Validator::make([$request->cover],  [ 'cover' => 'mimes:jpeg,jpg,png,gif|max:10000' ]);
+
+            if($validatefile->fails()){
+                return response()->json([
+                    'status' => false,
+                    'message' => 'validation error',
+                    'errors' => $validatefile->errors()
+                ], 400);
+            }
+
+            $path_cover = $this->image($request->file('cover'), 'profile', 'cover', $profile->id);
         }
         else{
             $path_cover = $profile->avatar;
@@ -72,5 +88,29 @@ class ProfileController extends Controller
         ]);
 
         return response($profile);
+    }
+
+    public function showImages(Profile $profile){
+        return response()->json([
+            'status' => true,
+            'message' => 'profile Images for user: '. $profile->user->user_name,
+            'data'=>[
+                'images' => $profile->load('profileImages'),
+            ]
+        ], 200);
+    }
+
+    function image($image, $path, $type, $profile_id){
+        $filename = $type.'_'.uniqid(). "." . $image->getClientOriginalExtension();
+        $src = 'uploads/'.$path.'/'.$filename;
+        Image::make($image)->save(public_path($src));
+
+        ProfileImage::create([
+            'profile_id'=> $profile_id,
+            'path'=> $src,
+            'type' => $type,
+        ]);
+        
+        return $src;
     }
 }

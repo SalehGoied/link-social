@@ -43,7 +43,7 @@ Route::prefix('v1')->group(function(){
         Route::get('/{user}/profile', 'profile');
         Route::put('/',  'update')->middleware('auth:sanctum');
         // todo after asking on it
-        Route::delete('/{user}', 'delete')->middleware('auth:sanctum');
+        // Route::delete('/', 'delete')->middleware('auth:sanctum');
     });
     
 
@@ -52,12 +52,21 @@ Route::prefix('v1')->group(function(){
 
         Route::get('/', 'index');
         Route::get('/{profile}', 'show');
-        Route::get('/{profile}/user', 'user');
+        Route::get('/{profile}/user', 'showUser');
+        Route::get('/{profile}/images', 'showImages');
         Route::put('/', 'update')->middleware('auth:sanctum');
         // todo after asking on it
-        Route::post('/delete', 'delete');
+        // Route::delete('/', 'delete');
     });
 
     Route::post('/follow/{profile}', [FollowsController::class, 'store'])->middleware('auth:sanctum');
     Route::get('/follow/{profile}', [FollowsController::class, 'show'])->middleware('auth:sanctum');
+
+    Route::controller(ProfileImageController::class)->prefix('/images')->group(function (){
+
+        Route::get('/profile/{profile}', 'index');
+        Route::get('/{profileImage}', 'show');
+        // Route::put('/{profileImage}', 'update')->middleware('auth:sanctum');
+        Route::delete('/{profileImage}', 'delete')->middleware('auth:sanctum');
+    });
 });
