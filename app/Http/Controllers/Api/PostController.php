@@ -15,11 +15,25 @@ class PostController extends Controller
 {
     public function index(Request $request){
 
+        
+        if(auth()->user()){
+            /**
+         * @var $user
+         */
+            $user = auth()->user();
+            $users = $user->following()->pluck('profiles.user_id');
+
+            $posts = Post::whereIn('user_id', $users)->with('files')->latest()->get();
+        }
+        else{
+            $posts = Post::with('files')->get();
+        }
+
         return response()->json([
             'status' => true,
             'message' => 'posts',
             'data'=>[
-                'posts' => Post::with('files')->get(),
+                'posts' => $posts,
             ]
             
         ], 200);
