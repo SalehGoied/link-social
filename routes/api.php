@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\TestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +18,7 @@ use App\Http\Controllers\Api\AuthController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
+Route::post('test', [TestController::class, 'testUploadeImages']);
 
 Route::get('/', function(){
     return 'hello (~.~) go to /v1';
@@ -68,5 +69,16 @@ Route::prefix('v1')->group(function(){
         Route::get('/{profileImage}', 'show');
         // Route::put('/{profileImage}', 'update')->middleware('auth:sanctum');
         Route::delete('/{profileImage}', 'delete')->middleware('auth:sanctum');
+    });
+
+    Route::controller(PostController::class)->prefix('/posts')->group(function (){
+
+        Route::get('/', 'index');
+        Route::get('/{post}', 'show');
+        Route::middleware('auth:sanctum')->group(function (){
+            Route::post('/', 'stroe');
+            Route::put('/{post}', 'update');
+            Route::delete('/{post}', 'delete');
+        });
     });
 });
