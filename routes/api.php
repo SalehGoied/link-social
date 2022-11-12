@@ -42,6 +42,7 @@ Route::prefix('v1')->group(function(){
         Route::get('/', 'index');
         Route::get('/{user}', 'show');
         Route::get('/{user}/profile', 'profile');
+        Route::get('/{user}/posts', 'posts');
         Route::put('/',  'update')->middleware('auth:sanctum');
         // todo after asking on it
         // Route::delete('/', 'delete')->middleware('auth:sanctum');
@@ -90,22 +91,18 @@ Route::prefix('v1')->group(function(){
     // post file 
     Route::controller(PostFileController::class)->prefix('/files')->group(function (){
 
-        Route::get('/{post}', 'index');
+        Route::get('/post/{post}', 'index');
         Route::get('/{postFile}', 'show');
-        Route::middleware('auth:sanctum')->group(function (){
-            Route::post('/{post}', 'stroe');
-            Route::put('/{postFile}', 'update');
-            Route::delete('/{postFile}', 'delete');
-        });
+        Route::delete('/{postFile}', 'delete')->middleware('auth:sanctum');
     });
 
     // comments 
     Route::controller(CommentController::class)->prefix('/comments')->group(function (){
 
-        Route::get('/{post}', 'index');
+        Route::get('/post/{post}', 'index');
         Route::get('/{comment}', 'show');
         Route::middleware('auth:sanctum')->group(function (){
-            Route::post('/{comment}', 'stroe');
+            Route::post('/{post}', 'store');
             Route::put('/{comment}', 'update');
             Route::delete('/{comment}', 'delete');
         });

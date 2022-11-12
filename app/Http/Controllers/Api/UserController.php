@@ -48,6 +48,16 @@ class UserController extends Controller
         ], 200);
     }
 
+    public function posts(User $user){
+        return response()->json([
+            'status' => true,
+            'message' => 'Posts for User: ' .$user->user_name,
+            'data'=>[
+                'posts' => $user->posts,
+            ],
+        ], 200);
+    }
+
     public function update(Request $request){
 
         $user = Auth::user();
