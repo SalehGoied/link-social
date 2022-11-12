@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('reacts', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('post_id');
+            $table->integer('type')->range(1, 5)->default(1);
             $table->timestamps();
         });
     }

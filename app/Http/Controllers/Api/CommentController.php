@@ -94,7 +94,7 @@ class CommentController extends Controller
 
         return response()->json([
             'status' => true,
-            'message' => 'deleted comment successfuly',
+            'message' => 'Comment deleted successfuly',
         ], 200);
     }
 }

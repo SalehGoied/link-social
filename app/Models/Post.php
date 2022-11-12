@@ -27,6 +27,10 @@ class Post extends Model
         return $this->hasMany(PostFile::class);
     }
 
+    public function reacts(){
+        return $this->hasMany(React::class)->latest();
+    }
+
     public function destory(){
 
         foreach($this->files as $file){
