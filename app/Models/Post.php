@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\File;
 
 class Post extends Model
 {
@@ -22,7 +23,25 @@ class Post extends Model
         return $this->hasMany(Comment::class);
     }
 
-    public function postFiles(){
+    public function files(){
         return $this->hasMany(PostFile::class);
+    }
+
+    public function destory(){
+
+        foreach($this->files as $file){
+            $path = $file->path;
+            $file->delete();
+
+            if(File::exists($path)){
+                File::delete($path);
+            }
+        }
+
+        foreach($this->comments() as $comment){
+            $comment->delete();
+        }
+
+        $this->delete();
     }
 }

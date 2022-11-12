@@ -60,9 +60,11 @@ Route::prefix('v1')->group(function(){
         // Route::delete('/', 'delete');
     });
 
+    // follow
     Route::post('/follow/{profile}', [FollowsController::class, 'store'])->middleware('auth:sanctum');
     Route::get('/follow/{profile}', [FollowsController::class, 'show'])->middleware('auth:sanctum');
 
+    // profile image
     Route::controller(ProfileImageController::class)->prefix('/images')->group(function (){
 
         Route::get('/profile/{profile}', 'index');
@@ -71,17 +73,21 @@ Route::prefix('v1')->group(function(){
         Route::delete('/{profileImage}', 'delete')->middleware('auth:sanctum');
     });
 
+    // posts
     Route::controller(PostController::class)->prefix('/posts')->group(function (){
 
         Route::get('/', 'index');
+        Route::get('user/{user}', 'showUserPosts');
         Route::get('/{post}', 'show');
         Route::middleware('auth:sanctum')->group(function (){
-            Route::post('/', 'stroe');
+            Route::post('/', 'store');
             Route::put('/{post}', 'update');
             Route::delete('/{post}', 'delete');
         });
     });
 
+
+    // post file 
     Route::controller(PostFileController::class)->prefix('/files')->group(function (){
 
         Route::get('/{post}', 'index');
@@ -93,6 +99,7 @@ Route::prefix('v1')->group(function(){
         });
     });
 
+    // comments 
     Route::controller(CommentController::class)->prefix('/comments')->group(function (){
 
         Route::get('/{post}', 'index');
@@ -103,4 +110,6 @@ Route::prefix('v1')->group(function(){
             Route::delete('/{comment}', 'delete');
         });
     });
+
+
 });

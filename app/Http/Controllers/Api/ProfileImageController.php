@@ -64,7 +64,7 @@ class ProfileImageController extends Controller
 
     public function delete(ProfileImage $profileImage){
 
-        if(! auth()->id == $profileImage->profile->user_id){
+        if(! auth()->id() == $profileImage->profile->user_id){
             return response()->json([
                     'status' => false,
                     'message' => "you can't delete this image",

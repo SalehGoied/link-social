@@ -49,7 +49,7 @@ class Handler extends ExceptionHandler
             if($request->is('api/*')){
                 return response()->json([
                     'status'=> false,
-                    'message'=> 'object not found',
+                    'message'=> 'Not found',
                 ], 404);
             }
         });
