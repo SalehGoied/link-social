@@ -81,4 +81,26 @@ Route::prefix('v1')->group(function(){
             Route::delete('/{post}', 'delete');
         });
     });
+
+    Route::controller(PostFileController::class)->prefix('/files')->group(function (){
+
+        Route::get('/{post}', 'index');
+        Route::get('/{postFile}', 'show');
+        Route::middleware('auth:sanctum')->group(function (){
+            Route::post('/{post}', 'stroe');
+            Route::put('/{postFile}', 'update');
+            Route::delete('/{postFile}', 'delete');
+        });
+    });
+
+    Route::controller(CommentController::class)->prefix('/comments')->group(function (){
+
+        Route::get('/{post}', 'index');
+        Route::get('/{comment}', 'show');
+        Route::middleware('auth:sanctum')->group(function (){
+            Route::post('/{comment}', 'stroe');
+            Route::put('/{comment}', 'update');
+            Route::delete('/{comment}', 'delete');
+        });
+    });
 });

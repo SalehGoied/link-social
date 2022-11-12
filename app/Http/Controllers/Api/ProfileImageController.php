@@ -63,6 +63,14 @@ class ProfileImageController extends Controller
     // }
 
     public function delete(ProfileImage $profileImage){
+
+        if(! auth()->id == $profileImage->profile->user_id){
+            return response()->json([
+                    'status' => false,
+                    'message' => "you can't delete this image",
+                ], 404);
+        }
+
         $path = $profileImage->path;
         $profile = $profileImage->profile;
         if($profile->avatar == $path) $profile->avatar = null;
