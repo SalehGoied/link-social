@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Route;
 
@@ -18,14 +19,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+
 Route::get('/test', function () {
-    $path = 'uploads/posts/image_636fd2579c97e.png';
-    if(File::exists($path)){
-        
-        File::delete($path);
-        return $path;
-    }
-    return 'no';
+    return view('test');
 });
 
+Route::post('/test', [TestController::class, 'test'])->name('test.2');
 

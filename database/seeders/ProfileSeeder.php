@@ -18,8 +18,8 @@ class ProfileSeeder extends Seeder
         foreach(Profile::all() as $profile){
             $profile->update([
                 'description' => fake()->text(),
-                'avatar' => "uploads/profile/ava_". rand(1, 17),
-                'cover' => "uploads/profile/cov_". rand(1, 15),
+                'avatar' => "uploads/profile/ava_". rand(1, 17).'.jpg',
+                'cover' => "uploads/profile/cov_". rand(1, 15).'.jpg',
             ]);
         }
     }

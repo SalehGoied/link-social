@@ -18,7 +18,7 @@ class PostFileFactory extends Factory
     {
         return [
             'post_id'=> random_int(1, 50),
-            'path' => 'uploads/posts/post_'.random_int(1, 25),
+            'path' => 'uploads/posts/post_'.random_int(1, 25).'.jpg',
             'type' => 'image',
         ];
     }
