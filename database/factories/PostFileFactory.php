@@ -17,7 +17,9 @@ class PostFileFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'post_id'=> random_int(1, 50),
+            'path' => 'uploads/posts/post_'.random_int(1, 25),
+            'type' => 'image',
         ];
     }
 }

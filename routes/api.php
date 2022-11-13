@@ -32,16 +32,16 @@ Route::prefix('v1')->group(function(){
 
     // Auth routes
     Route::controller(AuthController::class)->prefix('/auth')->group(function (){
-        Route::post('/register', 'registerUser');
-        Route::post('/login', 'loginUser');
-        Route::post('/logout', 'logout')->middleware('auth:sanctum');
+        Route::post('/register', 'registerUser')->name('auth.register');
+        Route::post('/login', 'loginUser')->name('auth.login');
+        Route::post('/logout', 'logout')->middleware('auth:sanctum')->name('auth.logout');
     });
     
     // user
     Route::controller(UserController::class)->prefix('/users')->group(function (){
-        Route::get('/', 'index');
-        Route::get('/{user}', 'show');
-        Route::get('/{user}/profile', 'profile');
+        Route::get('/', 'index')->name('users.index');
+        Route::get('/{user}', 'show')->name('user.show');
+        Route::get('/{user}/profile', 'profile')->name('user.profile');
         Route::get('/{user}/posts', 'posts');
         Route::put('/',  'update')->middleware('auth:sanctum');
         // todo after asking on it

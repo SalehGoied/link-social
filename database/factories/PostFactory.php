@@ -17,7 +17,8 @@ class PostFactory extends Factory
     public function definition()
     {
         return [
-            //
+                'body' => fake()->text(),
+                'user_id'=> rand(1, 30),
         ];
     }
 }
