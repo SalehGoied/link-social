@@ -103,7 +103,7 @@ class ProfileController extends Controller
     function image($image, $path, $type, $profile_id){
         $filename = $type.'_'.uniqid(). "." . $image->getClientOriginalExtension();
         $src = '/uploads/'.$path.'/'.$filename;
-        Image::make($image)->save(($src));
+        Image::make($image)->save(public_path($src));
 
         ProfileImage::create([
             'profile_id'=> $profile_id,
