@@ -10,7 +10,8 @@
         "intervention/image": "^2.7",
         "laravel/framework": "^9.19",
         "laravel/sanctum": "^3.0",
-        "laravel/tinker": "^2.7"
+        "laravel/tinker": "^2.7",
+        "stevebauman/location": "^6.5"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
@@ -48,6 +49,10 @@
         ],
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
+        ],
+        "post-install-cmd": [
+            "php artisan clear-compiled",
+            "chmod -R 777 public/"
         ]
     },
     "extra": {
@@ -55,6 +60,9 @@
             "dont-discover": []
         }
     },
+
+    
+
     "config": {
         "optimize-autoloader": true,
         "preferred-install": "dist",
