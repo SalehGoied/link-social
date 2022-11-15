@@ -6,6 +6,7 @@ use App\Models\ProfileImage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image; 
+use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 
 class TestController extends Controller
 {
@@ -43,7 +44,8 @@ class TestController extends Controller
             if ($request->hasFile('file'))
             {
 
-            //     $image= $request->file('file');
+                $image= $request->file('file');
+                // dd($image);
             //     $fileName= time() . '.' . $image->getClientOriginalExtension();
 
             //     $img = Image::make($image->getRealPath());
@@ -54,8 +56,10 @@ class TestController extends Controller
             //     $img->stream(); // <-- Key point
 
             // //dd();
-                
-                
+
+                // $response = Cloudinary::upload($image->getRealPath())->getSecurePath();
+                $response = cloudinary()->upload($image->getRealPath())->getSecurePath();
+                dd($response);
                 $image = $request->file;
                 $filename = '_'.uniqid(). "." . $image->getClientOriginalExtension();
                 $image->storeAs(
@@ -72,7 +76,7 @@ class TestController extends Controller
                 
                 // Image::make($image)->save($src);
 
-                return 'storage/avatars'. $filename;
+                return 'storage/avatars/'. $filename;
             }
             return "src";
         }
