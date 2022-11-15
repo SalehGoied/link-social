@@ -43,24 +43,36 @@ class TestController extends Controller
             if ($request->hasFile('file'))
             {
 
-                $image= $request->file('file');
-                $fileName= time() . '.' . $image->getClientOriginalExtension();
+            //     $image= $request->file('file');
+            //     $fileName= time() . '.' . $image->getClientOriginalExtension();
 
-                $img = Image::make($image->getRealPath());
-                $img->resize(120, 120, function ($constraint) {
-                    $constraint->aspectRatio();
-                });
+            //     $img = Image::make($image->getRealPath());
+            //     $img->resize(120, 120, function ($constraint) {
+            //         $constraint->aspectRatio();
+            //     });
 
-                $img->stream(); // <-- Key point
+            //     $img->stream(); // <-- Key point
 
-            //dd();
-                Storage::disk('local')->put('images/'.$fileName, $img, 'public');
+            // //dd();
                 
-                // $image = $request->file;
+                
+                $image = $request->file;
+                $filename = '_'.uniqid(). "." . $image->getClientOriginalExtension();
+                $image->storeAs(
+                    'public/avatars', $filename
+                    );
                 // $filename = '_'.uniqid(). "." . $image->getClientOriginalExtension();
-                // $src = 'uploads/profile/'.$filename;
-                // Image::make($image)->save(public_path($src));
-                return $fileName;
+                // // $path = '/uploads/profile/'.$filename;
+                // $img = Image::make($image->getRealPath());
+                // $img->resize(120, 120, function ($constraint) {
+                //             $constraint->aspectRatio();
+                //         });
+                // // Storage::put($image, $path);
+                // Storage::disk('local')->put('public/images/'.$filename, $img, 'public');
+                
+                // Image::make($image)->save($src);
+
+                return 'filename';
             }
             return "src";
         }
