@@ -72,7 +72,7 @@ class TestController extends Controller
                 
                 // Image::make($image)->save($src);
 
-                return 'filename';
+                return 'storage/avatars'. $filename;
             }
             return "src";
         }
