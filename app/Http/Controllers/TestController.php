@@ -4,9 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\ProfileImage;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
-use Intervention\Image\Facades\Image; 
-use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 
 class TestController extends Controller
 {

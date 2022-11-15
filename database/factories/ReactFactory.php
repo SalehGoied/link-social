@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\PostFile>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\React>
  */
-class PostFileFactory extends Factory
+class ReactFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,9 +17,7 @@ class PostFileFactory extends Factory
     public function definition()
     {
         return [
-            'post_id'=> random_int(1, 50),
-            'path' => 'https://source.unsplash.com/random',
-            'type' => 'image',
+            //
         ];
     }
 }

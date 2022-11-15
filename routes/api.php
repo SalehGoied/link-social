@@ -112,9 +112,9 @@ Route::prefix('v1')->group(function(){
         Route::get('/post/{post}', 'index');
         Route::get('/{react}', 'show');
         Route::middleware('auth:sanctum')->group(function (){
-            Route::post('/{post}', 'store');
+            Route::post('/{post}', 'react');
             Route::put('/{react}', 'update');
-            Route::delete('/{react}', 'delete');
+            // Route::delete('/{react}', 'delete');
         });
     });
 

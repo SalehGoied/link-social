@@ -30,10 +30,9 @@ class ReactController extends Controller
         ], 200);
     }
 
-    public function store(Request $request, Post $post){
+    public function react(Request $request, Post $post){
 
         $validateReact = Validator::make($request->all(), [ 'type'=>'required|integer|between:1,5']);
-
         if($validateReact->fails()){
             return response()->json([
                 'status' => false,
@@ -45,25 +44,22 @@ class ReactController extends Controller
          * @var $user
          */
         $user = auth()->user();
-        $reacts = React::where('user_id', $user->id)->where('post_id', $post->id)->get()->count();
-        if($reacts){
-            return response()->json([
-                'status' => false,
-                'message' => 'validation error',
-                'errors' => ['unique'=> ["can't react in post twice"]],
-            ], 400);
+        $react = React::where('user_id', $user->id)->where('post_id', $post->id)->first();
+        if($react){
+            $react->delete();
         }
-
-        $react = $user->reacts()->create([
-            'post_id'=> $post->id,
-            'type'=> $request->type,
-        ]);
+        else{
+            $react = $user->reacts()->create([
+                'post_id'=> $post->id,
+                'type'=> $request->type,
+            ]);
+        }
 
         return response()->json([
             'status' => true,
             'message' => 'New react',
             'data'=>[
-                'react' => $react,
+                'reacts' => $post->reacts,
             ]
         ], 200);
     }
@@ -99,20 +95,20 @@ class ReactController extends Controller
         ], 200);
     }
 
-    public function delete(React $react){
-        if(! (auth()->id() == $react->user_id)){
-            return response()->json([
-                'status' => false,
-                'message' => "you can't update this",
-            ], 404);
-        }
+    // public function delete(React $react){
+    //     if(! (auth()->id() == $react->user_id)){
+    //         return response()->json([
+    //             'status' => false,
+    //             'message' => "you can't update this",
+    //         ], 404);
+    //     }
 
-        $react->delete();
+    //     $react->delete();
 
-        return response()->json([
-            'status' => true,
-            'message' => 'React deleted successfuly',
-        ], 200);
+    //     return response()->json([
+    //         'status' => true,
+    //         'message' => 'React deleted successfuly',
+    //     ], 200);
 
-    }
+    // }
 }
