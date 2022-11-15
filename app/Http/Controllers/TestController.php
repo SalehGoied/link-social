@@ -38,7 +38,7 @@ class TestController extends Controller
     // }
 
         public function test(Request $request){
-            dd('12323');
+            // dd('12323');
             if ($request->hasFile('file'))
             {
                 $image = $request->file;
