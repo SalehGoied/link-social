@@ -192,24 +192,36 @@ class PostController extends Controller
                 return ['status'=> false, 'error'=> $validatefile->errors()];
             }
 
-            $path = $this->file($file, $type, $post->id);
+            /**
+             * @ignore cloudinary
+             */
+
+            $response = cloudinary()->upload($file->getRealPath())->getSecurePath();
+
+            PostFile::create([
+                'post_id'=> $post->id,
+                'path'=> $response,
+                'type' => $type,
+            ]);
+
+            // $path = $this->file($file, $type, $post->id);
         }
         return ['status'=> true];
     }
 
 
-    function file($file, $type, $post_id){
+    // function file($file, $type, $post_id){
         
-        $filename = $type.'_'.uniqid(). "." . $file->getClientOriginalExtension();
-        $path = public_path().'/uploads/posts/';
-        $file->move($path, $filename);
+    //     $filename = $type.'_'.uniqid(). "." . $file->getClientOriginalExtension();
+    //     $path = public_path().'/uploads/posts/';
+    //     $file->move($path, $filename);
 
-        PostFile::create([
-            'post_id'=> $post_id,
-            'path'=> "uploads/posts/". $filename,
-            'type' => $type,
-        ]);
+    //     PostFile::create([
+    //         'post_id'=> $post_id,
+    //         'path'=> "uploads/posts/". $filename,
+    //         'type' => $type,
+    //     ]);
         
-        return "uploads/posts/". $filename;
-    }
+    //     return "uploads/posts/". $filename;
+    // }
 }

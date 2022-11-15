@@ -78,9 +78,9 @@ class ProfileImageController extends Controller
         $profile->save();
 
         $profileImage->delete();
-        if(File::exists($path)){
-            File::delete($path);
-        }
+        // if(File::exists($path)){
+        //     File::delete($path);
+        // }
 
         return response()->json([
             'status' => true,

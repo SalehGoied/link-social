@@ -37,13 +37,17 @@ class Post extends Model
             $path = $file->path;
             $file->delete();
 
-            if(File::exists($path)){
-                File::delete($path);
-            }
+            // if(File::exists($path)){
+            //     File::delete($path);
+            // }
         }
 
-        foreach($this->comments() as $comment){
+        foreach($this->comments as $comment){
             $comment->delete();
+        }
+
+        foreach($this->reacts as $react){
+            $react->delete();
         }
 
         $this->delete();

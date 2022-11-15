@@ -76,6 +76,8 @@ class ProfileController extends Controller
                 ], 400);
             }
 
+            
+
             $path_cover = $this->image($request->file('cover'), 'profile', 'cover', $profile->id);
         }
         else{
@@ -101,16 +103,18 @@ class ProfileController extends Controller
     }
 
     function image($image, $path, $type, $profile_id){
-        $filename = $type.'_'.uniqid(). "." . $image->getClientOriginalExtension();
-        $src = 'uploads/'.$path.'/'.$filename;
-        Image::make($image)->save(public_path($src));
+        // $filename = $type.'_'.uniqid(). "." . $image->getClientOriginalExtension();
+        // $src = 'uploads/'.$path.'/'.$filename;
+        // Image::make($image)->save(public_path($src));
+
+        $response = cloudinary()->upload($image->getRealPath())->getSecurePath();
 
         ProfileImage::create([
             'profile_id'=> $profile_id,
-            'path'=> $src,
+            'path'=> $response,
             'type' => $type,
         ]);
         
-        return $src;
+        return $response;
     }
 }
