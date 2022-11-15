@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\ProfileImage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image; 
 
 class TestController extends Controller
@@ -41,11 +42,25 @@ class TestController extends Controller
             // dd('12323');
             if ($request->hasFile('file'))
             {
-                $image = $request->file;
-                $filename = '_'.uniqid(). "." . $image->getClientOriginalExtension();
-                $src = 'uploads/profile/'.$filename;
-                Image::make($image)->save(public_path($src));
-                return $src;
+
+                $image= $request->file('file');
+                $fileName= time() . '.' . $image->getClientOriginalExtension();
+
+                $img = Image::make($image->getRealPath());
+                $img->resize(120, 120, function ($constraint) {
+                    $constraint->aspectRatio();
+                });
+
+                $img->stream(); // <-- Key point
+
+            //dd();
+                Storage::disk('local')->put('images/'.$fileName, $img, 'public');
+                
+                // $image = $request->file;
+                // $filename = '_'.uniqid(). "." . $image->getClientOriginalExtension();
+                // $src = 'uploads/profile/'.$filename;
+                // Image::make($image)->save(public_path($src));
+                return $fileName;
             }
             return "src";
         }
