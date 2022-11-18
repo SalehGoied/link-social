@@ -7,6 +7,7 @@ use App\Models\Post;
 use App\Models\PostFile;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Intervention\Image\Facades\Image;
 
@@ -16,11 +17,11 @@ class PostController extends Controller
     public function index(Request $request){
 
         
-        if(auth()->user()){
+        if(auth('sanctum')->user()){
             /**
          * @var $user
          */
-            $user = auth()->user();
+            $user = auth('sanctum')->user();
             $users = $user->following()->pluck('profiles.user_id');
 
             $posts = Post::whereIn('user_id', $users)->with('files')->latest()->get();

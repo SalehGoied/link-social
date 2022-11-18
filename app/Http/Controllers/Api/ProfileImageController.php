@@ -19,7 +19,7 @@ class ProfileImageController extends Controller
             'status' => true,
             'message' => 'profile Images for user:'. $profile->user->user_name,
             'data'=>[
-                'images' => $profile->load('profileImages'),
+                'images' => $profile->profileImages,
             ]
         ], 200);
     }

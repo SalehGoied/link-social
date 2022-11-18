@@ -23,7 +23,20 @@ class ProfileSeeder extends Seeder
                 'cover' => "https://source.unsplash.com/random",
             ]);
 
-            User::find(rand(1,50))->following()->toggle($profile);
+            $i = rand(0, 10);
+            while($i--){
+                User::find(rand(1,50))->following()->toggle($profile);
+            }
+            
+            $profile->profileImages()->create([
+                'path'=> 'https://source.unsplash.com/random',
+                'type'=> 'avatar',
+            ]);
+
+            $profile->profileImages()->create([
+                'path'=> 'https://source.unsplash.com/random',
+                'type'=> 'cover',
+            ]);
         }
     }
 }

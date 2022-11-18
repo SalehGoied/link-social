@@ -17,7 +17,7 @@ class PostFileFactory extends Factory
     public function definition()
     {
         return [
-            'post_id'=> random_int(1, 50),
+            'post_id'=> random_int(1, 100),
             'path' => 'https://source.unsplash.com/random',
             'type' => 'image',
         ];

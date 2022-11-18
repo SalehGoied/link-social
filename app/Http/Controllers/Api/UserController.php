@@ -30,9 +30,7 @@ class UserController extends Controller
             'status' => true,
             'message' => 'User',
             'data'=>[
-                'user' => $user,
-                'followres' => $user->profile->followers,
-                'following' => $user->following,
+                'user' => $user->load('following', 'profile.followers'),
             ],
         ], 200);
     }
