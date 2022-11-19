@@ -1,0 +1,770 @@
+name: profile
+description: |-
+
+  APIs for profiles
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/v1/profiles
+    metadata:
+      groupName: profile
+      groupDescription: |-
+
+        APIs for profiles
+      subgroup: ''
+      subgroupDescription: ''
+      title: profiles
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"status":true,"message":"Profiles","data":{"profiles":[{"id":1,"user_id":1,"description":"Eius quis harum in voluptates.","avatar":"https:\/\/source.unsplash.com\/random","cover":"https:\/\/source.unsplash.com\/random","created_at":"2022-11-16T19:25:30.000000Z","updated_at":"2022-11-16T19:25:30.000000Z"},{"id":2,"user_id":2,"description":"Velit debitis et et quaerat mollitia et dolorem rerum.","avatar":"https:\/\/source.unsplash.com\/random","cover":"https:\/\/source.unsplash.com\/random","created_at":"2022-11-16T19:25:30.000000Z","updated_at":"2022-11-16T19:25:30.000000Z"},{"id":3,"user_id":3,"description":"Dignissimos deleniti maiores sunt autem perferendis doloribus.","avatar":"https:\/\/source.unsplash.com\/random","cover":"https:\/\/source.unsplash.com\/random","created_at":"2022-11-16T19:25:30.000000Z","updated_at":"2022-11-16T19:25:30.000000Z"},{"id":4,"user_id":4,"description":"Quibusdam ut omnis sunt neque placeat.","avatar":"https:\/\/source.unsplash.com\/random","cover":"https:\/\/source.unsplash.com\/random","created_at":"2022-11-16T19:25:30.000000Z","updated_at":"2022-11-16T19:25:30.000000Z"},{"id":5,"user_id":5,"description":"Quaerat iste in placeat nihil asperiores dolores et iure.","avatar":"https:\/\/source.unsplash.com\/random","cover":"https:\/\/source.unsplash.com\/random","created_at":"2022-11-16T19:25:30.000000Z","updated_at":"2022-11-16T19:25:30.000000Z"},{"id":6,"user_id":6,"description":"Quos ut aspernatur cumque quae ab vitae.","avatar":"https:\/\/source.unsplash.com\/random","cover":"https:\/\/source.unsplash.com\/random","created_at":"2022-11-16T19:25:30.000000Z","updated_at":"2022-11-16T19:25:30.000000Z"},{"id":7,"user_id":7,"description":"Recusandae aspernatur reiciendis nisi rem cum eligendi.","avatar":"https:\/\/source.unsplash.com\/random","cover":"https:\/\/source.unsplash.com\/random","created_at":"2022-11-16T19:25:30.000000Z","updated_at":"2022-11-16T19:25:30.000000Z"},{"id":8,"user_id":8,"description":"Eveniet qui id ab et optio sed ipsa.","avatar":"https:\/\/source.unsplash.com\/random","cover":"https:\/\/source.unsplash.com\/random","created_at":"2022-11-16T19:25:30.000000Z","updated_at":"2022-11-16T19:25:30.000000Z"},{"id":9,"user_id":9,"description":"Quo quam dolorum incidunt dolorem minima necessitatibus.","avatar":"https:\/\/source.unsplash.com\/random","cover":"https:\/\/source.unsplash.com\/random","created_at":"2022-11-16T19:25:30.000000Z","updated_at":"2022-11-16T19:25:30.000000Z"},{"id":10,"user_id":10,"description":"Ut beatae sed et similique.","avatar":"https:\/\/source.unsplash.com\/random","cover":"https:\/\/source.unsplash.com\/random","created_at":"2022-11-16T19:25:30.000000Z","updated_at":"2022-11-16T19:25:30.000000Z"},{"id":11,"user_id":11,"description":"Corrupti molestiae in ea nemo eius ullam.","avatar":"https:\/\/source.unsplash.com\/random","cover":"https:\/\/source.unsplash.com\/random","created_at":"2022-11-16T19:25:30.000000Z","updated_at":"2022-11-16T19:25:30.000000Z"},{"id":12,"user_id":12,"description":"Eos aut inventore consequuntur repudiandae quaerat numquam.","avatar":"https:\/\/source.unsplash.com\/random","cover":"https:\/\/source.unsplash.com\/random","created_at":"2022-11-16T19:25:30.000000Z","updated_at":"2022-11-16T19:25:30.000000Z"},{"id":13,"user_id":13,"description":"Fugiat minima aut totam doloremque consequatur pariatur.","avatar":"https:\/\/source.unsplash.com\/random","cover":"https:\/\/source.unsplash.com\/random","created_at":"2022-11-16T19:25:30.000000Z","updated_at":"2022-11-16T19:25:30.000000Z"},{"id":14,"user_id":14,"description":"Ad voluptatem et labore impedit hic.","avatar":"https:\/\/source.unsplash.com\/random","cover":"https:\/\/source.unsplash.com\/random","created_at":"2022-11-16T19:25:30.000000Z","updated_at":"2022-11-16T19:25:30.000000Z"},{"id":15,"user_id":15,"description":"Quo saepe velit blanditiis ipsa sed optio atque.","avatar":"https:\/\/source.unsplash.com\/random","cover":"https:\/\/source.unsplash.com\/random","created_at":"2022-11-16T19:25:30.000000Z","updated_at":"2022-11-16T19:25:30.000000Z"},{"id":16,"user_id":16,"description":"Ullam consectetur at dicta amet.","avatar":"https:\/\/source.unsplash.com\/random","cover":"https:\/\/source.unsplash.com\/random","created_at":"2022-11-16T19:25:30.000000Z","updated_at":"2022-11-16T19:25:30.000000Z"},{"id":17,"user_id":17,"description":"Aut reprehenderit et possimus nemo.","avatar":"https:\/\/source.unsplash.com\/random","cover":"https:\/\/source.unsplash.com\/random","created_at":"2022-11-16T19:25:30.000000Z","updated_at":"2022-11-16T19:25:30.000000Z"},{"id":18,"user_id":18,"description":"Alias et odit iste aliquid quos et ut.","avatar":"https:\/\/source.unsplash.com\/random","cover":"https:\/\/source.unsplash.com\/random","created_at":"2022-11-16T19:25:30.000000Z","updated_at":"2022-11-16T19:25:31.000000Z"},{"id":19,"user_id":19,"description":"Pariatur corrupti nobis illo vitae.","avatar":"https:\/\/source.unsplash.com\/random","cover":"https:\/\/source.unsplash.com\/random","created_at":"2022-11-16T19:25:30.000000Z","updated_at":"2022-11-16T19:25:31.000000Z"},{"id":20,"user_id":20,"description":"Tempora est qui optio optio quo.","avatar":"https:\/\/source.unsplash.com\/random","cover":"https:\/\/source.unsplash.com\/random","created_at":"2022-11-16T19:25:30.000000Z","updated_at":"2022-11-16T19:25:31.000000Z"},{"id":21,"user_id":21,"description":"Ea omnis cupiditate ex eum.","avatar":"https:\/\/source.unsplash.com\/random","cover":"https:\/\/source.unsplash.com\/random","created_at":"2022-11-16T19:25:30.000000Z","updated_at":"2022-11-16T19:25:31.000000Z"},{"id":22,"user_id":22,"description":"Quibusdam voluptas aperiam blanditiis placeat quae repudiandae.","avatar":"https:\/\/source.unsplash.com\/random","cover":"https:\/\/source.unsplash.com\/random","created_at":"2022-11-16T19:25:30.000000Z","updated_at":"2022-11-16T19:25:31.000000Z"},{"id":23,"user_id":23,"description":"Aut rerum dolorum sed.","avatar":"https:\/\/source.unsplash.com\/random","cover":"https:\/\/source.unsplash.com\/random","created_at":"2022-11-16T19:25:30.000000Z","updated_at":"2022-11-16T19:25:31.000000Z"},{"id":24,"user_id":24,"description":"Temporibus fuga nostrum dolor.","avatar":"https:\/\/source.unsplash.com\/random","cover":"https:\/\/source.unsplash.com\/random","created_at":"2022-11-16T19:25:30.000000Z","updated_at":"2022-11-16T19:25:31.000000Z"},{"id":25,"user_id":25,"description":"Et quia a molestiae non laborum a officiis.","avatar":"https:\/\/source.unsplash.com\/random","cover":"https:\/\/source.unsplash.com\/random","created_at":"2022-11-16T19:25:30.000000Z","updated_at":"2022-11-16T19:25:31.000000Z"},{"id":26,"user_id":26,"description":"Dolore nemo nobis eos voluptas et animi aliquid.","avatar":"https:\/\/source.unsplash.com\/random","cover":"https:\/\/source.unsplash.com\/random","created_at":"2022-11-16T19:25:30.000000Z","updated_at":"2022-11-16T19:25:31.000000Z"},{"id":27,"user_id":27,"description":"Voluptatum sed ratione et distinctio eos modi.","avatar":"https:\/\/source.unsplash.com\/random","cover":"https:\/\/source.unsplash.com\/random","created_at":"2022-11-16T19:25:30.000000Z","updated_at":"2022-11-16T19:25:31.000000Z"},{"id":28,"user_id":28,"description":"Dolor nulla quod quaerat soluta.","avatar":"https:\/\/source.unsplash.com\/random","cover":"https:\/\/source.unsplash.com\/random","created_at":"2022-11-16T19:25:30.000000Z","updated_at":"2022-11-16T19:25:31.000000Z"},{"id":29,"user_id":29,"description":"Dolor deleniti laborum nemo in corrupti sed exercitationem.","avatar":"https:\/\/source.unsplash.com\/random","cover":"https:\/\/source.unsplash.com\/random","created_at":"2022-11-16T19:25:30.000000Z","updated_at":"2022-11-16T19:25:31.000000Z"},{"id":30,"user_id":30,"description":"Accusantium suscipit expedita ullam ut.","avatar":"https:\/\/source.unsplash.com\/random","cover":"https:\/\/source.unsplash.com\/random","created_at":"2022-11-16T19:25:30.000000Z","updated_at":"2022-11-16T19:25:31.000000Z"},{"id":31,"user_id":31,"description":"Reiciendis voluptatem sed qui est adipisci.","avatar":"https:\/\/source.unsplash.com\/random","cover":"https:\/\/source.unsplash.com\/random","created_at":"2022-11-16T19:25:30.000000Z","updated_at":"2022-11-16T19:25:31.000000Z"},{"id":32,"user_id":32,"description":"Sequi nihil corrupti nesciunt et tempora.","avatar":"https:\/\/source.unsplash.com\/random","cover":"https:\/\/source.unsplash.com\/random","created_at":"2022-11-16T19:25:30.000000Z","updated_at":"2022-11-16T19:25:31.000000Z"},{"id":33,"user_id":33,"description":"Cumque sed minus laborum in nisi eum et.","avatar":"https:\/\/source.unsplash.com\/random","cover":"https:\/\/source.unsplash.com\/random","created_at":"2022-11-16T19:25:30.000000Z","updated_at":"2022-11-16T19:25:31.000000Z"},{"id":34,"user_id":34,"description":"Sit sint quod iure ipsam voluptas.","avatar":"https:\/\/source.unsplash.com\/random","cover":"https:\/\/source.unsplash.com\/random","created_at":"2022-11-16T19:25:30.000000Z","updated_at":"2022-11-16T19:25:31.000000Z"},{"id":35,"user_id":35,"description":"Nulla temporibus ad magni similique.","avatar":"https:\/\/source.unsplash.com\/random","cover":"https:\/\/source.unsplash.com\/random","created_at":"2022-11-16T19:25:30.000000Z","updated_at":"2022-11-16T19:25:31.000000Z"},{"id":36,"user_id":36,"description":"Velit labore nihil sed culpa quibusdam illum.","avatar":"https:\/\/source.unsplash.com\/random","cover":"https:\/\/source.unsplash.com\/random","created_at":"2022-11-16T19:25:30.000000Z","updated_at":"2022-11-16T19:25:31.000000Z"},{"id":37,"user_id":37,"description":"Quis expedita consequatur explicabo molestiae rerum.","avatar":"https:\/\/source.unsplash.com\/random","cover":"https:\/\/source.unsplash.com\/random","created_at":"2022-11-16T19:25:30.000000Z","updated_at":"2022-11-16T19:25:31.000000Z"},{"id":38,"user_id":38,"description":"Sed asperiores laudantium distinctio ut dolorum alias.","avatar":"https:\/\/source.unsplash.com\/random","cover":"https:\/\/source.unsplash.com\/random","created_at":"2022-11-16T19:25:30.000000Z","updated_at":"2022-11-16T19:25:31.000000Z"},{"id":39,"user_id":39,"description":"Esse magni aut expedita consequatur enim nesciunt distinctio.","avatar":"https:\/\/source.unsplash.com\/random","cover":"https:\/\/source.unsplash.com\/random","created_at":"2022-11-16T19:25:30.000000Z","updated_at":"2022-11-16T19:25:31.000000Z"},{"id":40,"user_id":40,"description":"Sint consectetur quod voluptatum excepturi dignissimos dolore.","avatar":"https:\/\/source.unsplash.com\/random","cover":"https:\/\/source.unsplash.com\/random","created_at":"2022-11-16T19:25:30.000000Z","updated_at":"2022-11-16T19:25:31.000000Z"},{"id":41,"user_id":41,"description":"Eos ad corporis similique qui maiores aliquid.","avatar":"https:\/\/source.unsplash.com\/random","cover":"https:\/\/source.unsplash.com\/random","created_at":"2022-11-16T19:25:30.000000Z","updated_at":"2022-11-16T19:25:31.000000Z"},{"id":42,"user_id":42,"description":"Magni qui deserunt temporibus quia.","avatar":"https:\/\/source.unsplash.com\/random","cover":"https:\/\/source.unsplash.com\/random","created_at":"2022-11-16T19:25:30.000000Z","updated_at":"2022-11-16T19:25:31.000000Z"},{"id":43,"user_id":43,"description":"Sed possimus ullam laborum.","avatar":"https:\/\/source.unsplash.com\/random","cover":"https:\/\/source.unsplash.com\/random","created_at":"2022-11-16T19:25:30.000000Z","updated_at":"2022-11-16T19:25:31.000000Z"},{"id":44,"user_id":44,"description":"Voluptatum facere eum quia id dolorem soluta velit libero.","avatar":"https:\/\/source.unsplash.com\/random","cover":"https:\/\/source.unsplash.com\/random","created_at":"2022-11-16T19:25:30.000000Z","updated_at":"2022-11-16T19:25:31.000000Z"},{"id":45,"user_id":45,"description":"Dolore impedit ut sint assumenda suscipit deleniti.","avatar":"https:\/\/source.unsplash.com\/random","cover":"https:\/\/source.unsplash.com\/random","created_at":"2022-11-16T19:25:30.000000Z","updated_at":"2022-11-16T19:25:31.000000Z"},{"id":46,"user_id":46,"description":"Repudiandae numquam et amet consequatur.","avatar":"https:\/\/source.unsplash.com\/random","cover":"https:\/\/source.unsplash.com\/random","created_at":"2022-11-16T19:25:30.000000Z","updated_at":"2022-11-16T19:25:31.000000Z"},{"id":47,"user_id":47,"description":"Repudiandae amet et aut sit qui.","avatar":"https:\/\/source.unsplash.com\/random","cover":"https:\/\/source.unsplash.com\/random","created_at":"2022-11-16T19:25:30.000000Z","updated_at":"2022-11-16T19:25:31.000000Z"},{"id":48,"user_id":48,"description":"Laboriosam ea provident eum quo vel consequatur voluptatum.","avatar":"https:\/\/source.unsplash.com\/random","cover":"https:\/\/source.unsplash.com\/random","created_at":"2022-11-16T19:25:30.000000Z","updated_at":"2022-11-16T19:25:31.000000Z"},{"id":49,"user_id":49,"description":"13456","avatar":"https:\/\/res.cloudinary.com\/dgfmyypte\/image\/upload\/v1668630981\/bpyx0c7dxmlgd9cv31r0.png","cover":"https:\/\/res.cloudinary.com\/dgfmyypte\/image\/upload\/v1668630982\/n6mz7wxogi3kvsgr9svp.jpg","created_at":"2022-11-16T19:25:30.000000Z","updated_at":"2022-11-16T20:36:23.000000Z"},{"id":50,"user_id":50,"description":"Ullam quia rerum voluptas dolor ullam.","avatar":"https:\/\/source.unsplash.com\/random","cover":"https:\/\/source.unsplash.com\/random","created_at":"2022-11-16T19:25:30.000000Z","updated_at":"2022-11-16T19:25:31.000000Z"}]}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '54'
+          vary: Origin
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/profiles/{profile_id}'
+    metadata:
+      groupName: profile
+      groupDescription: |-
+
+        APIs for profiles
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'show profile'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      profile_id:
+        name: profile_id
+        description: 'The ID of the profile.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      profile_id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 500
+        content: |-
+          {
+              "message": "Call to undefined relationship [followres] on model [App\\Models\\Profile].",
+              "exception": "Illuminate\\Database\\Eloquent\\RelationNotFoundException",
+              "file": "C:\\Users\\saleh\\projects\\laravel-projects\\link-social\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\RelationNotFoundException.php",
+              "line": 35,
+              "trace": [
+                  {
+                      "file": "C:\\Users\\saleh\\projects\\laravel-projects\\link-social\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Builder.php",
+                      "line": 769,
+                      "function": "make",
+                      "class": "Illuminate\\Database\\Eloquent\\RelationNotFoundException",
+                      "type": "::"
+                  },
+                  {
+                      "file": "C:\\Users\\saleh\\projects\\laravel-projects\\link-social\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Relations\\Relation.php",
+                      "line": 104,
+                      "function": "Illuminate\\Database\\Eloquent\\{closure}",
+                      "class": "Illuminate\\Database\\Eloquent\\Builder",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\Users\\saleh\\projects\\laravel-projects\\link-social\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Builder.php",
+                      "line": 771,
+                      "function": "noConstraints",
+                      "class": "Illuminate\\Database\\Eloquent\\Relations\\Relation",
+                      "type": "::"
+                  },
+                  {
+                      "file": "C:\\Users\\saleh\\projects\\laravel-projects\\link-social\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Builder.php",
+                      "line": 739,
+                      "function": "getRelation",
+                      "class": "Illuminate\\Database\\Eloquent\\Builder",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\Users\\saleh\\projects\\laravel-projects\\link-social\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Builder.php",
+                      "line": 719,
+                      "function": "eagerLoadRelation",
+                      "class": "Illuminate\\Database\\Eloquent\\Builder",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\Users\\saleh\\projects\\laravel-projects\\link-social\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php",
+                      "line": 703,
+                      "function": "eagerLoadRelations",
+                      "class": "Illuminate\\Database\\Eloquent\\Builder",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\Users\\saleh\\projects\\laravel-projects\\link-social\\app\\Http\\Controllers\\Api\\ProfileController.php",
+                      "line": 49,
+                      "function": "load",
+                      "class": "Illuminate\\Database\\Eloquent\\Model",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\Users\\saleh\\projects\\laravel-projects\\link-social\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Controller.php",
+                      "line": 54,
+                      "function": "show",
+                      "class": "App\\Http\\Controllers\\Api\\ProfileController",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\Users\\saleh\\projects\\laravel-projects\\link-social\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php",
+                      "line": 43,
+                      "function": "callAction",
+                      "class": "Illuminate\\Routing\\Controller",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\Users\\saleh\\projects\\laravel-projects\\link-social\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php",
+                      "line": 260,
+                      "function": "dispatch",
+                      "class": "Illuminate\\Routing\\ControllerDispatcher",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\Users\\saleh\\projects\\laravel-projects\\link-social\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php",
+                      "line": 205,
+                      "function": "runController",
+                      "class": "Illuminate\\Routing\\Route",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\Users\\saleh\\projects\\laravel-projects\\link-social\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
+                      "line": 727,
+                      "function": "run",
+                      "class": "Illuminate\\Routing\\Route",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\Users\\saleh\\projects\\laravel-projects\\link-social\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+                      "line": 141,
+                      "function": "Illuminate\\Routing\\{closure}",
+                      "class": "Illuminate\\Routing\\Router",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\Users\\saleh\\projects\\laravel-projects\\link-social\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php",
+                      "line": 50,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\Users\\saleh\\projects\\laravel-projects\\link-social\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+                      "line": 180,
+                      "function": "handle",
+                      "class": "Illuminate\\Routing\\Middleware\\SubstituteBindings",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\Users\\saleh\\projects\\laravel-projects\\link-social\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php",
+                      "line": 126,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\Users\\saleh\\projects\\laravel-projects\\link-social\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php",
+                      "line": 102,
+                      "function": "handleRequest",
+                      "class": "Illuminate\\Routing\\Middleware\\ThrottleRequests",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\Users\\saleh\\projects\\laravel-projects\\link-social\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php",
+                      "line": 54,
+                      "function": "handleRequestUsingNamedLimiter",
+                      "class": "Illuminate\\Routing\\Middleware\\ThrottleRequests",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\Users\\saleh\\projects\\laravel-projects\\link-social\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+                      "line": 180,
+                      "function": "handle",
+                      "class": "Illuminate\\Routing\\Middleware\\ThrottleRequests",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\Users\\saleh\\projects\\laravel-projects\\link-social\\vendor\\laravel\\sanctum\\src\\Http\\Middleware\\EnsureFrontendRequestsAreStateful.php",
+                      "line": 33,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\Users\\saleh\\projects\\laravel-projects\\link-social\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+                      "line": 141,
+                      "function": "Laravel\\Sanctum\\Http\\Middleware\\{closure}",
+                      "class": "Laravel\\Sanctum\\Http\\Middleware\\EnsureFrontendRequestsAreStateful",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\Users\\saleh\\projects\\laravel-projects\\link-social\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+                      "line": 116,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\Users\\saleh\\projects\\laravel-projects\\link-social\\vendor\\laravel\\sanctum\\src\\Http\\Middleware\\EnsureFrontendRequestsAreStateful.php",
+                      "line": 34,
+                      "function": "then",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\Users\\saleh\\projects\\laravel-projects\\link-social\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+                      "line": 180,
+                      "function": "handle",
+                      "class": "Laravel\\Sanctum\\Http\\Middleware\\EnsureFrontendRequestsAreStateful",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\Users\\saleh\\projects\\laravel-projects\\link-social\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+                      "line": 116,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\Users\\saleh\\projects\\laravel-projects\\link-social\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
+                      "line": 728,
+                      "function": "then",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\Users\\saleh\\projects\\laravel-projects\\link-social\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
+                      "line": 705,
+                      "function": "runRouteWithinStack",
+                      "class": "Illuminate\\Routing\\Router",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\Users\\saleh\\projects\\laravel-projects\\link-social\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
+                      "line": 669,
+                      "function": "runRoute",
+                      "class": "Illuminate\\Routing\\Router",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\Users\\saleh\\projects\\laravel-projects\\link-social\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
+                      "line": 658,
+                      "function": "dispatchToRoute",
+                      "class": "Illuminate\\Routing\\Router",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\Users\\saleh\\projects\\laravel-projects\\link-social\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php",
+                      "line": 190,
+                      "function": "dispatch",
+                      "class": "Illuminate\\Routing\\Router",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\Users\\saleh\\projects\\laravel-projects\\link-social\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+                      "line": 141,
+                      "function": "Illuminate\\Foundation\\Http\\{closure}",
+                      "class": "Illuminate\\Foundation\\Http\\Kernel",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\Users\\saleh\\projects\\laravel-projects\\link-social\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php",
+                      "line": 21,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\Users\\saleh\\projects\\laravel-projects\\link-social\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php",
+                      "line": 31,
+                      "function": "handle",
+                      "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\Users\\saleh\\projects\\laravel-projects\\link-social\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+                      "line": 180,
+                      "function": "handle",
+                      "class": "Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\Users\\saleh\\projects\\laravel-projects\\link-social\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php",
+                      "line": 21,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\Users\\saleh\\projects\\laravel-projects\\link-social\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php",
+                      "line": 40,
+                      "function": "handle",
+                      "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\Users\\saleh\\projects\\laravel-projects\\link-social\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+                      "line": 180,
+                      "function": "handle",
+                      "class": "Illuminate\\Foundation\\Http\\Middleware\\TrimStrings",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\Users\\saleh\\projects\\laravel-projects\\link-social\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php",
+                      "line": 27,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\Users\\saleh\\projects\\laravel-projects\\link-social\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+                      "line": 180,
+                      "function": "handle",
+                      "class": "Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\Users\\saleh\\projects\\laravel-projects\\link-social\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php",
+                      "line": 86,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\Users\\saleh\\projects\\laravel-projects\\link-social\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+                      "line": 180,
+                      "function": "handle",
+                      "class": "Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\Users\\saleh\\projects\\laravel-projects\\link-social\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php",
+                      "line": 62,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\Users\\saleh\\projects\\laravel-projects\\link-social\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+                      "line": 180,
+                      "function": "handle",
+                      "class": "Illuminate\\Http\\Middleware\\HandleCors",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\Users\\saleh\\projects\\laravel-projects\\link-social\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php",
+                      "line": 39,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\Users\\saleh\\projects\\laravel-projects\\link-social\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+                      "line": 180,
+                      "function": "handle",
+                      "class": "Illuminate\\Http\\Middleware\\TrustProxies",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\Users\\saleh\\projects\\laravel-projects\\link-social\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+                      "line": 116,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\Users\\saleh\\projects\\laravel-projects\\link-social\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php",
+                      "line": 165,
+                      "function": "then",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\Users\\saleh\\projects\\laravel-projects\\link-social\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php",
+                      "line": 134,
+                      "function": "sendRequestThroughRouter",
+                      "class": "Illuminate\\Foundation\\Http\\Kernel",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\Users\\saleh\\projects\\laravel-projects\\link-social\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+                      "line": 303,
+                      "function": "handle",
+                      "class": "Illuminate\\Foundation\\Http\\Kernel",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\Users\\saleh\\projects\\laravel-projects\\link-social\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+                      "line": 291,
+                      "function": "callLaravelOrLumenRoute",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\Users\\saleh\\projects\\laravel-projects\\link-social\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+                      "line": 89,
+                      "function": "makeApiCall",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\Users\\saleh\\projects\\laravel-projects\\link-social\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+                      "line": 45,
+                      "function": "makeResponseCall",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\Users\\saleh\\projects\\laravel-projects\\link-social\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+                      "line": 35,
+                      "function": "makeResponseCallIfConditionsPass",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\Users\\saleh\\projects\\laravel-projects\\link-social\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Extractor.php",
+                      "line": 209,
+                      "function": "__invoke",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\Users\\saleh\\projects\\laravel-projects\\link-social\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Extractor.php",
+                      "line": 166,
+                      "function": "iterateThroughStrategies",
+                      "class": "Knuckles\\Scribe\\Extracting\\Extractor",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\Users\\saleh\\projects\\laravel-projects\\link-social\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Extractor.php",
+                      "line": 95,
+                      "function": "fetchResponses",
+                      "class": "Knuckles\\Scribe\\Extracting\\Extractor",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\Users\\saleh\\projects\\laravel-projects\\link-social\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php",
+                      "line": 122,
+                      "function": "processRoute",
+                      "class": "Knuckles\\Scribe\\Extracting\\Extractor",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\Users\\saleh\\projects\\laravel-projects\\link-social\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php",
+                      "line": 69,
+                      "function": "extractEndpointsInfoFromLaravelApp",
+                      "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\Users\\saleh\\projects\\laravel-projects\\link-social\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php",
+                      "line": 47,
+                      "function": "extractEndpointsInfoAndWriteToDisk",
+                      "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\Users\\saleh\\projects\\laravel-projects\\link-social\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php",
+                      "line": 53,
+                      "function": "get",
+                      "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\Users\\saleh\\projects\\laravel-projects\\link-social\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php",
+                      "line": 36,
+                      "function": "handle",
+                      "class": "Knuckles\\Scribe\\Commands\\GenerateDocumentation",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\Users\\saleh\\projects\\laravel-projects\\link-social\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php",
+                      "line": 41,
+                      "function": "Illuminate\\Container\\{closure}",
+                      "class": "Illuminate\\Container\\BoundMethod",
+                      "type": "::"
+                  },
+                  {
+                      "file": "C:\\Users\\saleh\\projects\\laravel-projects\\link-social\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php",
+                      "line": 93,
+                      "function": "unwrapIfClosure",
+                      "class": "Illuminate\\Container\\Util",
+                      "type": "::"
+                  },
+                  {
+                      "file": "C:\\Users\\saleh\\projects\\laravel-projects\\link-social\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php",
+                      "line": 37,
+                      "function": "callBoundMethod",
+                      "class": "Illuminate\\Container\\BoundMethod",
+                      "type": "::"
+                  },
+                  {
+                      "file": "C:\\Users\\saleh\\projects\\laravel-projects\\link-social\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php",
+                      "line": 651,
+                      "function": "call",
+                      "class": "Illuminate\\Container\\BoundMethod",
+                      "type": "::"
+                  },
+                  {
+                      "file": "C:\\Users\\saleh\\projects\\laravel-projects\\link-social\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php",
+                      "line": 178,
+                      "function": "call",
+                      "class": "Illuminate\\Container\\Container",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\Users\\saleh\\projects\\laravel-projects\\link-social\\vendor\\symfony\\console\\Command\\Command.php",
+                      "line": 308,
+                      "function": "execute",
+                      "class": "Illuminate\\Console\\Command",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\Users\\saleh\\projects\\laravel-projects\\link-social\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php",
+                      "line": 148,
+                      "function": "run",
+                      "class": "Symfony\\Component\\Console\\Command\\Command",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\Users\\saleh\\projects\\laravel-projects\\link-social\\vendor\\symfony\\console\\Application.php",
+                      "line": 1014,
+                      "function": "run",
+                      "class": "Illuminate\\Console\\Command",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\Users\\saleh\\projects\\laravel-projects\\link-social\\vendor\\symfony\\console\\Application.php",
+                      "line": 301,
+                      "function": "doRunCommand",
+                      "class": "Symfony\\Component\\Console\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\Users\\saleh\\projects\\laravel-projects\\link-social\\vendor\\symfony\\console\\Application.php",
+                      "line": 171,
+                      "function": "doRun",
+                      "class": "Symfony\\Component\\Console\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\Users\\saleh\\projects\\laravel-projects\\link-social\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php",
+                      "line": 111,
+                      "function": "run",
+                      "class": "Symfony\\Component\\Console\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\Users\\saleh\\projects\\laravel-projects\\link-social\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php",
+                      "line": 155,
+                      "function": "run",
+                      "class": "Illuminate\\Console\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "C:\\Users\\saleh\\projects\\laravel-projects\\link-social\\artisan",
+                      "line": 37,
+                      "function": "handle",
+                      "class": "Illuminate\\Foundation\\Console\\Kernel",
+                      "type": "->"
+                  }
+              ]
+          }
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '53'
+          vary: Origin
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/profiles/{profile_id}/user'
+    metadata:
+      groupName: profile
+      groupDescription: |-
+
+        APIs for profiles
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'show user for profile'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      profile_id:
+        name: profile_id
+        description: 'The ID of the profile.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      profile_id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"status":true,"message":"User for Profile","data":{"user":{"id":1,"first_name":"Otto","last_name":"Mitchell","user_name":"Dr. Orlo Bradtke","phone":"+1 (678) 832-8771","age":25,"gender":"female","email":"adicki@example.org","email_verified_at":"2022-11-16T19:25:27.000000Z","created_at":"2022-11-16T19:25:30.000000Z","updated_at":"2022-11-16T19:25:30.000000Z"}}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '52'
+          vary: Origin
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/profiles/{profile_id}/images'
+    metadata:
+      groupName: profile
+      groupDescription: |-
+
+        APIs for profiles
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'show images for profile'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      profile_id:
+        name: profile_id
+        description: 'The ID of the profile.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      profile_id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"status":true,"message":"profile Images for user: Dr. Orlo Bradtke","data":{"images":[]}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '51'
+          vary: Origin
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+    uri: api/v1/profiles
+    metadata:
+      groupName: profile
+      groupDescription: |-
+
+        APIs for profiles
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'update profile'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters:
+      apiKey:
+        name: apiKey
+        description: 'Authentication key.'
+        required: true
+        example: '{YOUR_AUTH_KEY}'
+        type: string
+        custom: []
+    cleanQueryParameters:
+      apiKey: '{YOUR_AUTH_KEY}'
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - queryParameters
+      - apiKey
+      - avdabhPE68Zge6cD1k5fV43
+    controller: null
+    method: null
+    route: null
+    custom: []

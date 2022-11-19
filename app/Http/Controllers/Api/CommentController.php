@@ -8,8 +8,20 @@ use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
+
+/**
+ * @group Comment
+ *
+ * APIs for comment on post
+ */
 class CommentController extends Controller
 {
+
+    /**
+     * comments for one post
+     * @param Post $post
+     * @return $comments
+     */
     public function index(Post $post){
         return response()->json([
             'status' => true,
@@ -20,6 +32,11 @@ class CommentController extends Controller
         ], 200);
     }
 
+    /**
+     * show Comment
+     * @param Comment $comment
+     * @return Comment
+     */
     public function show(Comment $comment){
         return response()->json([
             'status' => true,
@@ -30,6 +47,14 @@ class CommentController extends Controller
         ], 200);
     }
 
+
+    /**
+     * Create Comment
+     * 
+     * @authenticated
+     * @param Request $request, Post $post
+     * @return Comment
+     */
     public function store(Request $request, Post $post){
         
         $validateComment = Validator::make($request->all(), [ 'body'=>'required|string']);
@@ -61,6 +86,15 @@ class CommentController extends Controller
 
     }
 
+
+    /**
+     * Update Comment
+     * 
+     * @authenticated
+     * @param Request $request
+     * @param Comment $comment
+     * @return Comment
+     */
     public function update(Request $request, Comment $comment){
 
         if(! (auth()->id() == $comment->user_id)){
@@ -69,6 +103,8 @@ class CommentController extends Controller
                 'message' => "you can't update this comment",
             ], 403);
         }
+
+        $request->validate(['body' => 'required|string']);
 
         $comment->update(['body'=> $request->body,]);
 
@@ -81,7 +117,18 @@ class CommentController extends Controller
         ], 200);
 
     }
+    
 
+    /**
+     * delete Comment
+     * 
+     * <aside class="notice">Deleting a comment is by the owner of the comment or post.😕</aside>
+     * 
+     * @authenticated
+     * 
+     * @param Comment $comment
+     * @return ''
+     */
     public function delete(Comment $comment){
         if(! (auth()->id() == $comment->user_id )&& ! (auth()->id() == $comment->post->user_id)){
             return response()->json([

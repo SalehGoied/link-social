@@ -7,8 +7,22 @@ use App\Models\Profile;
 use App\Models\User;
 use Illuminate\Http\Request;
 
+
+/**
+ * @group Follow
+ *
+ * APIs for follow profile
+ */
 class FollowsController extends Controller
 {
+
+    /**
+     * Toggle follow
+     * 
+     * @authenticated
+     * @param Profile $profile
+     * @return [$profile, 'following']
+     */
     public function store(Profile $profile){
         /**
          * @var $user
@@ -26,7 +40,11 @@ class FollowsController extends Controller
         ], 200);
     }
 
-
+    /**
+     * Show if is  follow
+     * @param Profile $profile
+     * @return [$profile, 'following']
+     */
     public function show(Profile $profile){
 
         return response()->json([

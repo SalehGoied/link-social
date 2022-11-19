@@ -19,6 +19,7 @@ class AuthController extends Controller
 {
     /**
      * Create User
+     * 
      * @param Request $request
      * @return User 
      */
@@ -128,6 +129,8 @@ class AuthController extends Controller
 
     /**
      * Logout User
+     * 
+     * @authenticated
      * @param Request $request
      * @return '' 
      */

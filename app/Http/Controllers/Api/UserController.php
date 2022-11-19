@@ -10,8 +10,22 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 
+/**
+ * @group User
+ *
+ * APIs for User
+ */
 class UserController extends Controller
 {
+
+    /**
+     * users
+     * 
+     * @bodyParam key string The key for search.
+     * 
+     * @param Request $request
+     * @return $users
+     */
     public function index(Request $request){
 
         $users = User::with('profile');
@@ -34,7 +48,13 @@ class UserController extends Controller
         ], 200);
     }
 
-    public function show(Request $request, User $user){
+    /**
+     * show user
+     * 
+     * @param User $user
+     * @return User
+     */
+    public function show(User $user){
         
         return response()->json([
             'status' => true,
@@ -45,7 +65,14 @@ class UserController extends Controller
         ], 200);
     }
 
-    public function profile(Request $request, User $user){
+
+    /**
+     * show profile for user
+     * 
+     * @param User $user
+     * @return Profile
+     */
+    public function profile(User $user){
         
         return response()->json([
             'status' => true,
@@ -56,6 +83,13 @@ class UserController extends Controller
         ], 200);
     }
 
+    /**
+     * show posts for user
+     * 
+     * @param User $user
+     * @return $posts
+     */
+
     public function posts(User $user){
         return response()->json([
             'status' => true,
@@ -65,6 +99,14 @@ class UserController extends Controller
             ],
         ], 200);
     }
+
+    /**
+     * update User
+     * 
+     * @authenticated
+     * @param Request $request
+     * @return User
+     */
 
     public function update(Request $request){
 

@@ -10,8 +10,21 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Intervention\Image\Facades\Image;
 
+
+/**
+ * @group profile
+ *
+ * APIs for profiles
+ */
 class ProfileController extends Controller
 {
+
+    /**
+     * profiles
+     * 
+     * 
+     * @return $profiles
+     */
     public function index(Request $request){
         return response()->json([
             'status' => true,
@@ -22,6 +35,12 @@ class ProfileController extends Controller
         ], 200);
     }
 
+    /**
+     * show profile
+     * 
+     * @param Profile $profile
+     * @return Profile
+     */
     public function show(Request $request, Profile $profile){
         return response()->json([
             'status' => true,
@@ -34,6 +53,13 @@ class ProfileController extends Controller
         ], 200);
     }
 
+    /**
+     * show user for profile
+     * 
+     * @param Profile $profile
+     * @return User
+     */
+
     public function showUser(Request $request, Profile $profile){
         return response()->json([
             'status' => true,
@@ -44,6 +70,15 @@ class ProfileController extends Controller
         ], 200);
     }
 
+
+    /**
+     * update profile
+     * 
+     * 
+     * @authenticated
+     * @param Request $request
+     * @return Profile
+     */
     public function update(Request $request){
 
         $profile = auth()->user()->profile;
@@ -92,6 +127,14 @@ class ProfileController extends Controller
         return response($profile);
     }
 
+
+    /**
+     * show images for profile
+     * 
+     * 
+     * @param Profile $profile
+     * @return $images
+     */
     public function showImages(Profile $profile){
         return response()->json([
             'status' => true,

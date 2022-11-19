@@ -12,34 +12,55 @@ use Illuminate\Support\Facades\Validator;
 use Intervention\Image\Facades\Image;
 
 
+/**
+ * @group Post
+ *
+ * APIs for Posts
+ */
+
 class PostController extends Controller
 {
+
+    /**
+     * posts with files
+     * 
+     * @bodyParam key string The key for search.
+     * 
+     * @param Request $request
+     * @return $posts
+     */
     public function index(Request $request){
 
-        
-        if(auth('sanctum')->user()){
+        $posts = Post::with('files');
+        if($request->key){
+            $posts->where('body', 'LIKE', '%' . $request->key . '%');
+        }
+        elseif(auth('sanctum')->user()){
             /**
          * @var $user
          */
             $user = auth('sanctum')->user();
             $users = $user->following()->pluck('profiles.user_id');
 
-            $posts = Post::whereIn('user_id', $users)->with('files')->latest()->get();
-        }
-        else{
-            $posts = Post::with('files')->get();
+            $posts->whereIn('user_id', $users)->with('files')->latest();
         }
 
         return response()->json([
             'status' => true,
             'message' => 'posts',
             'data'=>[
-                'posts' => $posts,
+                'posts' => $posts->get(),
             ]
             
         ], 200);
     }
 
+
+    /**
+     * show posts for user
+     * @param User $user
+     * @return $posts
+     */
     public function showUserPosts(User $user){
         return response()->json([
             'status' => true,
@@ -51,7 +72,12 @@ class PostController extends Controller
         ], 200);
     }
 
-    public function show(Request $request, Post $post){
+    /**
+     * show post
+     * @param Post $post
+     * @return Post
+     */
+    public function show(Post $post){
 
         return response()->json([
             'status' => true,
@@ -63,6 +89,14 @@ class PostController extends Controller
         ], 200);
     }
 
+
+    /**
+     * create post
+     * 
+     * @authenticated
+     * @param Request $request
+     * @return Post
+     */
     public function store(Request $request){
         /**
          * @var $user
@@ -107,7 +141,13 @@ class PostController extends Controller
 
     }
 
-
+    /**
+     * update post
+     * 
+     * @authenticated
+     * @param Request $request, Post $post
+     * @return Post
+     */
 
     public function update(Request $request, Post $post){
 
@@ -152,6 +192,15 @@ class PostController extends Controller
         ], 200);
 
     }
+
+
+    /**
+     * delete post
+     * 
+     * @authenticated
+     * @param Post $post
+     * @return ''
+     */
 
     public function delete(Post $post){
 
