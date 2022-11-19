@@ -34,7 +34,7 @@ class Post extends Model
     public function destory(){
 
         foreach($this->files as $file){
-            $path = $file->path;
+            // $path = $file->path;
             $file->delete();
 
             // if(File::exists($path)){

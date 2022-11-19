@@ -32,18 +32,18 @@ Route::prefix('v1')->group(function(){
 
     // Auth routes
     Route::controller(AuthController::class)->prefix('/auth')->group(function (){
-        Route::post('/register', 'registerUser')->name('auth.register');
-        Route::post('/login', 'loginUser')->name('auth.login');
-        Route::post('/logout', 'logout')->middleware('auth:sanctum')->name('auth.logout');
+        Route::post('/register', 'registerUser')->name('auth.register'); // register
+        Route::post('/login', 'loginUser')->name('auth.login');     //login
+        Route::post('/logout', 'logout')->middleware('auth:sanctum')->name('auth.logout');  // logout
     });
     
     // user
     Route::controller(UserController::class)->prefix('/users')->group(function (){
-        Route::get('/', 'index')->name('users.index');
-        Route::get('/{user}', 'show')->name('user.show');
-        Route::get('/{user}/profile', 'profile')->name('user.profile');
-        Route::get('/{user}/posts', 'posts');
-        Route::put('/',  'update')->middleware('auth:sanctum');
+        Route::get('/', 'index')->name('users.index');  // get all users or search in it with $request->key
+        Route::get('/{user}', 'show')->name('user.show');  //show user
+        Route::get('/{user}/profile', 'profile')->name('user.profile'); // show profile for user
+        Route::get('/{user}/posts', 'posts');   //show posts for user
+        Route::put('/',  'update')->middleware('auth:sanctum');     // update user
         // todo after asking on it
         // Route::delete('/', 'delete')->middleware('auth:sanctum');
     });

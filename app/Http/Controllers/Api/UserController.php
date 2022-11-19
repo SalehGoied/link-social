@@ -13,12 +13,22 @@ use Illuminate\Support\Facades\Validator;
 class UserController extends Controller
 {
     public function index(Request $request){
+
+        $users = User::with('profile');
+
+        if($request->key){
+            $users->where(function($query) use ($request) {
+                $query->where('user_name', 'LIKE', '%' . $request->key . '%')
+                    ->orWhere('first_name', 'LIKE', '%' . $request->key . '%')
+                    ->orWhere('last_name', 'LIKE', '%' . $request->key . '%');
+            });
+        }
         
         return response()->json([
             'status' => true,
             'message' => 'Users',
             'data'=>[
-                'users' => User::all(),
+                'users' => $users->get(),
             ]
             
         ], 200);
@@ -133,4 +143,25 @@ class UserController extends Controller
             ],
         ], 200);
     }
+
+    // public function search(Request $request){
+
+    //     $users = User::with('profile');
+
+    //     if($request->key){
+    //         $users->where(function($query) use ($request) {
+    //             $query->where('user_name', 'LIKE', '%' . $request->key . '%')
+    //                 ->orWhere('first_name', 'LIKE', '%' . $request->key . '%')
+    //                 ->orWhere('last_name', 'LIKE', '%' . $request->key . '%');
+    //         });
+    //     }
+
+    //     return response()->json([
+    //         'status' => true,
+    //         'message' => 'Users related with: '. $request->key??'',
+    //         'data'=>[
+    //             'user' => $users->get(),
+    //         ],
+    //     ], 200);
+    // }
 }

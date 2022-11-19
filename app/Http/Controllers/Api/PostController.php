@@ -115,7 +115,7 @@ class PostController extends Controller
             return response()->json([
                     'status' => false,
                     'message' => "you can't update this post",
-                ], 404);
+                ], 403);
         }
 
         if ($request->hasFile('files')){

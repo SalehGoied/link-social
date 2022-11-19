@@ -27,9 +27,9 @@ class ProfileController extends Controller
             'status' => true,
             'message' => 'Profile',
             'data'=> [
-                'profile' => $profile,
-                'followres' => $profile->followers,
-                'following' => $profile->user->following,
+                'profile' => $profile->load('followres', 'user.following'),
+                // 'followres' => $profile->followers,
+                // 'following' => $profile->user->following,
             ],
         ], 200);
     }

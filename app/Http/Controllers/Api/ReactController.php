@@ -32,7 +32,7 @@ class ReactController extends Controller
 
     public function react(Request $request, Post $post){
 
-        $validateReact = Validator::make($request->all(), [ 'type'=>'required|integer|between:1,5']);
+        $validateReact = Validator::make($request->all(), [ 'type'=>'nullable|integer|between:1,5']);
         if($validateReact->fails()){
             return response()->json([
                 'status' => false,
@@ -51,7 +51,7 @@ class ReactController extends Controller
         else{
             $react = $user->reacts()->create([
                 'post_id'=> $post->id,
-                'type'=> $request->type,
+                'type'=> $request->type?? 1,
             ]);
         }
 

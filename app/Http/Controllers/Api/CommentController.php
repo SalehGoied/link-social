@@ -67,14 +67,14 @@ class CommentController extends Controller
             return response()->json([
                 'status' => false,
                 'message' => "you can't update this comment",
-            ], 404);
+            ], 403);
         }
 
         $comment->update(['body'=> $request->body,]);
 
         return response()->json([
             'status' => true,
-            'message' => 'update comment successfuly',
+            'message' => 'Comment updated successfuly',
             'data'=>[
                 'comment' => $comment,
             ]

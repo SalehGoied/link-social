@@ -14,7 +14,7 @@ class FollowsController extends Controller
          * @var $user
          */
         $user = auth()->user();
-        $follow = $user->following()->toggle($profile);
+        $user->following()->toggle($profile);
 
         return response()->json([
             'status' => true,
@@ -34,7 +34,7 @@ class FollowsController extends Controller
             'message' => 'follow',
             'data'=> [
                 'profile' => $profile,
-            'following'=> auth()->user()->following->contains($profile->id),
+                'following'=> auth()->user()->following->contains($profile->id),
             ]
         ], 200);
     }

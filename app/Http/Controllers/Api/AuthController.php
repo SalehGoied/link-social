@@ -9,6 +9,12 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
+/**
+ * @group Auth
+ *
+ * APIs for Auth users
+ */
+
 class AuthController extends Controller
 {
     /**
@@ -119,6 +125,12 @@ class AuthController extends Controller
         }
     }
 
+
+    /**
+     * Logout User
+     * @param Request $request
+     * @return '' 
+     */
     public function logout(Request $request) {
         // $user = auth()->user()->tokens();
         // auth()->user()->tokens()->delete();
