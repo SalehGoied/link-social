@@ -150,18 +150,18 @@ endpoints:
         name: body
         description: ''
         required: true
-        example: sint
+        example: nesciunt
         type: string
         custom: []
     cleanBodyParameters:
-      body: sint
+      body: nesciunt
     fileParameters: []
     responses: []
     responseFields: []
     auth:
       - queryParameters
       - apiKey
-      - dPhZ3Vak48Evb5ca6g6Dfe1
+      - gkchD56f143EVZ6a8Pabevd
     controller: null
     method: null
     route: null
@@ -209,18 +209,18 @@ endpoints:
         name: body
         description: ''
         required: true
-        example: est
+        example: delectus
         type: string
         custom: []
     cleanBodyParameters:
-      body: est
+      body: delectus
     fileParameters: []
     responses: []
     responseFields: []
     auth:
       - queryParameters
       - apiKey
-      - V16d5cg6abDaZhk43fveE8P
+      - 661aEa5gvdfPDV3b8h4Zekc
     controller: null
     method: null
     route: null
@@ -271,7 +271,7 @@ endpoints:
     auth:
       - queryParameters
       - apiKey
-      - caEVfaDk4vP316hZ8b5eg6d
+      - DP586eb3Ec6fdaaVg4kvhZ1
     controller: null
     method: null
     route: null

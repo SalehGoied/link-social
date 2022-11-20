@@ -51,7 +51,7 @@ endpoints:
     auth:
       - queryParameters
       - apiKey
-      - ZkdeEDva6g8h164f3V5cbaP
+      - Ekdh1vaP8Z6g4ceVfa6b3D5
     controller: null
     method: null
     route: null
@@ -69,7 +69,7 @@ endpoints:
       subgroupDescription: ''
       title: 'Show if is  follow'
       description: ''
-      authenticated: false
+      authenticated: true
       custom: []
     headers:
       Content-Type: application/json
@@ -84,8 +84,16 @@ endpoints:
         custom: []
     cleanUrlParameters:
       profile_id: 1
-    queryParameters: []
-    cleanQueryParameters: []
+    queryParameters:
+      apiKey:
+        name: apiKey
+        description: 'Authentication key.'
+        required: true
+        example: '{YOUR_AUTH_KEY}'
+        type: string
+        custom: []
+    cleanQueryParameters:
+      apiKey: '{YOUR_AUTH_KEY}'
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
@@ -100,7 +108,10 @@ endpoints:
         description: null
         custom: []
     responseFields: []
-    auth: []
+    auth:
+      - queryParameters
+      - apiKey
+      - Dh4cEVaa8g6P5vedk6bf3Z1
     controller: null
     method: null
     route: null

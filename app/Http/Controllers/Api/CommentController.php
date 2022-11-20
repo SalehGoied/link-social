@@ -56,6 +56,13 @@ class CommentController extends Controller
      * @return Comment
      */
     public function store(Request $request, Post $post){
+
+        if(! $post->can_comment){
+            return response()->json([
+                'status' => false,
+                'message' => "cannot comment on this post",
+            ], 403);
+        }
         
         $validateComment = Validator::make($request->all(), [ 'body'=>'required|string']);
 

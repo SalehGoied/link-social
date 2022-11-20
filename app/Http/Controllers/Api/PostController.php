@@ -83,7 +83,7 @@ class PostController extends Controller
             'status' => true,
             'message' => 'post',
             'data'=>[
-                'posts' => $post->load('comments', 'files'),
+                'posts' => $post->load('comments', 'files', 'parent'),
             ]
             
         ], 200);
@@ -120,6 +120,8 @@ class PostController extends Controller
 
         $post->update([
             'body' => $request->body?? null,
+            'can_comment' => $request->can_comment?:1,
+            'can_sharing' => $request->can_sharing?:1,
         ]);
         
         
@@ -138,7 +140,6 @@ class PostController extends Controller
                 'post' => $post->load('files'),
             ]
         ], 200);
-
     }
 
     /**
@@ -158,7 +159,7 @@ class PostController extends Controller
                 ], 403);
         }
 
-        if ($request->hasFile('files')){
+        if ($request->hasFile('files') && ! $post->post_id){
             
             $validatefile = $this->storeFile($post ,$request->file('files'));
             if($validatefile['status'] == false){
@@ -172,6 +173,8 @@ class PostController extends Controller
 
         $post->update([
             'body' => $request->body?? $post->body,
+            'can_comment' => $request->can_comment?:$post->can_comment,
+            'can_sharing' => $request->can_sharing?:$post->can_sharing,
         ]);
         
         
@@ -215,6 +218,48 @@ class PostController extends Controller
         return response()->json([
             'status' => true,
             'message' => 'Post Deleted successfully',
+        ], 200);
+    }
+
+    /**
+     * share post
+     * 
+     * @authenticated
+     * @param Post $post
+     * @param Request $request
+     * @return ''
+     */
+
+    public function share(Request $request, Post $post){
+
+        if(! $post->can_sharing){
+            return response()->json([
+                'status' => false,
+                'message' => "cannot share this post",
+            ], 403);
+        }
+
+        $request->validate(['body' => 'nullable|string', 'can_comment' => 'nullable|boolean']);
+        
+        $post_id = $post->post_id? :$post->id;
+
+        /**
+         * @var $user
+         */
+        $user = auth()->user();
+
+        $new_post = $user->posts()->create([
+            'body' => $request->body,
+            'post_id' => $post_id,
+            'can_comment'=> $request->can_comment??1,
+        ]);
+
+        return response()->json([
+            'status' => true,
+            'message' => 'share Post',
+            'data' => [
+                'post' => $new_post->load('parent'),
+            ]
         ], 200);
     }
 

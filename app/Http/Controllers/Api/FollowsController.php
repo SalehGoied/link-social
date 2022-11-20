@@ -42,6 +42,8 @@ class FollowsController extends Controller
 
     /**
      * Show if is  follow
+     * 
+     * @authenticated
      * @param Profile $profile
      * @return [$profile, 'following']
      */

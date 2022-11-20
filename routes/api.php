@@ -82,6 +82,7 @@ Route::prefix('v1')->group(function(){
         Route::get('/{post}', 'show');
         Route::middleware('auth:sanctum')->group(function (){
             Route::post('/', 'store');
+            Route::post('/{post}/share', 'share');
             Route::put('/{post}', 'update');
             Route::delete('/{post}', 'delete');
         });
