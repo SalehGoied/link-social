@@ -76,4 +76,8 @@ class User extends Authenticatable
         return $this->hasMany(React::class);
     }
 
+    public function saved_posts(){
+        return $this->hasMany(SavedPost::class)->latest();
+    }
+
 }

@@ -34,6 +34,10 @@ class Post extends Model
         return $this->hasMany(React::class)->latest();
     }
 
+    public function saved_posts(){
+        return $this->hasMany(SavedPost::class)->latest();
+    }
+
     public function parent()
     {
         return $this->belongsTo(Post::class, 'post_id');
@@ -42,12 +46,6 @@ class Post extends Model
     public function children()
     {
         return $this->hasMany(Post::class, 'post_id');
-    }
-    public function post(){
-        if($this->post_id){
-            return $this->hasOne(Post::class, 'post_id');
-        }
-        return false;
     }
 
     public function destory(){

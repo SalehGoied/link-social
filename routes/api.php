@@ -119,5 +119,9 @@ Route::prefix('v1')->group(function(){
         });
     });
 
+    Route::controller(SavedPostController::class)->middleware('auth:sanctum')->prefix('/saved-posts')->group(function (){
+        Route::get('', 'index');
+        Route::post('/{post}', 'store');
+    });
 
 });
