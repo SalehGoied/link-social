@@ -76,7 +76,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"status":true,"message":"profile Images for user:Dr. Orlo Bradtke","data":{"images":[]}}'
+        content: '{"status":true,"message":"profile Images for user:Vita Jacobs","data":{"images":[{"id":1,"profile_id":1,"path":"https:\/\/source.unsplash.com\/random","type":"avatar","created_at":"2022-11-20T15:33:20.000000Z","updated_at":"2022-11-20T15:33:20.000000Z"},{"id":2,"profile_id":1,"path":"https:\/\/source.unsplash.com\/random","type":"cover","created_at":"2022-11-20T15:33:20.000000Z","updated_at":"2022-11-20T15:33:20.000000Z"}]}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -125,7 +125,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"status":true,"message":"Image","data":{"image":{"id":1,"profile_id":49,"path":"https:\/\/res.cloudinary.com\/dgfmyypte\/image\/upload\/v1668630981\/bpyx0c7dxmlgd9cv31r0.png","type":"avatar","created_at":"2022-11-16T20:36:22.000000Z","updated_at":"2022-11-16T20:36:22.000000Z"}}}'
+        content: '{"status":true,"message":"Image","data":{"image":{"id":1,"profile_id":1,"path":"https:\/\/source.unsplash.com\/random","type":"avatar","created_at":"2022-11-20T15:33:20.000000Z","updated_at":"2022-11-20T15:33:20.000000Z"}}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -199,11 +199,11 @@ endpoints:
         name: post_id
         description: 'The ID of the post.'
         required: true
-        example: 1
+        example: 2
         type: integer
         custom: []
     cleanUrlParameters:
-      post_id: 1
+      post_id: 2
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -211,8 +211,8 @@ endpoints:
     fileParameters: []
     responses:
       -
-        status: 200
-        content: '{"status":true,"message":"files","data":{"files":[{"id":17,"post_id":1,"path":"https:\/\/source.unsplash.com\/random","type":"image","created_at":"2022-11-16T19:25:31.000000Z","updated_at":"2022-11-16T19:25:31.000000Z"}]}}'
+        status: 404
+        content: '{"status":false,"message":"Not found"}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -261,7 +261,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"status":true,"message":"file","data":{"file":{"id":1,"post_id":57,"path":"https:\/\/source.unsplash.com\/random","type":"image","created_at":"2022-11-16T19:25:31.000000Z","updated_at":"2022-11-16T19:25:31.000000Z"}}}'
+        content: '{"status":true,"message":"file","data":{"file":{"id":1,"post_id":14,"path":"https:\/\/source.unsplash.com\/random","type":"image","created_at":"2022-11-20T15:33:21.000000Z","updated_at":"2022-11-20T15:33:21.000000Z"}}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -335,11 +335,11 @@ endpoints:
         name: post_id
         description: 'The ID of the post.'
         required: true
-        example: 1
+        example: 2
         type: integer
         custom: []
     cleanUrlParameters:
-      post_id: 1
+      post_id: 2
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -347,8 +347,8 @@ endpoints:
     fileParameters: []
     responses:
       -
-        status: 200
-        content: '{"status":true,"message":"Reacts","data":{"reacts":[{"id":1,"user_id":40,"post_id":1,"type":1,"created_at":"2022-11-16T19:25:32.000000Z","updated_at":"2022-11-16T19:25:32.000000Z"},{"id":2,"user_id":3,"post_id":1,"type":3,"created_at":"2022-11-16T19:25:32.000000Z","updated_at":"2022-11-16T19:25:32.000000Z"},{"id":3,"user_id":15,"post_id":1,"type":4,"created_at":"2022-11-16T19:25:32.000000Z","updated_at":"2022-11-16T19:25:32.000000Z"},{"id":4,"user_id":13,"post_id":1,"type":4,"created_at":"2022-11-16T19:25:32.000000Z","updated_at":"2022-11-16T19:25:32.000000Z"},{"id":5,"user_id":27,"post_id":1,"type":4,"created_at":"2022-11-16T19:25:32.000000Z","updated_at":"2022-11-16T19:25:32.000000Z"},{"id":6,"user_id":33,"post_id":1,"type":2,"created_at":"2022-11-16T19:25:32.000000Z","updated_at":"2022-11-16T19:25:32.000000Z"},{"id":7,"user_id":32,"post_id":1,"type":1,"created_at":"2022-11-16T19:25:32.000000Z","updated_at":"2022-11-16T19:25:32.000000Z"}]}}'
+        status: 404
+        content: '{"status":false,"message":"Not found"}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -384,11 +384,11 @@ endpoints:
         name: react_id
         description: 'The ID of the react.'
         required: true
-        example: 1
+        example: 17
         type: integer
         custom: []
     cleanUrlParameters:
-      react_id: 1
+      react_id: 17
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -396,8 +396,8 @@ endpoints:
     fileParameters: []
     responses:
       -
-        status: 200
-        content: '{"status":true,"message":"React","data":{"react":{"id":1,"user_id":40,"post_id":1,"type":1,"created_at":"2022-11-16T19:25:32.000000Z","updated_at":"2022-11-16T19:25:32.000000Z"}}}'
+        status: 404
+        content: '{"status":false,"message":"Not found"}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -433,11 +433,11 @@ endpoints:
         name: post_id
         description: 'The ID of the post.'
         required: true
-        example: 1
+        example: 17
         type: integer
         custom: []
     cleanUrlParameters:
-      post_id: 1
+      post_id: 17
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -479,11 +479,11 @@ endpoints:
         name: react_id
         description: 'The ID of the react.'
         required: true
-        example: 1
+        example: 17
         type: integer
         custom: []
     cleanUrlParameters:
-      react_id: 1
+      react_id: 17
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -491,11 +491,11 @@ endpoints:
         name: type
         description: 'Must be between 1 and 5.'
         required: true
-        example: 1
+        example: 2
         type: integer
         custom: []
     cleanBodyParameters:
-      type: 1
+      type: 2
     fileParameters: []
     responses: []
     responseFields: []

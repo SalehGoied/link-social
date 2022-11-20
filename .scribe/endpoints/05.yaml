@@ -30,16 +30,16 @@ endpoints:
         name: key
         description: 'The key for search.'
         required: false
-        example: neque
+        example: natus
         type: string
         custom: []
     cleanBodyParameters:
-      key: neque
+      key: natus
     fileParameters: []
     responses:
       -
         status: 200
-        content: '{"status":true,"message":"posts","data":{"posts":[{"id":1,"user_id":19,"body":"Ea quibusdam laboriosam minus expedita quidem iure. Ipsa quisquam impedit incidunt rem fuga. Harum delectus officia quia sed. Omnis voluptatem neque non earum.","created_at":"2022-11-16T19:25:31.000000Z","updated_at":"2022-11-16T19:25:31.000000Z","files":[{"id":17,"post_id":1,"path":"https:\/\/source.unsplash.com\/random","type":"image","created_at":"2022-11-16T19:25:31.000000Z","updated_at":"2022-11-16T19:25:31.000000Z"}]},{"id":17,"user_id":15,"body":"Ullam repellendus voluptatem aliquam. Voluptate commodi vero ducimus pariatur vel eum neque et.","created_at":"2022-11-16T19:25:31.000000Z","updated_at":"2022-11-16T19:25:31.000000Z","files":[{"id":46,"post_id":17,"path":"https:\/\/source.unsplash.com\/random","type":"image","created_at":"2022-11-16T19:25:31.000000Z","updated_at":"2022-11-16T19:25:31.000000Z"}]},{"id":25,"user_id":3,"body":"Et asperiores ut voluptatibus dignissimos. Odio enim dolor cum eum. Ut et est sit fugit neque molestiae.","created_at":"2022-11-16T19:25:31.000000Z","updated_at":"2022-11-16T19:25:31.000000Z","files":[{"id":7,"post_id":25,"path":"https:\/\/source.unsplash.com\/random","type":"image","created_at":"2022-11-16T19:25:31.000000Z","updated_at":"2022-11-16T19:25:31.000000Z"},{"id":24,"post_id":25,"path":"https:\/\/source.unsplash.com\/random","type":"image","created_at":"2022-11-16T19:25:31.000000Z","updated_at":"2022-11-16T19:25:31.000000Z"}]},{"id":28,"user_id":20,"body":"Fuga est dolores non. Facilis eos assumenda velit nisi dicta necessitatibus neque delectus. Unde excepturi culpa culpa vitae. Assumenda voluptas ipsam neque.","created_at":"2022-11-16T19:25:31.000000Z","updated_at":"2022-11-16T19:25:31.000000Z","files":[{"id":59,"post_id":28,"path":"https:\/\/source.unsplash.com\/random","type":"image","created_at":"2022-11-16T19:25:31.000000Z","updated_at":"2022-11-16T19:25:31.000000Z"}]},{"id":30,"user_id":28,"body":"Maxime ut quisquam at neque incidunt. Quis quasi maiores ratione. Vero officia reiciendis iusto distinctio et asperiores.","created_at":"2022-11-16T19:25:31.000000Z","updated_at":"2022-11-16T19:25:31.000000Z","files":[{"id":36,"post_id":30,"path":"https:\/\/source.unsplash.com\/random","type":"image","created_at":"2022-11-16T19:25:31.000000Z","updated_at":"2022-11-16T19:25:31.000000Z"}]},{"id":44,"user_id":21,"body":"Dolorem eum ipsam magnam consequatur. Id aut omnis non sapiente saepe atque placeat porro. Quae neque inventore vel et saepe dolorum assumenda.","created_at":"2022-11-16T19:25:31.000000Z","updated_at":"2022-11-16T19:25:31.000000Z","files":[{"id":78,"post_id":44,"path":"https:\/\/source.unsplash.com\/random","type":"image","created_at":"2022-11-16T19:25:31.000000Z","updated_at":"2022-11-16T19:25:31.000000Z"}]},{"id":45,"user_id":30,"body":"Aliquam quam consequatur nihil assumenda aspernatur itaque temporibus. Sit dolore neque et corporis. Qui officia perspiciatis molestiae iste.","created_at":"2022-11-16T19:25:31.000000Z","updated_at":"2022-11-16T19:25:31.000000Z","files":[]},{"id":51,"user_id":3,"body":"Qui quibusdam neque ea impedit ut similique sint. Quaerat vel inventore autem saepe. Maxime cupiditate quo adipisci ea. Alias inventore rerum laborum.","created_at":"2022-11-16T19:25:31.000000Z","updated_at":"2022-11-16T19:25:31.000000Z","files":[{"id":4,"post_id":51,"path":"https:\/\/source.unsplash.com\/random","type":"image","created_at":"2022-11-16T19:25:31.000000Z","updated_at":"2022-11-16T19:25:31.000000Z"}]},{"id":65,"user_id":16,"body":"Fugiat veritatis non autem quod eius natus voluptas. Corrupti neque molestiae possimus aut fugit ex.","created_at":"2022-11-16T19:25:31.000000Z","updated_at":"2022-11-16T19:25:31.000000Z","files":[]},{"id":89,"user_id":9,"body":"Neque similique porro nostrum saepe voluptatem. Dolores exercitationem voluptate ullam sapiente ad.","created_at":"2022-11-16T19:25:31.000000Z","updated_at":"2022-11-16T19:25:31.000000Z","files":[{"id":9,"post_id":89,"path":"https:\/\/source.unsplash.com\/random","type":"image","created_at":"2022-11-16T19:25:31.000000Z","updated_at":"2022-11-16T19:25:31.000000Z"}]},{"id":92,"user_id":22,"body":"Est enim aut architecto illum optio et. Ducimus exercitationem omnis nam neque et saepe in cum. Nostrum aut dolores delectus sunt.","created_at":"2022-11-16T19:25:31.000000Z","updated_at":"2022-11-16T19:25:31.000000Z","files":[]}]}}'
+        content: '{"status":true,"message":"posts","data":{"posts":[{"id":8,"user_id":20,"body":"Placeat quia quo repellendus hic quos molestiae iste. Et natus velit voluptates nostrum eligendi aut ipsum. Laboriosam quia nam repudiandae. Ratione ullam laborum itaque.","can_sharing":1,"can_comment":1,"post_id":0,"created_at":"2022-11-20T15:33:21.000000Z","updated_at":"2022-11-20T15:33:21.000000Z","files":[{"id":16,"post_id":8,"path":"https:\/\/source.unsplash.com\/random","type":"image","created_at":"2022-11-20T15:33:21.000000Z","updated_at":"2022-11-20T15:33:21.000000Z"}]},{"id":10,"user_id":15,"body":"Reiciendis rem quia qui corporis ducimus omnis. Nihil est veniam est quae natus ut ipsum saepe. Rerum quidem explicabo quisquam dolores placeat dolore. Doloribus omnis aut porro est optio non.","can_sharing":1,"can_comment":1,"post_id":0,"created_at":"2022-11-20T15:33:21.000000Z","updated_at":"2022-11-20T15:33:21.000000Z","files":[{"id":10,"post_id":10,"path":"https:\/\/source.unsplash.com\/random","type":"image","created_at":"2022-11-20T15:33:21.000000Z","updated_at":"2022-11-20T15:33:21.000000Z"}]},{"id":28,"user_id":2,"body":"Aliquam consequatur voluptatem delectus quia nulla natus. Id blanditiis explicabo magnam commodi molestias. Ut quod vel dolor et hic. Iusto et rerum numquam omnis quas sit recusandae.","can_sharing":1,"can_comment":1,"post_id":0,"created_at":"2022-11-20T15:33:21.000000Z","updated_at":"2022-11-20T15:33:21.000000Z","files":[{"id":41,"post_id":28,"path":"https:\/\/source.unsplash.com\/random","type":"image","created_at":"2022-11-20T15:33:21.000000Z","updated_at":"2022-11-20T15:33:21.000000Z"},{"id":58,"post_id":28,"path":"https:\/\/source.unsplash.com\/random","type":"image","created_at":"2022-11-20T15:33:21.000000Z","updated_at":"2022-11-20T15:33:21.000000Z"}]},{"id":52,"user_id":27,"body":"Molestias officiis hic architecto enim. Eligendi natus in in qui. Eveniet cupiditate soluta ut voluptatem quas beatae maiores.","can_sharing":1,"can_comment":1,"post_id":0,"created_at":"2022-11-20T15:33:21.000000Z","updated_at":"2022-11-20T15:33:21.000000Z","files":[{"id":25,"post_id":52,"path":"https:\/\/source.unsplash.com\/random","type":"image","created_at":"2022-11-20T15:33:21.000000Z","updated_at":"2022-11-20T15:33:21.000000Z"},{"id":37,"post_id":52,"path":"https:\/\/source.unsplash.com\/random","type":"image","created_at":"2022-11-20T15:33:21.000000Z","updated_at":"2022-11-20T15:33:21.000000Z"}]},{"id":76,"user_id":15,"body":"Sequi aperiam omnis quo consequatur tempora autem. Nisi nihil eos voluptatem delectus sapiente nihil. Natus asperiores accusamus et. Necessitatibus facilis iste laborum labore.","can_sharing":1,"can_comment":1,"post_id":0,"created_at":"2022-11-20T15:33:21.000000Z","updated_at":"2022-11-20T15:33:21.000000Z","files":[{"id":11,"post_id":76,"path":"https:\/\/source.unsplash.com\/random","type":"image","created_at":"2022-11-20T15:33:21.000000Z","updated_at":"2022-11-20T15:33:21.000000Z"},{"id":50,"post_id":76,"path":"https:\/\/source.unsplash.com\/random","type":"image","created_at":"2022-11-20T15:33:21.000000Z","updated_at":"2022-11-20T15:33:21.000000Z"}]},{"id":78,"user_id":12,"body":"Vitae doloremque sed iste error corrupti natus aliquam. Omnis saepe non odit qui iure ipsum. Magnam inventore perferendis voluptas quis amet optio a.","can_sharing":1,"can_comment":1,"post_id":0,"created_at":"2022-11-20T15:33:21.000000Z","updated_at":"2022-11-20T15:33:21.000000Z","files":[{"id":72,"post_id":78,"path":"https:\/\/source.unsplash.com\/random","type":"image","created_at":"2022-11-20T15:33:21.000000Z","updated_at":"2022-11-20T15:33:21.000000Z"}]},{"id":84,"user_id":9,"body":"Natus similique qui dolores non dolorem. Voluptatem nihil dolorem dolor velit rerum voluptas et unde. Exercitationem ut et et.","can_sharing":1,"can_comment":1,"post_id":0,"created_at":"2022-11-20T15:33:21.000000Z","updated_at":"2022-11-20T15:33:21.000000Z","files":[{"id":51,"post_id":84,"path":"https:\/\/source.unsplash.com\/random","type":"image","created_at":"2022-11-20T15:33:21.000000Z","updated_at":"2022-11-20T15:33:21.000000Z"},{"id":62,"post_id":84,"path":"https:\/\/source.unsplash.com\/random","type":"image","created_at":"2022-11-20T15:33:21.000000Z","updated_at":"2022-11-20T15:33:21.000000Z"}]},{"id":86,"user_id":2,"body":"Dicta inventore debitis qui quia a deserunt blanditiis. Necessitatibus perspiciatis optio natus nihil vero. Beatae in harum quasi et deserunt iusto est amet.","can_sharing":1,"can_comment":1,"post_id":0,"created_at":"2022-11-20T15:33:21.000000Z","updated_at":"2022-11-20T15:33:21.000000Z","files":[]},{"id":89,"user_id":28,"body":"Recusandae ratione sint et natus ea consequuntur id. Vitae at perferendis qui in. Laboriosam architecto reprehenderit voluptas explicabo ipsa quaerat.","can_sharing":1,"can_comment":1,"post_id":0,"created_at":"2022-11-20T15:33:21.000000Z","updated_at":"2022-11-20T15:33:21.000000Z","files":[]},{"id":97,"user_id":26,"body":"Labore error est tenetur amet rerum quia distinctio. Provident dolor et ut natus. Reiciendis nihil corrupti cumque est sed ut qui quo. Rerum aut aut fugiat repellendus rerum.","can_sharing":1,"can_comment":1,"post_id":0,"created_at":"2022-11-20T15:33:21.000000Z","updated_at":"2022-11-20T15:33:21.000000Z","files":[]},{"id":99,"user_id":16,"body":"Exercitationem voluptate quod vel. Quo voluptatum autem deleniti porro ab quae. Vel non unde et natus.","can_sharing":1,"can_comment":1,"post_id":0,"created_at":"2022-11-20T15:33:21.000000Z","updated_at":"2022-11-20T15:33:21.000000Z","files":[]},{"id":100,"user_id":15,"body":"Dolore occaecati sequi harum sit veniam quia dolorem. Doloremque odio architecto natus magni possimus ratione. Voluptate molestiae quod enim non.","can_sharing":1,"can_comment":1,"post_id":0,"created_at":"2022-11-20T15:33:21.000000Z","updated_at":"2022-11-20T15:33:21.000000Z","files":[{"id":9,"post_id":100,"path":"https:\/\/source.unsplash.com\/random","type":"image","created_at":"2022-11-20T15:33:21.000000Z","updated_at":"2022-11-20T15:33:21.000000Z"}]}]}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -90,7 +90,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"status":true,"message":"post","data":{"posts":[{"id":20,"user_id":1,"body":"Corporis et est veniam ut iste est. Ducimus atque qui ut quia. Ex rem adipisci ducimus consectetur in laborum.","created_at":"2022-11-16T19:25:31.000000Z","updated_at":"2022-11-16T19:25:31.000000Z","comments":[{"id":98,"user_id":50,"post_id":20,"body":"Ratione ipsam iure iusto molestias blanditiis. Ut sunt omnis possimus ut et et. Et maiores tempora dolores voluptates et blanditiis praesentium.","created_at":"2022-11-16T19:25:32.000000Z","updated_at":"2022-11-16T19:25:32.000000Z"}],"files":[{"id":75,"post_id":20,"path":"https:\/\/source.unsplash.com\/random","type":"image","created_at":"2022-11-16T19:25:31.000000Z","updated_at":"2022-11-16T19:25:31.000000Z"}]},{"id":36,"user_id":1,"body":"Et similique occaecati illum sunt et non dolores. Qui perferendis autem aspernatur laborum odio. Ut culpa assumenda ea perferendis. Deserunt est non non cupiditate ut.","created_at":"2022-11-16T19:25:31.000000Z","updated_at":"2022-11-16T19:25:31.000000Z","comments":[{"id":55,"user_id":35,"post_id":36,"body":"Et necessitatibus veritatis neque vel. Consequatur est molestiae rerum eum. Ducimus maiores ratione est perspiciatis laboriosam alias mollitia odio. Illum aut veritatis consequatur et.","created_at":"2022-11-16T19:25:32.000000Z","updated_at":"2022-11-16T19:25:32.000000Z"},{"id":58,"user_id":22,"post_id":36,"body":"Error eos suscipit deleniti odit animi perferendis illo. Nisi quas voluptates occaecati doloremque reiciendis. Qui est modi vitae et ut. Dolores veritatis dolor et tempora ut a et.","created_at":"2022-11-16T19:25:32.000000Z","updated_at":"2022-11-16T19:25:32.000000Z"}],"files":[{"id":18,"post_id":36,"path":"https:\/\/source.unsplash.com\/random","type":"image","created_at":"2022-11-16T19:25:31.000000Z","updated_at":"2022-11-16T19:25:31.000000Z"}]}]}}'
+        content: '{"status":true,"message":"post","data":{"posts":[{"id":36,"user_id":1,"body":"Sapiente voluptates odio voluptatem aspernatur exercitationem ex. Molestias labore vero nihil rerum qui ullam.","can_sharing":1,"can_comment":1,"post_id":0,"created_at":"2022-11-20T15:33:21.000000Z","updated_at":"2022-11-20T15:33:21.000000Z","comments":[],"files":[{"id":23,"post_id":36,"path":"https:\/\/source.unsplash.com\/random","type":"image","created_at":"2022-11-20T15:33:21.000000Z","updated_at":"2022-11-20T15:33:21.000000Z"},{"id":29,"post_id":36,"path":"https:\/\/source.unsplash.com\/random","type":"image","created_at":"2022-11-20T15:33:21.000000Z","updated_at":"2022-11-20T15:33:21.000000Z"}]},{"id":39,"user_id":1,"body":"Autem dolore dolorem aperiam qui iste quaerat. Aut nihil vel fugit consequatur.","can_sharing":1,"can_comment":1,"post_id":0,"created_at":"2022-11-20T15:33:21.000000Z","updated_at":"2022-11-20T15:33:21.000000Z","comments":[{"id":115,"user_id":18,"post_id":39,"body":"Eligendi quod culpa eos. Velit voluptas eum asperiores omnis impedit rerum. Sunt consequatur autem repellat corporis laboriosam eos sit consequatur.","created_at":"2022-11-20T15:33:22.000000Z","updated_at":"2022-11-20T15:33:22.000000Z"}],"files":[]},{"id":75,"user_id":1,"body":"Aut architecto amet rerum soluta aut aut ab. Voluptas alias consequatur esse voluptas sit totam. Omnis qui velit autem dolorum.","can_sharing":1,"can_comment":1,"post_id":0,"created_at":"2022-11-20T15:33:21.000000Z","updated_at":"2022-11-20T15:33:21.000000Z","comments":[],"files":[]},{"id":82,"user_id":1,"body":"Voluptas neque qui asperiores nihil molestiae non vel. Sequi reprehenderit aut dolores quas. Animi facilis quod dicta aut ea ut.","can_sharing":1,"can_comment":1,"post_id":0,"created_at":"2022-11-20T15:33:21.000000Z","updated_at":"2022-11-20T15:33:21.000000Z","comments":[{"id":27,"user_id":14,"post_id":82,"body":"Similique aliquam vel similique qui quas in aut. Laudantium reiciendis id molestias veniam. Necessitatibus tempora perspiciatis id voluptas eum reiciendis dicta. Dicta qui nihil voluptatem enim.","created_at":"2022-11-20T15:33:22.000000Z","updated_at":"2022-11-20T15:33:22.000000Z"}],"files":[]},{"id":101,"user_id":1,"body":null,"can_sharing":1,"can_comment":1,"post_id":0,"created_at":"2022-11-20T15:34:14.000000Z","updated_at":"2022-11-20T15:34:14.000000Z","comments":[],"files":[]},{"id":102,"user_id":1,"body":null,"can_sharing":1,"can_comment":1,"post_id":1,"created_at":"2022-11-20T15:35:04.000000Z","updated_at":"2022-11-20T15:35:04.000000Z","comments":[],"files":[]},{"id":103,"user_id":1,"body":null,"can_sharing":1,"can_comment":1,"post_id":1,"created_at":"2022-11-20T15:35:59.000000Z","updated_at":"2022-11-20T15:35:59.000000Z","comments":[],"files":[]},{"id":104,"user_id":1,"body":null,"can_sharing":1,"can_comment":1,"post_id":3,"created_at":"2022-11-20T15:37:36.000000Z","updated_at":"2022-11-20T15:37:36.000000Z","comments":[],"files":[]}]}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -128,11 +128,11 @@ endpoints:
         name: post_id
         description: 'The ID of the post.'
         required: true
-        example: 1
+        example: 2
         type: integer
         custom: []
     cleanUrlParameters:
-      post_id: 1
+      post_id: 2
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -140,8 +140,8 @@ endpoints:
     fileParameters: []
     responses:
       -
-        status: 200
-        content: '{"status":true,"message":"post","data":{"posts":{"id":1,"user_id":19,"body":"Ea quibusdam laboriosam minus expedita quidem iure. Ipsa quisquam impedit incidunt rem fuga. Harum delectus officia quia sed. Omnis voluptatem neque non earum.","created_at":"2022-11-16T19:25:31.000000Z","updated_at":"2022-11-16T19:25:31.000000Z","comments":[],"files":[{"id":17,"post_id":1,"path":"https:\/\/source.unsplash.com\/random","type":"image","created_at":"2022-11-16T19:25:31.000000Z","updated_at":"2022-11-16T19:25:31.000000Z"}]}}}'
+        status: 404
+        content: '{"status":false,"message":"Not found"}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -194,7 +194,74 @@ endpoints:
     auth:
       - queryParameters
       - apiKey
-      - V4v15gcaE3Da6fekhZ6b8dP
+      - d1Evb5PVc6aakZ36gh4Df8e
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/v1/posts/{post_id}/share'
+    metadata:
+      groupName: Post
+      groupDescription: |-
+
+        APIs for Posts
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'share post'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      post_id:
+        name: post_id
+        description: 'The ID of the post.'
+        required: true
+        example: 2
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      post_id: 2
+    queryParameters:
+      apiKey:
+        name: apiKey
+        description: 'Authentication key.'
+        required: true
+        example: '{YOUR_AUTH_KEY}'
+        type: string
+        custom: []
+    cleanQueryParameters:
+      apiKey: '{YOUR_AUTH_KEY}'
+    bodyParameters:
+      body:
+        name: body
+        description: ''
+        required: false
+        example: eaque
+        type: string
+        custom: []
+      can_comment:
+        name: can_comment
+        description: ''
+        required: false
+        example: false
+        type: boolean
+        custom: []
+    cleanBodyParameters:
+      body: eaque
+      can_comment: false
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - queryParameters
+      - apiKey
+      - a1dPbgE6ak4Dcfvh3V5e68Z
     controller: null
     method: null
     route: null
@@ -222,11 +289,11 @@ endpoints:
         name: post_id
         description: 'The ID of the post.'
         required: true
-        example: 1
+        example: 2
         type: integer
         custom: []
     cleanUrlParameters:
-      post_id: 1
+      post_id: 2
     queryParameters:
       apiKey:
         name: apiKey
@@ -245,7 +312,7 @@ endpoints:
     auth:
       - queryParameters
       - apiKey
-      - 4a5dPf36Dkhcag86VZbEv1e
+      - agb546hVDcdE1eZv863kfaP
     controller: null
     method: null
     route: null
@@ -273,11 +340,11 @@ endpoints:
         name: post_id
         description: 'The ID of the post.'
         required: true
-        example: 1
+        example: 2
         type: integer
         custom: []
     cleanUrlParameters:
-      post_id: 1
+      post_id: 2
     queryParameters:
       apiKey:
         name: apiKey
@@ -296,7 +363,7 @@ endpoints:
     auth:
       - queryParameters
       - apiKey
-      - hfVagec1dDPba4vEk635Z68
+      - kVa8ePb6d4h3165gcfavZDE
     controller: null
     method: null
     route: null

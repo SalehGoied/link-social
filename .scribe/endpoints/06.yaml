@@ -26,11 +26,11 @@ endpoints:
         name: post_id
         description: 'The ID of the post.'
         required: true
-        example: 1
+        example: 2
         type: integer
         custom: []
     cleanUrlParameters:
-      post_id: 1
+      post_id: 2
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -38,8 +38,8 @@ endpoints:
     fileParameters: []
     responses:
       -
-        status: 200
-        content: '{"status":true,"message":"comments","data":{"comments":[]}}'
+        status: 404
+        content: '{"status":false,"message":"Not found"}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -90,7 +90,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"status":true,"message":"comment","data":{"comment":{"id":1,"user_id":44,"post_id":33,"body":"Voluptatem dolorem tempore maxime praesentium incidunt et et doloribus. Voluptas est est molestiae. Iure soluta natus modi tempora. Tempora ullam placeat quos sit eum eaque et.","created_at":"2022-11-16T19:25:31.000000Z","updated_at":"2022-11-16T19:25:31.000000Z"}}}'
+        content: '{"status":true,"message":"comment","data":{"comment":{"id":1,"user_id":20,"post_id":51,"body":"Autem corrupti doloribus animi voluptas. Consequuntur explicabo aspernatur sit quia.","created_at":"2022-11-20T15:33:21.000000Z","updated_at":"2022-11-20T15:33:21.000000Z"}}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -148,18 +148,18 @@ endpoints:
         name: body
         description: ''
         required: true
-        example: nesciunt
+        example: sed
         type: string
         custom: []
     cleanBodyParameters:
-      body: nesciunt
+      body: sed
     fileParameters: []
     responses: []
     responseFields: []
     auth:
       - queryParameters
       - apiKey
-      - gkchD56f143EVZ6a8Pabevd
+      - 4h31gEfcvDdbaZa6Pe5k8V6
     controller: null
     method: null
     route: null
@@ -207,18 +207,18 @@ endpoints:
         name: body
         description: ''
         required: true
-        example: delectus
+        example: a
         type: string
         custom: []
     cleanBodyParameters:
-      body: delectus
+      body: a
     fileParameters: []
     responses: []
     responseFields: []
     auth:
       - queryParameters
       - apiKey
-      - 661aEa5gvdfPDV3b8h4Zekc
+      - 1D8v4cZEh6ae6baVP35fkgd
     controller: null
     method: null
     route: null
@@ -269,7 +269,7 @@ endpoints:
     auth:
       - queryParameters
       - apiKey
-      - DP586eb3Ec6fdaaVg4kvhZ1
+      - 3EPab85d66kfhV41ZDvagec
     controller: null
     method: null
     route: null

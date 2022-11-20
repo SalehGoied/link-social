@@ -49,7 +49,7 @@ endpoints:
     auth:
       - queryParameters
       - apiKey
-      - Ekdh1vaP8Z6g4ceVfa6b3D5
+      - d58aeEbfa364ckhVZvD1g6P
     controller: null
     method: null
     route: null
@@ -109,7 +109,7 @@ endpoints:
     auth:
       - queryParameters
       - apiKey
-      - Dh4cEVaa8g6P5vedk6bf3Z1
+      - D4V56a83ZhvdPgcEe6fk1ba
     controller: null
     method: null
     route: null
