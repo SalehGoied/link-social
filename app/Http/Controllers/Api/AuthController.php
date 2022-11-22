@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\RegisterUserRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -23,28 +24,31 @@ class AuthController extends Controller
      * @param Request $request
      * @return User 
      */
-    public function registerUser(Request $request)
+    public function registerUser(RegisterUserRequest $request)
     {
-        //Validated
-        $validateUser = Validator::make($request->all(), 
-        [
-            'user_name' => 'required|string|unique:users,user_name',
-            'email' => 'required|email|unique:users,email',
-            'password' => 'required|confirmed|min:8',
-            'first_name'=>'required|string',
-            'last_name'=>'required|string',
-            'phone'=> 'nullable|string',
-            'age'=>'nullable|int',
-            'gender'=>'nullable|string',
-        ]);
+        // //Validated
+        // $validateUser = Validator::make($request->all(), 
+        // [
+        //     'user_name' => 'required|string|unique:users,user_name',
+        //     'email' => 'required|email|unique:users,email',
+        //     'password' => 'required|confirmed|min:8',
+        //     'first_name'=>'required|string',
+        //     'last_name'=>'required|string',
+        //     'phone'=> 'nullable|string',
+        //     'country'=>'nullable|string',
+        //     'status'=>'nullable|string',
+        //     'region'=> 'nullable|string',
+        //     'birthday'=>'nullable|date',
+        //     'gender'=>'nullable|string',
+        // ]);
 
-        if($validateUser->fails()){
-            return response()->json([
-                'status' => false,
-                'message' => 'validation error',
-                'errors' => $validateUser->errors()
-            ], 401);
-        }
+        // if($validateUser->fails()){
+        //     return response()->json([
+        //         'status' => false,
+        //         'message' => 'validation error',
+        //         'errors' => $validateUser->errors()
+        //     ], 401);
+        // }
         try {
             
 
@@ -53,7 +57,10 @@ class AuthController extends Controller
                 'first_name'=>$request->first_name,
                 'last_name'=>$request->last_name,
                 'phone'=> $request->phone,
-                'age'=>$request->age,
+                'birthday'=>$request->age,
+                'country'=>$request->age,
+                'status'=>$request->age,
+                'region'=>$request->age,
                 'gender'=>$request->gender,
                 'email' => $request->email,
                 'password' => Hash::make($request->password)

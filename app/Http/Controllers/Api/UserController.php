@@ -120,7 +120,10 @@ class UserController extends Controller
                 'first_name'=>'nullable|string',
                 'last_name'=>'nullable|string',
                 'phone'=> 'nullable',
-                'age'=>'nullable',
+                'country'=>'nullable|string',
+                'status'=>'nullable|string',
+                'region'=> 'nullable|string',
+                'birthday'=>'nullable|date',
                 'gender'=>'nullable',
             ]);
         if($request->has('user_name')){
@@ -171,7 +174,10 @@ class UserController extends Controller
             'first_name'=>$request->first_name? :$user->first_name,
             'last_name'=>$request->last_name?  :$user->last_name,
             'phone'=> $request->phone? :$user->phone,
-            'age'=> $request->age? :$user->age,
+            'birthday'=> $request->birthday? :$user->birthday,
+            'country'=> $request->country? :$user->country,
+            'status'=> $request->status? :$user->status,
+            'region'=> $request->region? :$user->region,
             'gender'=>$request->gender? :$user->gender,
         ]);
         

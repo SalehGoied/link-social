@@ -24,7 +24,10 @@ class UserFactory extends Factory
             'last_name'=> fake()->lastName(),
             'email' => fake()->unique()->safeEmail(),
             'phone' =>fake()->phoneNumber(),
-            'age' => random_int(15, 65),
+            'birthday' => fake()->dateTimeBetween('-70 years', '-10 years', null),
+            'country' => fake()->country(),
+            'status' => fake()->randomElement(['married', 'single', 'engaged']),
+            'region'=> fake()->word(),
             'gender' => fake()->randomElement(['male', 'female']),
             'email_verified_at' => now(),
             'password' => Hash::make('password'), // password
