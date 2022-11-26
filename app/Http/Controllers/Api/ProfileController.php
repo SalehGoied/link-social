@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\UpdateProfileRequest;
 use App\Models\Profile;
 use App\Models\ProfileImage;
 use Illuminate\Support\Facades\Auth;
@@ -79,41 +80,19 @@ class ProfileController extends Controller
      * @param Request $request
      * @return Profile
      */
-    public function update(Request $request){
+    public function update(UpdateProfileRequest $request){
 
         $profile = auth()->user()->profile;
 
         if ($request->hasFile('avatar')){
-            $validatefile = Validator::make([$request->avatar],  [ 'avatar' => 'mimes:jpeg,jpg,png,gif|max:10000' ]);
-
-            if($validatefile->fails()){
-                return response()->json([
-                    'status' => false,
-                    'message' => 'validation error',
-                    'errors' => $validatefile->errors()
-                ], 400);
-            }
-            
-            $path_avatat = $this->image($request->file('avatar'), 'profile', 'avatar', $profile->id);
+            $path_avatat = $this->image($request->file('avatar'), 'avatar', $profile->id);
         }
         else{
             $path_avatat = $profile->avatar;
         }
 
         if ($request->hasFile('cover')){
-            $validatefile = Validator::make([$request->cover],  [ 'cover' => 'mimes:jpeg,jpg,png,gif|max:10000' ]);
-
-            if($validatefile->fails()){
-                return response()->json([
-                    'status' => false,
-                    'message' => 'validation error',
-                    'errors' => $validatefile->errors()
-                ], 400);
-            }
-
-            
-
-            $path_cover = $this->image($request->file('cover'), 'profile', 'cover', $profile->id);
+            $path_cover = $this->image($request->file('cover'), 'cover', $profile->id);
         }
         else{
             $path_cover = $profile->avatar;
@@ -145,10 +124,7 @@ class ProfileController extends Controller
         ], 200);
     }
 
-    function image($image, $path, $type, $profile_id){
-        // $filename = $type.'_'.uniqid(). "." . $image->getClientOriginalExtension();
-        // $src = 'uploads/'.$path.'/'.$filename;
-        // Image::make($image)->save(public_path($src));
+    function image($image, $type, $profile_id){
 
         $response = cloudinary()->upload($image->getRealPath())->getSecurePath();
 

@@ -4,6 +4,7 @@ namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Intervention\Image\Exception\NotFoundException;
+use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Throwable;
 
@@ -49,8 +50,17 @@ class Handler extends ExceptionHandler
             if($request->is('api/*')){
                 return response()->json([
                     'status'=> false,
-                    'message'=> 'Not found',
+                    'message'=> 'Not Found.',
                 ], 404);
+            }
+        });
+
+        $this->renderable(function (AccessDeniedHttpException $e, $request) {
+            if($request->is('api/*')){
+                return response()->json([
+                    'status'=> false,
+                    'message'=> 'forbidden, Invalid tenant ID.',
+                ], 403);
             }
         });
     }

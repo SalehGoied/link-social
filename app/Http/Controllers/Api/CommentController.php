@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreCommentRequest;
+use App\Http\Requests\UpdateCommentRequest;
 use App\Models\Comment;
 use App\Models\Post;
 use Illuminate\Http\Request;
@@ -55,24 +57,7 @@ class CommentController extends Controller
      * @param Request $request, Post $post
      * @return Comment
      */
-    public function store(Request $request, Post $post){
-
-        if(! $post->can_comment){
-            return response()->json([
-                'status' => false,
-                'message' => "cannot comment on this post",
-            ], 403);
-        }
-        
-        $validateComment = Validator::make($request->all(), [ 'body'=>'required|string']);
-
-        if($validateComment->fails()){
-            return response()->json([
-                'status' => false,
-                'message' => 'validation error',
-                'errors' => $validateComment->errors()
-            ], 400);
-        }
+    public function store(StoreCommentRequest $request, Post $post){
 
         /**
          * @var $user
@@ -102,16 +87,7 @@ class CommentController extends Controller
      * @param Comment $comment
      * @return Comment
      */
-    public function update(Request $request, Comment $comment){
-
-        if(! (auth()->id() == $comment->user_id)){
-            return response()->json([
-                'status' => false,
-                'message' => "you can't update this comment",
-            ], 403);
-        }
-
-        $request->validate(['body' => 'required|string']);
+    public function update(UpdateCommentRequest $request, Comment $comment){
 
         $comment->update(['body'=> $request->body,]);
 

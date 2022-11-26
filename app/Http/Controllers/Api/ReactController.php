@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreReactRequest;
+use App\Http\Requests\UpdateReactRequest;
 use App\Models\Post;
 use App\Models\React;
 use Illuminate\Http\Request;
@@ -30,16 +32,8 @@ class ReactController extends Controller
         ], 200);
     }
 
-    public function react(Request $request, Post $post){
-
-        $validateReact = Validator::make($request->all(), [ 'type'=>'nullable|integer|between:1,5']);
-        if($validateReact->fails()){
-            return response()->json([
-                'status' => false,
-                'message' => 'validation error',
-                'errors' => $validateReact->errors()
-            ], 400);
-        }
+    public function react(StoreReactRequest $request, Post $post){
+        
         /**
          * @var $user
          */
@@ -64,23 +58,7 @@ class ReactController extends Controller
         ], 200);
     }
 
-    public function update(Request $request, React $react){
-        if(! (auth()->id() == $react->user_id)){
-            return response()->json([
-                'status' => false,
-                'message' => "you can't update this",
-            ], 404);
-        }
-
-        $validateReact = Validator::make($request->all(), [ 'type'=>'required|integer|between:1,5']);
-
-        if($validateReact->fails()){
-            return response()->json([
-                'status' => false,
-                'message' => 'validation error',
-                'errors' => $validateReact->errors()
-            ], 400);
-        }
+    public function update(UpdateReactRequest $request, React $react){
 
         $react->update([
             'type'=> $request->type,

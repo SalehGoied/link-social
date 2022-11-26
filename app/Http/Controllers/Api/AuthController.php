@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\LoginUSerRequest;
 use App\Http\Requests\RegisterUserRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -26,41 +27,16 @@ class AuthController extends Controller
      */
     public function registerUser(RegisterUserRequest $request)
     {
-        // //Validated
-        // $validateUser = Validator::make($request->all(), 
-        // [
-        //     'user_name' => 'required|string|unique:users,user_name',
-        //     'email' => 'required|email|unique:users,email',
-        //     'password' => 'required|confirmed|min:8',
-        //     'first_name'=>'required|string',
-        //     'last_name'=>'required|string',
-        //     'phone'=> 'nullable|string',
-        //     'country'=>'nullable|string',
-        //     'status'=>'nullable|string',
-        //     'region'=> 'nullable|string',
-        //     'birthday'=>'nullable|date',
-        //     'gender'=>'nullable|string',
-        // ]);
-
-        // if($validateUser->fails()){
-        //     return response()->json([
-        //         'status' => false,
-        //         'message' => 'validation error',
-        //         'errors' => $validateUser->errors()
-        //     ], 401);
-        // }
         try {
-            
-
             $user = User::create([
                 'user_name' => $request->user_name,
                 'first_name'=>$request->first_name,
                 'last_name'=>$request->last_name,
                 'phone'=> $request->phone,
-                'birthday'=>$request->age,
-                'country'=>$request->age,
-                'status'=>$request->age,
-                'region'=>$request->age,
+                'birthday'=>$request->birthday,
+                'country'=>$request->country,
+                'status'=>$request->status,
+                'region'=>$request->region,
                 'gender'=>$request->gender,
                 'email' => $request->email,
                 'password' => Hash::make($request->password)
@@ -89,21 +65,8 @@ class AuthController extends Controller
      * @param Request $request
      * @return User
      */
-    public function loginUser(Request $request)
+    public function loginUser(LoginUSerRequest $request)
     {
-        $validateUser = Validator::make($request->all(), 
-        [
-            'email' => 'required|email',
-            'password' => 'required'
-        ]);
-
-        if($validateUser->fails()){
-            return response()->json([
-                'status' => false,
-                'message' => 'validation error',
-                'errors' => $validateUser->errors()
-            ], 401);
-        }
         try {
 
             if(! Auth::attempt($request->only(['email', 'password']))){

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\UpdateUserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -108,39 +109,9 @@ class UserController extends Controller
      * @return User
      */
 
-    public function update(Request $request){
+    public function update(UpdateUserRequest $request){
 
         $user = Auth::user();
-
-        $validateUser = Validator::make($request->all(), 
-            [
-                'user_name' => 'nullable|string',
-                'current_password'=> 'nullable|string',
-                'new_password' => 'nullable|confirmed|min:8',
-                'first_name'=>'nullable|string',
-                'last_name'=>'nullable|string',
-                'phone'=> 'nullable',
-                'country'=>'nullable|string',
-                'status'=>'nullable|string',
-                'region'=> 'nullable|string',
-                'birthday'=>'nullable|date',
-                'gender'=>'nullable',
-            ]);
-        if($request->has('user_name')){
-            $validate_user_name = Validator::make($request->all(), 
-            [
-                'user_name' => 'required|string|unique:users,user_name',
-            ]);
-
-            if($validate_user_name->fails()){
-                return response()->json([
-                    'status' => false,
-                    'message' => 'validation error',
-                    'errors' => $validate_user_name->errors()
-                ], 400);
-            }
-
-        }
 
         if($request->has('current_password')){
 
@@ -151,18 +122,7 @@ class UserController extends Controller
                 ], 401);
             }
 
-            $validatepass = Validator::make($request->all(), 
-            [
-                'new_password' => 'required|confirmed|min:8',
-            ]);
-
-            if($validatepass->fails()){
-                return response()->json([
-                    'status' => false,
-                    'message' => 'validation error',
-                    'errors' => $validatepass->errors()
-                ], 401);
-            }
+            $request->validate(['new_password' => 'required|confirmed|min:8']);
 
             User::find($user->id)->update([
                 'password' =>Hash::make($request->new_password),

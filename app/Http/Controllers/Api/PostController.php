@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\PostRequest;
 use App\Models\Post;
 use App\Models\PostFile;
 use App\Models\User;
@@ -97,7 +98,7 @@ class PostController extends Controller
      * @param Request $request
      * @return Post
      */
-    public function store(Request $request){
+    public function store(PostRequest $request){
         /**
          * @var $user
          */
@@ -105,24 +106,10 @@ class PostController extends Controller
         $post = $user->posts()->create();
 
         if ($request->hasFile('files')){
-            
-            $validatefile = $this->storeFile($post ,$request->file('files'));
-
-            if($validatefile['status'] == false){
-                $post->destory();
-                return response()->json([
-                    'status' => false,
-                    'message' => 'validation error',
-                    'errors' => $validatefile['errors'],
-                ], 400);
-            }
+            $this->storeFile($post ,$request->file('files'));
         }
 
-        $post->update([
-            'body' => $request->body?? null,
-            'can_comment' => $request->can_comment?:1,
-            'can_sharing' => $request->can_sharing?:1,
-        ]);
+        $post->update($request->all());
         
         
         if(! $post->body && ! $post->files->count()){
@@ -150,7 +137,7 @@ class PostController extends Controller
      * @return Post
      */
 
-    public function update(Request $request, Post $post){
+    public function update(PostRequest $request, Post $post){
 
         if(! (auth()->id() == $post->user_id)){
             return response()->json([
@@ -160,21 +147,13 @@ class PostController extends Controller
         }
 
         if ($request->hasFile('files') && ! $post->post_id){
-            
-            $validatefile = $this->storeFile($post ,$request->file('files'));
-            if($validatefile['status'] == false){
-                return response()->json([
-                    'status' => false,
-                    'message' => 'validation error',
-                    'errors' => $validatefile['errors']
-                ], 400);
-            }
+            $this->storeFile($post ,$request->file('files'));
         }
 
         $post->update([
             'body' => $request->body?? $post->body,
-            'can_comment' => $request->can_comment?:$post->can_comment,
-            'can_sharing' => $request->can_sharing?:$post->can_sharing,
+            'can_comment' => isset($request->can_comment)?$request->can_comment:$post->can_comment,
+            'can_sharing' => isset($request->can_sharing)?$request->can_sharing:$post->can_comment,
         ]);
         
         
@@ -241,7 +220,7 @@ class PostController extends Controller
 
         $request->validate(['body' => 'nullable|string', 'can_comment' => 'nullable|boolean']);
         
-        $post_id = $post->post_id? :$post->id;
+        $post_id = $post->post_id?: $post->id;
 
         /**
          * @var $user
@@ -268,25 +247,9 @@ class PostController extends Controller
     // helper function
 
     function storeFile($post, $files){
+
         foreach($files as $file){
-
             $type = explode("/", $file->getMimeType())[0];
-            //Validate video
-            if($type == "video") {
-                $filevalidate = 'mimes:mp4,mov,ogg,qt|max:20000';
-            }
-            //Validate image
-            elseif ($type == "image") {
-                $filevalidate = 'mimes:jpeg,jpg,png,gif|max:10000';
-            }
-
-            $validatefile = Validator::make([$file],  [ 'file' => $filevalidate ]);
-
-            if($validatefile->fails()){
-                $post->destory();
-                return ['status'=> false, 'error'=> $validatefile->errors()];
-            }
-
             /**
              * @ignore cloudinary
              */
@@ -299,24 +262,7 @@ class PostController extends Controller
                 'type' => $type,
             ]);
 
-            // $path = $this->file($file, $type, $post->id);
         }
-        return ['status'=> true];
     }
 
-
-    // function file($file, $type, $post_id){
-        
-    //     $filename = $type.'_'.uniqid(). "." . $file->getClientOriginalExtension();
-    //     $path = public_path().'/uploads/posts/';
-    //     $file->move($path, $filename);
-
-    //     PostFile::create([
-    //         'post_id'=> $post_id,
-    //         'path'=> "uploads/posts/". $filename,
-    //         'type' => $type,
-    //     ]);
-        
-    //     return "uploads/posts/". $filename;
-    // }
 }
