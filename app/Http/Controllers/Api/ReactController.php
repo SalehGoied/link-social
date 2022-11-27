@@ -10,8 +10,21 @@ use App\Models\React;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
+/**
+ * @group React
+ *
+ * APIs for react
+ */
+
 class ReactController extends Controller
 {
+
+    /**
+     * reacts
+     * 
+     * @param Post $post
+     * @return $reacts
+     */
     public function index(Post $post){
         return response()->json([
             'status' => true,
@@ -21,6 +34,13 @@ class ReactController extends Controller
             ]
         ], 200);
     }
+
+    /**
+     * react
+     * 
+     * @param React $react
+     * @return $react
+     */
 
     public function show(React $react){
         return response()->json([
@@ -32,6 +52,15 @@ class ReactController extends Controller
         ], 200);
     }
 
+
+    /**
+     * store and unstore react
+     * 
+     * @authenticated
+     * @param Post $post
+     * @param StoreReactRequest $request
+     * @return $reacts
+     */
     public function react(StoreReactRequest $request, Post $post){
         
         /**
@@ -58,6 +87,15 @@ class ReactController extends Controller
         ], 200);
     }
 
+
+    /**
+     * update react
+     * 
+     * @authenticated
+     * @param React $react
+     * @param UpdateReactRequest $request
+     * @return $react
+     */
     public function update(UpdateReactRequest $request, React $react){
 
         $react->update([

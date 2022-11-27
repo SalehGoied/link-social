@@ -12,8 +12,20 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Intervention\Image\Facades\Image;
 
+/**
+ * @group profile image
+ *
+ * APIs for image of profile
+ */
 class ProfileImageController extends Controller
 {
+
+    /**
+     * images for profile
+     * 
+     * @param Profile $profile
+     * @return $profileImages
+     */
     public function index(Profile $profile){
         return response()->json([
             'status' => true,
@@ -23,6 +35,13 @@ class ProfileImageController extends Controller
             ]
         ], 200);
     }
+
+    /**
+     * image
+     * 
+     * @param ProfileImage $profileImage
+     * @return $profileImage
+     */
 
     public function show(ProfileImage $profileImage){
         return response()->json([
@@ -62,13 +81,21 @@ class ProfileImageController extends Controller
 
     // }
 
+    /**
+     * delete image
+     * 
+     * @authenticated
+     * @param ProfileImage $profileImage
+     * @return 
+     */
+
     public function delete(ProfileImage $profileImage){
 
         if(! (auth()->id() == $profileImage->profile->user_id)){
             return response()->json([
                     'status' => false,
                     'message' => "you can't delete this image",
-                ], 404);
+                ], 403);
         }
 
         $path = $profileImage->path;
@@ -78,9 +105,6 @@ class ProfileImageController extends Controller
         $profile->save();
 
         $profileImage->delete();
-        // if(File::exists($path)){
-        //     File::delete($path);
-        // }
 
         return response()->json([
             'status' => true,

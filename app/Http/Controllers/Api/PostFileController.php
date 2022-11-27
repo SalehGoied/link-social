@@ -8,8 +8,24 @@ use App\Models\PostFile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
+
+/**
+ * @group file post
+ *
+ * APIs for files of posts
+ */
+
+
 class PostFileController extends Controller
 {
+
+    /**
+     * files for one post
+     * 
+     * @param Post $post
+     * @return $files
+     */
+
     public function index(Post $post){
         return response()->json([
             'status' => true,
@@ -19,6 +35,13 @@ class PostFileController extends Controller
             ]
         ], 200);
     }
+
+    /**
+     * show one file
+     * 
+     * @param PostFile $postFile
+     * @return PostFile
+     */
 
     public function show(PostFile $postFile){
         return response()->json([
@@ -31,6 +54,13 @@ class PostFileController extends Controller
         ], 200);
     }
 
+    /**
+     * delete
+     * 
+     * @authenticated
+     * @param PostFile $postFile
+     * @return void
+     */
 
     public function delete(PostFile $postFile){
 
