@@ -49,7 +49,7 @@ endpoints:
     auth:
       - queryParameters
       - apiKey
-      - d58aeEbfa364ckhVZvD1g6P
+      - kdZg5chPEe683f1a6vVD4ab
     controller: null
     method: null
     route: null
@@ -109,7 +109,109 @@ endpoints:
     auth:
       - queryParameters
       - apiKey
-      - D4V56a83ZhvdPgcEe6fk1ba
+      - v6af851DhgdacZekVE34b6P
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/follow/{profile_id}/followers'
+    metadata:
+      groupName: Follow
+      groupDescription: |-
+
+        APIs for follow profile
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Show followers'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      profile_id:
+        name: profile_id
+        description: 'The ID of the profile.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      profile_id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"status":true,"message":"followers","data":{"followers":[{"id":50,"first_name":"Janice","last_name":"Romaguera","user_name":"Alexandre Hammes","phone":"+18437698934","birthday":"1986-01-19","country":"Vietnam","status":"engaged","region":"omnis","gender":"male","email":"uabshire@example.com","email_verified_at":"2022-11-26T15:44:34.000000Z","created_at":"2022-11-26T15:45:14.000000Z","updated_at":"2022-11-26T15:45:14.000000Z","pivot":{"profile_id":1,"user_id":50},"profile":{"id":50,"user_id":50,"description":"Eaque ducimus quia ea officia tenetur vel ut.","avatar":"https:\/\/source.unsplash.com\/random","cover":"https:\/\/source.unsplash.com\/random","created_at":"2022-11-26T15:45:14.000000Z","updated_at":"2022-11-26T15:50:41.000000Z"}},{"id":1,"first_name":"Toni","last_name":"Boyle","user_name":"Mr. Saige Koelpin","phone":"940.300.1727","birthday":"1975-08-28","country":"Uruguay","status":"engaged","region":"eos","gender":"male","email":"gottlieb.cassidy@example.com","email_verified_at":"2022-11-26T15:44:30.000000Z","created_at":"2022-11-26T15:44:34.000000Z","updated_at":"2022-11-26T15:44:34.000000Z","pivot":{"profile_id":1,"user_id":1},"profile":{"id":1,"user_id":1,"description":"Incidunt vel beatae nobis odio.","avatar":"https:\/\/source.unsplash.com\/random","cover":"https:\/\/source.unsplash.com\/random","created_at":"2022-11-26T15:44:35.000000Z","updated_at":"2022-11-26T15:45:15.000000Z"}},{"id":15,"first_name":"Mazie","last_name":"Kohler","user_name":"Dr. Ladarius Roob IV","phone":"928-304-3476","birthday":"1953-05-14","country":"Guadeloupe","status":"engaged","region":"doloribus","gender":"male","email":"barrett.zemlak@example.com","email_verified_at":"2022-11-26T15:44:31.000000Z","created_at":"2022-11-26T15:44:46.000000Z","updated_at":"2022-11-26T15:44:46.000000Z","pivot":{"profile_id":1,"user_id":15},"profile":{"id":15,"user_id":15,"description":"Magnam et earum nulla id rem sit.","avatar":"https:\/\/source.unsplash.com\/random","cover":"https:\/\/source.unsplash.com\/random","created_at":"2022-11-26T15:44:46.000000Z","updated_at":"2022-11-26T15:46:33.000000Z"}},{"id":25,"first_name":"Shanel","last_name":"Jacobs","user_name":"Emelia Bergstrom","phone":"469.969.0013","birthday":"1993-05-11","country":"Tunisia","status":"single","region":"sunt","gender":"female","email":"keenan18@example.org","email_verified_at":"2022-11-26T15:44:31.000000Z","created_at":"2022-11-26T15:44:54.000000Z","updated_at":"2022-11-26T15:44:54.000000Z","pivot":{"profile_id":1,"user_id":25},"profile":{"id":25,"user_id":25,"description":"Iste in sed et sint.","avatar":"https:\/\/source.unsplash.com\/random","cover":"https:\/\/source.unsplash.com\/random","created_at":"2022-11-26T15:44:54.000000Z","updated_at":"2022-11-26T15:47:45.000000Z"}},{"id":26,"first_name":"Bettie","last_name":"Lesch","user_name":"Rafael Kautzer II","phone":"1-818-214-5521","birthday":"1989-11-07","country":"Namibia","status":"single","region":"enim","gender":"male","email":"padberg.devyn@example.org","email_verified_at":"2022-11-26T15:44:32.000000Z","created_at":"2022-11-26T15:44:55.000000Z","updated_at":"2022-11-26T15:44:55.000000Z","pivot":{"profile_id":1,"user_id":26},"profile":{"id":26,"user_id":26,"description":"Provident ratione dolor atque illum mollitia eum et.","avatar":"https:\/\/source.unsplash.com\/random","cover":"https:\/\/source.unsplash.com\/random","created_at":"2022-11-26T15:44:55.000000Z","updated_at":"2022-11-26T15:47:46.000000Z"}},{"id":7,"first_name":"Eliezer","last_name":"Barton","user_name":"Barbara Bergstrom PhD","phone":"+1 (279) 637-8716","birthday":"1989-04-14","country":"Martinique","status":"married","region":"molestias","gender":"female","email":"kelly18@example.org","email_verified_at":"2022-11-26T15:44:30.000000Z","created_at":"2022-11-26T15:44:39.000000Z","updated_at":"2022-11-26T15:44:39.000000Z","pivot":{"profile_id":1,"user_id":7},"profile":{"id":7,"user_id":7,"description":"Omnis maxime eos dolores nobis ea quam.","avatar":"https:\/\/source.unsplash.com\/random","cover":"https:\/\/source.unsplash.com\/random","created_at":"2022-11-26T15:44:40.000000Z","updated_at":"2022-11-26T15:45:49.000000Z"}},{"id":49,"first_name":"Samir","last_name":"White","user_name":"Clementine Kling MD","phone":"223.887.4481","birthday":"1990-08-23","country":"Dominican Republic","status":"married","region":"magni","gender":"female","email":"green.maryjane@example.com","email_verified_at":"2022-11-26T15:44:34.000000Z","created_at":"2022-11-26T15:45:13.000000Z","updated_at":"2022-11-26T15:45:13.000000Z","pivot":{"profile_id":1,"user_id":49},"profile":{"id":49,"user_id":49,"description":"Culpa eum ratione ipsa voluptatem perspiciatis debitis.","avatar":"https:\/\/source.unsplash.com\/random","cover":"https:\/\/source.unsplash.com\/random","created_at":"2022-11-26T15:45:14.000000Z","updated_at":"2022-11-26T15:50:39.000000Z"}}]}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '50'
+          vary: Origin
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/follow/{profile_id}/following'
+    metadata:
+      groupName: Follow
+      groupDescription: |-
+
+        APIs for follow profile
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Show following'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      profile_id:
+        name: profile_id
+        description: 'The ID of the profile.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      profile_id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"status":true,"message":"following","data":{"following":[{"id":1,"user_id":1,"description":"Incidunt vel beatae nobis odio.","avatar":"https:\/\/source.unsplash.com\/random","cover":"https:\/\/source.unsplash.com\/random","created_at":"2022-11-26T15:44:35.000000Z","updated_at":"2022-11-26T15:45:15.000000Z","pivot":{"user_id":1,"profile_id":1}},{"id":7,"user_id":7,"description":"Omnis maxime eos dolores nobis ea quam.","avatar":"https:\/\/source.unsplash.com\/random","cover":"https:\/\/source.unsplash.com\/random","created_at":"2022-11-26T15:44:40.000000Z","updated_at":"2022-11-26T15:45:49.000000Z","pivot":{"user_id":1,"profile_id":7}},{"id":13,"user_id":13,"description":"Dolores molestiae impedit tenetur culpa.","avatar":"https:\/\/source.unsplash.com\/random","cover":"https:\/\/source.unsplash.com\/random","created_at":"2022-11-26T15:44:44.000000Z","updated_at":"2022-11-26T15:46:23.000000Z","pivot":{"user_id":1,"profile_id":13}},{"id":18,"user_id":18,"description":"Aut voluptatem unde dolorem excepturi est quia.","avatar":"https:\/\/source.unsplash.com\/random","cover":"https:\/\/source.unsplash.com\/random","created_at":"2022-11-26T15:44:48.000000Z","updated_at":"2022-11-26T15:46:46.000000Z","pivot":{"user_id":1,"profile_id":18}},{"id":19,"user_id":19,"description":"Fuga in repellendus sed dicta incidunt.","avatar":"https:\/\/source.unsplash.com\/random","cover":"https:\/\/source.unsplash.com\/random","created_at":"2022-11-26T15:44:49.000000Z","updated_at":"2022-11-26T15:46:57.000000Z","pivot":{"user_id":1,"profile_id":19}},{"id":34,"user_id":34,"description":"Sequi aut odit sunt aut iusto provident eum suscipit.","avatar":"https:\/\/source.unsplash.com\/random","cover":"https:\/\/source.unsplash.com\/random","created_at":"2022-11-26T15:45:02.000000Z","updated_at":"2022-11-26T15:48:39.000000Z","pivot":{"user_id":1,"profile_id":34}},{"id":39,"user_id":39,"description":"Dolorem qui nihil itaque provident nesciunt deleniti ipsam.","avatar":"https:\/\/source.unsplash.com\/random","cover":"https:\/\/source.unsplash.com\/random","created_at":"2022-11-26T15:45:06.000000Z","updated_at":"2022-11-26T15:49:13.000000Z","pivot":{"user_id":1,"profile_id":39}},{"id":45,"user_id":45,"description":"Consequatur numquam asperiores mollitia debitis.","avatar":"https:\/\/source.unsplash.com\/random","cover":"https:\/\/source.unsplash.com\/random","created_at":"2022-11-26T15:45:10.000000Z","updated_at":"2022-11-26T15:49:56.000000Z","pivot":{"user_id":1,"profile_id":45}},{"id":46,"user_id":46,"description":"Consequuntur eveniet velit fuga temporibus consequatur et eos animi.","avatar":"https:\/\/source.unsplash.com\/random","cover":"https:\/\/source.unsplash.com\/random","created_at":"2022-11-26T15:45:11.000000Z","updated_at":"2022-11-26T15:50:09.000000Z","pivot":{"user_id":1,"profile_id":46}}]}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '49'
+          vary: Origin
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
     controller: null
     method: null
     route: null

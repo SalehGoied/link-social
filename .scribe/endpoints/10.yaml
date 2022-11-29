@@ -1,0 +1,108 @@
+name: 'saved post'
+description: |-
+
+  APIs for save and unsave post and show it
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/v1/saved-posts
+    metadata:
+      groupName: 'saved post'
+      groupDescription: |-
+
+        APIs for save and unsave post and show it
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'show save post'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters:
+      apiKey:
+        name: apiKey
+        description: 'Authentication key.'
+        required: true
+        example: '{YOUR_AUTH_KEY}'
+        type: string
+        custom: []
+    cleanQueryParameters:
+      apiKey: '{YOUR_AUTH_KEY}'
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          vary: Origin
+        description: null
+        custom: []
+    responseFields: []
+    auth:
+      - queryParameters
+      - apiKey
+      - ce3aPEb5k86Vgf4aDdvh1Z6
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/v1/saved-posts/{post_id}'
+    metadata:
+      groupName: 'saved post'
+      groupDescription: |-
+
+        APIs for save and unsave post and show it
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Toggle save post'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      post_id:
+        name: post_id
+        description: 'The ID of the post.'
+        required: true
+        example: 9
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      post_id: 9
+    queryParameters:
+      apiKey:
+        name: apiKey
+        description: 'Authentication key.'
+        required: true
+        example: '{YOUR_AUTH_KEY}'
+        type: string
+        custom: []
+    cleanQueryParameters:
+      apiKey: '{YOUR_AUTH_KEY}'
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - queryParameters
+      - apiKey
+      - dDag85fbe41hEcP63aVvZ6k
+    controller: null
+    method: null
+    route: null
+    custom: []
