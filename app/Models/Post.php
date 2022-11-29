@@ -18,23 +18,28 @@ class Post extends Model
         'post_id',
     ];
 
-    public function user(){
+    public function user()
+    {
         return $this->belongsTo(User::class);
     }
 
-    public function comments(){
+    public function comments()
+    {
         return $this->hasMany(Comment::class);
     }
 
-    public function files(){
+    public function files()
+    {
         return $this->hasMany(PostFile::class);
     }
 
-    public function reacts(){
+    public function reacts()
+    {
         return $this->hasMany(React::class)->latest();
     }
 
-    public function saved_posts(){
+    public function saved_posts()
+    {
         return $this->hasMany(SavedPost::class)->latest();
     }
 
@@ -48,9 +53,10 @@ class Post extends Model
         return $this->hasMany(Post::class, 'post_id');
     }
 
-    public function destory(){
+    public function destory()
+    {
 
-        foreach($this->files as $file){
+        foreach ($this->files as $file) {
             // $path = $file->path;
             $file->delete();
 
@@ -59,11 +65,11 @@ class Post extends Model
             // }
         }
 
-        foreach($this->comments as $comment){
+        foreach ($this->comments as $comment) {
             $comment->delete();
         }
 
-        foreach($this->reacts as $react){
+        foreach ($this->reacts as $react) {
             $react->delete();
         }
 

@@ -62,8 +62,15 @@ Route::prefix('v1')->group(function(){
     });
 
     // follow
-    Route::post('/follow/{profile}', [FollowsController::class, 'store'])->middleware('auth:sanctum');
-    Route::get('/follow/{profile}', [FollowsController::class, 'show'])->middleware('auth:sanctum');
+    Route::controller(FollowsController::class)->prefix('/follow')->group(function (){
+
+        Route::post('/{profile}', 'store')->middleware('auth:sanctum');
+        Route::get('/{profile}', 'show')->middleware('auth:sanctum');
+        Route::get('/{profile}/followers', 'followers');
+        Route::get('/{profile}/following', 'following');
+        
+    });
+    
 
     // profile image
     Route::controller(ProfileImageController::class)->prefix('/images')->group(function (){

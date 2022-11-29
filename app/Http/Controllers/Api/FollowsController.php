@@ -58,4 +58,38 @@ class FollowsController extends Controller
             ]
         ], 200);
     }
+
+    /**
+     * Show followers
+     * 
+     * @param Profile $profile
+     * @return $followers
+     */
+    public function followers(Profile $profile){
+
+        return response()->json([
+            'status' => true,
+            'message' => 'followers',
+            'data'=> [
+                'followers'=> $profile->followers->load('profile'),
+            ]
+        ], 200);
+    }
+
+    /**
+     * Show following
+     * 
+     * @param Profile $profile
+     * @return $following
+     */
+    public function following(Profile $profile){
+
+        return response()->json([
+            'status' => true,
+            'message' => 'following',
+            'data'=> [
+                'following'=> $profile->user->following,
+            ]
+        ], 200);
+    }
 }
