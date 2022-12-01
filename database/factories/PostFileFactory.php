@@ -18,7 +18,7 @@ class PostFileFactory extends Factory
     {
         return [
             'post_id'=> random_int(1, 100),
-            'path' => 'https://source.unsplash.com/random',
+            'path' => 'https://picsum.photos/200',
             'type' => 'image',
         ];
     }

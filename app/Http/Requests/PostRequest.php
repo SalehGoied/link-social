@@ -13,7 +13,9 @@ class PostRequest extends FormRequest
      */
     // public function authorize()
     // {
-    //     return false;
+    //     $post = $this->route('post');
+
+    //     return $post->user_id == auth()->id();
     // }
 
     /**

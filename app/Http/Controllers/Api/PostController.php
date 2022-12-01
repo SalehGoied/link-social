@@ -46,14 +46,8 @@ class PostController extends Controller
             $posts->whereIn('user_id', $users)->with('files')->latest();
         }
 
-        return response()->json([
-            'status' => true,
-            'message' => 'posts',
-            'data'=>[
-                'posts' => $posts->get(),
-            ]
-            
-        ], 200);
+
+        return response()->success($posts->get(),'posts');
     }
 
 
@@ -63,14 +57,8 @@ class PostController extends Controller
      * @return $posts
      */
     public function showUserPosts(User $user){
-        return response()->json([
-            'status' => true,
-            'message' => 'post',
-            'data'=>[
-                'posts' => $user->posts->load('comments', 'files'),
-            ]
-            
-        ], 200);
+
+        return response()->success($user->posts->load('comments', 'files'),'posts');
     }
 
     /**
@@ -80,14 +68,7 @@ class PostController extends Controller
      */
     public function show(Post $post){
 
-        return response()->json([
-            'status' => true,
-            'message' => 'post',
-            'data'=>[
-                'posts' => $post->load('comments', 'files', 'parent'),
-            ]
-            
-        ], 200);
+        return response()->success($post->load('comments', 'files', 'parent'),'post');
     }
 
 
@@ -114,19 +95,10 @@ class PostController extends Controller
         
         if(! $post->body && ! $post->files->count()){
             $post->destory();
-            return response()->json([
-                'status' => false,
-                'message' => 'no content',
-            ], 400);
+            return response()->error('no content',400);
         }
 
-        return response()->json([
-            'status' => true,
-            'message' => 'New Post',
-            'data' => [
-                'post' => $post->load('files'),
-            ]
-        ], 200);
+        return response()->success($post->load('files'),'New Post');
     }
 
     /**
@@ -140,10 +112,7 @@ class PostController extends Controller
     public function update(PostRequest $request, Post $post){
 
         if(! (auth()->id() == $post->user_id)){
-            return response()->json([
-                    'status' => false,
-                    'message' => "you can't update this post",
-                ], 403);
+            return response()->error("you can't update this post", 403);
         }
 
         if ($request->hasFile('files') && ! $post->post_id){
@@ -159,19 +128,11 @@ class PostController extends Controller
         
         if(! $post->body && ! $post->files->count()){
             $post->destory();
-            return response()->json([
-                'status' => false,
-                'message' => 'no content',
-            ], 400);
+
+            return response()->error('No content',400);
         }
 
-        return response()->json([
-            'status' => true,
-            'message' => 'update Post',
-            'data' => [
-                'post' => $post->load('files'),
-            ]
-        ], 200);
+        return response()->success($post->load('files'),'Update Post');
 
     }
 
@@ -187,17 +148,11 @@ class PostController extends Controller
     public function delete(Post $post){
 
         if(! (auth()->id() == $post->user_id)){
-            return response()->json([
-                    'status' => false,
-                    'message' => "you can't delete this post",
-                ], 404);
+            return response()->error("you can't delete this post", 403);
         }
         $post->destory();
 
-        return response()->json([
-            'status' => true,
-            'message' => 'Post Deleted successfully',
-        ], 200);
+        return response()->success([], 'Post Deleted successfully');
     }
 
     /**
@@ -212,10 +167,7 @@ class PostController extends Controller
     public function share(Request $request, Post $post){
 
         if(! $post->can_sharing){
-            return response()->json([
-                'status' => false,
-                'message' => "cannot share this post",
-            ], 403);
+            return response()->error("Cannot share this post", 403);
         }
 
         $request->validate(['body' => 'nullable|string', 'can_comment' => 'nullable|boolean']);
@@ -233,13 +185,8 @@ class PostController extends Controller
             'can_comment'=> $request->can_comment??1,
         ]);
 
-        return response()->json([
-            'status' => true,
-            'message' => 'share Post',
-            'data' => [
-                'post' => $new_post->load('parent'),
-            ]
-        ], 200);
+        return response()->success($new_post->load('parent'),'Share Post');
+
     }
 
 
@@ -250,15 +197,12 @@ class PostController extends Controller
 
         foreach($files as $file){
             $type = explode("/", $file->getMimeType())[0];
-            /**
-             * @ignore cloudinary
-             */
 
-            $response = cloudinary()->upload($file->getRealPath())->getSecurePath();
+            $path= cloudinary()->upload($file->getRealPath())->getSecurePath();
 
             PostFile::create([
                 'post_id'=> $post->id,
-                'path'=> $response,
+                'path'=> $path,
                 'type' => $type,
             ]);
 

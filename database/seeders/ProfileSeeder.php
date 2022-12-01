@@ -19,8 +19,8 @@ class ProfileSeeder extends Seeder
         foreach(Profile::all() as $profile){
             $profile->update([
                 'description' => fake()->sentence(),
-                'avatar' => "https://source.unsplash.com/random",
-                'cover' => "https://source.unsplash.com/random",
+                'avatar' => "https://picsum.photos/200",
+                'cover' => "https://picsum.photos/200",
             ]);
 
             $i = rand(0, 10);
@@ -29,12 +29,12 @@ class ProfileSeeder extends Seeder
             }
             
             $profile->profileImages()->create([
-                'path'=> 'https://source.unsplash.com/random',
+                'path'=> 'https://picsum.photos/200',
                 'type'=> 'avatar',
             ]);
 
             $profile->profileImages()->create([
-                'path'=> 'https://source.unsplash.com/random',
+                'path'=> 'https://picsum.photos/200',
                 'type'=> 'cover',
             ]);
         }
