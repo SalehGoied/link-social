@@ -70,7 +70,7 @@ Run the database seeder and you're done
 
 ## Dependencies
 
-- [cloudinary](https://cloudinary.com/) - For store image in cloude.
+- [cloudinary](https://cloudinary.com/) - For store image in cloud.
 
 ## Folders
 
