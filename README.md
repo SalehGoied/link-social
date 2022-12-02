@@ -15,7 +15,7 @@
 
 Clone the repository
 
-    https://github.com/SalehGoied/link-social.git
+    git clone https://github.com/SalehGoied/link-social.git
 
 Switch to the repo folder
 
@@ -41,7 +41,7 @@ You can now access the server at http://localhost:8000
 
 **TL;DR command list**
 
-    https://github.com/SalehGoied/link-social.git
+    git clone https://github.com/SalehGoied/link-social.git
     cd link-social
     composer install
     cp .env.example .env
