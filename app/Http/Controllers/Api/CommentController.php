@@ -25,13 +25,8 @@ class CommentController extends Controller
      * @return $comments
      */
     public function index(Post $post){
-        return response()->json([
-            'status' => true,
-            'message' => 'comments',
-            'data'=>[
-                'comments' => $post->comments,
-            ]
-        ], 200);
+
+        return response()->success(['comments' => $post->comments],'Comments');
     }
 
     /**
@@ -40,13 +35,7 @@ class CommentController extends Controller
      * @return Comment
      */
     public function show(Comment $comment){
-        return response()->json([
-            'status' => true,
-            'message' => 'comment',
-            'data'=>[
-                'comment' => $comment,
-            ]
-        ], 200);
+        return response()->success(['comment' => $comment],'Comment');
     }
 
 
@@ -68,14 +57,7 @@ class CommentController extends Controller
             'body'=> $request->body,
         ]);
 
-        return response()->json([
-            'status' => true,
-            'message' => 'New comment',
-            'data'=>[
-                'comment' => $comment,
-            ]
-        ], 200);
-
+        return response()->success(['comment' => $comment],'New comment');
     }
 
 
@@ -91,13 +73,7 @@ class CommentController extends Controller
 
         $comment->update(['body'=> $request->body,]);
 
-        return response()->json([
-            'status' => true,
-            'message' => 'Comment updated successfuly',
-            'data'=>[
-                'comment' => $comment,
-            ]
-        ], 200);
+        return response()->success(['comment' => $comment],'Comment updated successfuly');
 
     }
     
@@ -114,17 +90,11 @@ class CommentController extends Controller
      */
     public function delete(Comment $comment){
         if(! (auth()->id() == $comment->user_id )&& ! (auth()->id() == $comment->post->user_id)){
-            return response()->json([
-                'status' => false,
-                'message' => "you can't delete this comment",
-            ], 404);
+            return response()->error("you can't delete this comment", 403);
         }
 
         $comment->delete();
 
-        return response()->json([
-            'status' => true,
-            'message' => 'Comment deleted successfuly',
-        ], 200);
+        return response()->success([],'Comment deleted successfuly');
     }
 }

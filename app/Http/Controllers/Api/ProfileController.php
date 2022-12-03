@@ -26,14 +26,8 @@ class ProfileController extends Controller
      * 
      * @return $profiles
      */
-    public function index(Request $request){
-        return response()->json([
-            'status' => true,
-            'message' => 'Profiles',
-            'data'=>[
-                'profiles' => Profile::all(),
-            ],
-        ], 200);
+    public function index(){
+        return response()->success(['profiles' => Profile::all(),], 'Profiles');
     }
 
     /**
@@ -43,15 +37,7 @@ class ProfileController extends Controller
      * @return Profile
      */
     public function show(Request $request, Profile $profile){
-        return response()->json([
-            'status' => true,
-            'message' => 'Profile',
-            'data'=> [
-                'profile' => $profile->load('followers', 'user.following'),
-                // 'followers' => $profile->followers,
-                // 'following' => $profile->user->following,
-            ],
-        ], 200);
+        return response()->success(['profile' => $profile->load('followers', 'user.following'),], 'Profile');
     }
 
     /**
@@ -62,13 +48,7 @@ class ProfileController extends Controller
      */
 
     public function showUser(Request $request, Profile $profile){
-        return response()->json([
-            'status' => true,
-            'message' => 'User for Profile',
-            'data'=>[
-                'user' => $profile->user,
-            ],
-        ], 200);
+        return response()->success(['user' => $profile->user,], 'User for Profile');
     }
 
 
@@ -103,7 +83,7 @@ class ProfileController extends Controller
             'cover' => $path_cover,
         ]);
 
-        return response($profile);
+        return response()->success(['profile' => $profile,], 'Update Profile');
     }
 
 
@@ -115,13 +95,7 @@ class ProfileController extends Controller
      * @return $images
      */
     public function showImages(Profile $profile){
-        return response()->json([
-            'status' => true,
-            'message' => 'profile Images for user: '. $profile->user->user_name,
-            'data'=>[
-                'images' => $profile->profileImages,
-            ]
-        ], 200);
+        return response()->success(['images' => $profile->profileImages,], 'profile Images for user: '. $profile->user->user_name);
     }
 
     function image($image, $type, $profile_id){

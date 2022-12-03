@@ -27,13 +27,7 @@ class ProfileImageController extends Controller
      * @return $profileImages
      */
     public function index(Profile $profile){
-        return response()->json([
-            'status' => true,
-            'message' => 'profile Images for user:'. $profile->user->user_name,
-            'data'=>[
-                'images' => $profile->profileImages,
-            ]
-        ], 200);
+        return response()->success(['images' => $profile->profileImages,], 'profile Images for user:'. $profile->user->user_name);
     }
 
     /**
@@ -44,13 +38,7 @@ class ProfileImageController extends Controller
      */
 
     public function show(ProfileImage $profileImage){
-        return response()->json([
-            'status' => true,
-            'message' => 'Image',
-            'data'=>[
-                'image' => $profileImage,
-            ]
-        ], 200);
+        return response()->success(['image' => $profileImage,], 'Image');
     }
 
     // public function update(Request $request, ProfileImage $profileImage){
@@ -92,10 +80,7 @@ class ProfileImageController extends Controller
     public function delete(ProfileImage $profileImage){
 
         if(! (auth()->id() == $profileImage->profile->user_id)){
-            return response()->json([
-                    'status' => false,
-                    'message' => "you can't delete this image",
-                ], 403);
+            return response()->error("you can't delete this image", 403);
         }
 
         $path = $profileImage->path;
@@ -106,9 +91,6 @@ class ProfileImageController extends Controller
 
         $profileImage->delete();
 
-        return response()->json([
-            'status' => true,
-            'message' => 'Image deleted successfaly ',
-        ], 200);
+        return response()->success([], 'Image deleted successfaly');
     }
 }

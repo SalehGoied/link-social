@@ -23,13 +23,7 @@ class SavedPostController extends Controller
      * @return $saved_posts
      */
     public function index(){
-        return response()->json([
-            'status' => true,
-            'message' => 'saved posts',
-            'data'=>[
-                'saved_posts'=> auth()->user()->saved_posts,
-            ],
-        ], 200);
+        return response()->success(['saved_posts'=> auth()->user()->saved_posts,], 'Saved posts');
     }
 
 
@@ -58,12 +52,7 @@ class SavedPostController extends Controller
         }
 
         $saved_posts = SavedPost::where('user_id', $user->id)->latest()->get();
-        return response()->json([
-            'status' => true,
-            'message' => 'saved posts',
-            'data'=>[
-                'saved_posts'=> $saved_posts,
-            ],
-        ], 200);
+
+        return response()->success(['saved_posts'=> $saved_posts], 'Saved posts');
     }
 }

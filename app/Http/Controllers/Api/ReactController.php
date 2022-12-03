@@ -26,13 +26,7 @@ class ReactController extends Controller
      * @return $reacts
      */
     public function index(Post $post){
-        return response()->json([
-            'status' => true,
-            'message' => 'Reacts',
-            'data'=>[
-                'reacts' => $post->reacts,
-            ]
-        ], 200);
+        return response()->success(['reacts' => $post->reacts,], 'Reacts');
     }
 
     /**
@@ -43,13 +37,7 @@ class ReactController extends Controller
      */
 
     public function show(React $react){
-        return response()->json([
-            'status' => true,
-            'message' => 'React',
-            'data'=>[
-                'react' => $react,
-            ]
-        ], 200);
+        return response()->success(['react' => $react,], 'React');
     }
 
 
@@ -77,14 +65,7 @@ class ReactController extends Controller
                 'type'=> $request->type?? 1,
             ]);
         }
-
-        return response()->json([
-            'status' => true,
-            'message' => 'New react',
-            'data'=>[
-                'reacts' => $post->reacts,
-            ]
-        ], 200);
+        return response()->success(['reacts' => $post->reacts,], 'New react');
     }
 
 
@@ -102,13 +83,7 @@ class ReactController extends Controller
             'type'=> $request->type,
         ]);
 
-        return response()->json([
-            'status' => true,
-            'message' => 'React updated successfully',
-            'data'=>[
-                'react' => $react,
-            ]
-        ], 200);
+        return response()->success(['react' => $react,], 'React updated successfully');
     }
 
     // public function delete(React $react){

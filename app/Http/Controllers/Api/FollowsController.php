@@ -30,14 +30,9 @@ class FollowsController extends Controller
         $user = auth()->user();
         $user->following()->toggle($profile);
 
-        return response()->json([
-            'status' => true,
-            'message' => 'toggel follow',
-            'data'=>[
-                'profile' => $profile,
-                'following'=> $user->following->contains($profile->id),
-            ],
-        ], 200);
+        return response()->success(
+            ['profile' => $profile, 'following'=> $user->following->contains($profile->id),]
+            , 'toggel follow');
     }
 
     /**
@@ -49,14 +44,9 @@ class FollowsController extends Controller
      */
     public function show(Profile $profile){
 
-        return response()->json([
-            'status' => true,
-            'message' => 'follow',
-            'data'=> [
-                'profile' => $profile,
-                'following'=> auth()->user()->following->contains($profile->id),
-            ]
-        ], 200);
+        return response()->success(
+            ['profile' => $profile, auth()->user()->following->contains($profile->id)]
+            , 'Follow');
     }
 
     /**
@@ -66,14 +56,7 @@ class FollowsController extends Controller
      * @return $followers
      */
     public function followers(Profile $profile){
-
-        return response()->json([
-            'status' => true,
-            'message' => 'followers',
-            'data'=> [
-                'followers'=> $profile->followers->load('profile'),
-            ]
-        ], 200);
+        return response()->success(['followers'=> $profile->followers->load('profile'),],'followers');
     }
 
     /**
@@ -83,13 +66,6 @@ class FollowsController extends Controller
      * @return $following
      */
     public function following(Profile $profile){
-
-        return response()->json([
-            'status' => true,
-            'message' => 'following',
-            'data'=> [
-                'following'=> $profile->user->following,
-            ]
-        ], 200);
+        return response()->success(['following'=> $profile->user->following,],'following');
     }
 }

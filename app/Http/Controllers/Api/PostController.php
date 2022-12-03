@@ -46,8 +46,7 @@ class PostController extends Controller
             $posts->whereIn('user_id', $users)->with('files')->latest();
         }
 
-
-        return response()->success($posts->get(),'posts');
+        return response()->success(['posts' =>$posts->get()],'posts');
     }
 
 
@@ -57,8 +56,7 @@ class PostController extends Controller
      * @return $posts
      */
     public function showUserPosts(User $user){
-
-        return response()->success($user->posts->load('comments', 'files'),'posts');
+        return response()->success(['posts' => $user->posts->load('comments', 'files'),],'posts');
     }
 
     /**
@@ -67,8 +65,7 @@ class PostController extends Controller
      * @return Post
      */
     public function show(Post $post){
-
-        return response()->success($post->load('comments', 'files', 'parent'),'post');
+        return response()->success(['posts' =>$post->load('comments', 'files', 'parent')],'post');
     }
 
 
@@ -98,7 +95,7 @@ class PostController extends Controller
             return response()->error('no content',400);
         }
 
-        return response()->success($post->load('files'),'New Post');
+        return response()->success(['post' => $post->load('files')],'New Post');
     }
 
     /**
@@ -128,12 +125,10 @@ class PostController extends Controller
         
         if(! $post->body && ! $post->files->count()){
             $post->destory();
-
             return response()->error('No content',400);
         }
 
-        return response()->success($post->load('files'),'Update Post');
-
+        return response()->success(['post' =>$post->load('files')],'Update Post');
     }
 
 
@@ -185,8 +180,7 @@ class PostController extends Controller
             'can_comment'=> $request->can_comment??1,
         ]);
 
-        return response()->success($new_post->load('parent'),'Share Post');
-
+        return response()->success(['post' =>$new_post->load('parent')],'Share Post');
     }
 
 
@@ -197,12 +191,15 @@ class PostController extends Controller
 
         foreach($files as $file){
             $type = explode("/", $file->getMimeType())[0];
+            /**
+             * @ignore cloudinary
+             */
 
-            $path= cloudinary()->upload($file->getRealPath())->getSecurePath();
+            $response = cloudinary()->upload($file->getRealPath())->getSecurePath();
 
             PostFile::create([
                 'post_id'=> $post->id,
-                'path'=> $path,
+                'path'=> $response,
                 'type' => $type,
             ]);
 

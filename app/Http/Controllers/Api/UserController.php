@@ -39,14 +39,7 @@ class UserController extends Controller
             });
         }
         
-        return response()->json([
-            'status' => true,
-            'message' => 'Users',
-            'data'=>[
-                'users' => $users->get(),
-            ]
-            
-        ], 200);
+        return response()->success(['users' => $users->get()], 'Users');
     }
 
     /**
@@ -56,14 +49,7 @@ class UserController extends Controller
      * @return User
      */
     public function show(User $user){
-        
-        return response()->json([
-            'status' => true,
-            'message' => 'User',
-            'data'=>[
-                'user' => $user->load('following', 'profile.followers'),
-            ],
-        ], 200);
+        return response()->success(['user' => $user->load('following', 'profile.followers')], 'Users');
     }
 
 
@@ -74,14 +60,7 @@ class UserController extends Controller
      * @return Profile
      */
     public function profile(User $user){
-        
-        return response()->json([
-            'status' => true,
-            'message' => 'Profile for User',
-            'data'=>[
-                'profile' => $user->profile,
-            ],
-        ], 200);
+        return response()->success(['profile' => $user->profile,], 'Profile for User');
     }
 
     /**
@@ -92,13 +71,7 @@ class UserController extends Controller
      */
 
     public function posts(User $user){
-        return response()->json([
-            'status' => true,
-            'message' => 'Posts for User: ' .$user->user_name,
-            'data'=>[
-                'posts' => $user->posts,
-            ],
-        ], 200);
+        return response()->success(['posts' => $user->posts,], 'Posts for User: ' .$user->user_name);
     }
 
     /**
@@ -116,10 +89,7 @@ class UserController extends Controller
         if($request->has('current_password')){
 
             if(! Hash::check( $request->current_password ,$user->password)){
-                return response()->json([
-                    'status' => false,
-                    'message' => 'Password does not match with our record.',
-                ], 401);
+                return response()->error("Password does not match with our record.", 401);
             }
 
             $request->validate(['new_password' => 'required|confirmed|min:8']);
@@ -143,13 +113,7 @@ class UserController extends Controller
         
         $user = User::find($user->id);
 
-        return response()->json([
-            'status' => true,
-            'message' => 'User Updated Successfully',
-            'data'=>[
-                'user' => $user,
-            ],
-        ], 200);
+        return response()->success(['user' => $user,], 'User Updated Successfully');
     }
 
     // public function search(Request $request){

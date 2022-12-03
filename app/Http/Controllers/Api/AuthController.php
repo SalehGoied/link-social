@@ -42,21 +42,16 @@ class AuthController extends Controller
                 'password' => Hash::make($request->password)
             ]);
 
-            return response()->json([
-                'status' => true,
-                'message' => 'User Created Successfully',
-                'data'=>[
+            return response()->success(
+                [
                     'user' => $user,
                     'token' => $user->createToken("API TOKEN")->plainTextToken
                 ],
-                
-            ], 200);
-
+                'User Created Successfully'
+            );
+            
         } catch (\Throwable $th) {
-            return response()->json([
-                'status' => false,
-                'message' => $th->getMessage()
-            ], 500);
+            return response()->error($th->getMessage(),500);
         }
     }
 
@@ -70,29 +65,20 @@ class AuthController extends Controller
         try {
 
             if(! Auth::attempt($request->only(['email', 'password']))){
-                return response()->json([
-                    'status' => false,
-                    'message' => 'Email & Password does not match with our record.',
-                ], 401);
+                return response()->error('Email & Password does not match with our record.',401);
             }
 
             $user = User::where('email', $request->email)->with('profile')->first();
-
-            return response()->json([
-                'status' => true,
-                'message' => 'User Logged In Successfully',
-                'data'=>[
+            return response()->success(
+                [
                     'user' => $user,
                     'token' => $user->createToken("API TOKEN")->plainTextToken
-                ]
-                
-            ], 200);
+                ],
+                'User Logged In Successfully'
+            );
 
         } catch (\Throwable $th) {
-            return response()->json([
-                'status' => false,
-                'message' => $th->getMessage()
-            ], 500);
+            return response()->error($th->getMessage(),500);
         }
     }
 
@@ -105,26 +91,15 @@ class AuthController extends Controller
      * @return '' 
      */
     public function logout(Request $request) {
-        // $user = auth()->user()->tokens();
-        // auth()->user()->tokens()->delete();
-        try {
-            $token = $request->user()->currentAccessToken();
 
-            $token->delete();
-    
-            return response()->json([
-                'status' => true,
-                "message" => 'User Logout Successfully',
-            ],200);
+        try {
+            $token = $request->user()->currentAccessToken()->delete();
+
+            return response()->success([],'User Logout Successfully');
                 
         }catch(\Throwable $th){
-
-            return response()->json([
-                'status' => false,
-                'message' => $th->getMessage()
-            ], 401);
+            return response()->error($th->getMessage(),500);
         }
-        
         
     }
 }
