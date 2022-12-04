@@ -89,9 +89,8 @@ class CommentController extends Controller
      * @return ''
      */
     public function delete(Comment $comment){
-        if(! (auth()->id() == $comment->user_id )&& ! (auth()->id() == $comment->post->user_id)){
-            return response()->error("you can't delete this comment", 403);
-        }
+
+        $this->authorize('delete', $comment);
 
         $comment->delete();
 

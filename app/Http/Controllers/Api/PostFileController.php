@@ -51,9 +51,7 @@ class PostFileController extends Controller
 
     public function delete(PostFile $postFile){
 
-        if(! (auth()->id() == $postFile->post->user_id)){
-            return response()->error("you can't delete this file", 403);
-        }
+        $this->authorize('delete', $postFile);
 
         $post = $postFile->post;
 

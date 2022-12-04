@@ -108,9 +108,7 @@ class PostController extends Controller
 
     public function update(PostRequest $request, Post $post){
 
-        if(! (auth()->id() == $post->user_id)){
-            return response()->error("you can't update this post", 403);
-        }
+        $this->authorize('update', $post);
 
         if ($request->hasFile('files') && ! $post->post_id){
             $this->storeFile($post ,$request->file('files'));
@@ -142,9 +140,8 @@ class PostController extends Controller
 
     public function delete(Post $post){
 
-        if(! (auth()->id() == $post->user_id)){
-            return response()->error("you can't delete this post", 403);
-        }
+        $this->authorize('delete', $post);
+
         $post->destory();
 
         return response()->success([], 'Post Deleted successfully');
@@ -161,9 +158,7 @@ class PostController extends Controller
 
     public function share(Request $request, Post $post){
 
-        if(! $post->can_sharing){
-            return response()->error("Cannot share this post", 403);
-        }
+        $this->authorize('share', $post);
 
         $request->validate(['body' => 'nullable|string', 'can_comment' => 'nullable|boolean']);
         

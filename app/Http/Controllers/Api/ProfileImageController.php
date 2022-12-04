@@ -79,9 +79,7 @@ class ProfileImageController extends Controller
 
     public function delete(ProfileImage $profileImage){
 
-        if(! (auth()->id() == $profileImage->profile->user_id)){
-            return response()->error("you can't delete this image", 403);
-        }
+        $this->authorize('delete', $profileImage);
 
         $path = $profileImage->path;
         $profile = $profileImage->profile;
