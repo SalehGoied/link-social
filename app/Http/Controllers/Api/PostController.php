@@ -3,14 +3,14 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\PostRequest;
+use App\Http\Requests\SharePostRequest;
+use App\Http\Requests\StorePostRequest;
+use App\Http\Requests\UpdatePostRequest;
 use App\Models\Post;
-use App\Models\PostFile;
 use App\Models\User;
+use App\Services\PostService;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Validator;
-use Intervention\Image\Facades\Image;
+
 
 
 /**
@@ -30,23 +30,11 @@ class PostController extends Controller
      * @param Request $request
      * @return $posts
      */
-    public function index(Request $request){
+    public function index(Request $request, PostService $service){
 
-        $posts = Post::with('files');
-        if($request->key){
-            $posts->where('body', 'LIKE', '%' . $request->key . '%');
-        }
-        elseif(auth('sanctum')->user()){
-            /**
-         * @var $user
-         */
-            $user = auth('sanctum')->user();
-            $users = $user->following()->pluck('profiles.user_id');
+        $posts = $service->search($request->key);
 
-            $posts->whereIn('user_id', $users)->with('files')->latest();
-        }
-
-        return response()->success(['posts' =>$posts->get()],'posts');
+        return response()->success(['posts' =>$posts],'posts');
     }
 
 
@@ -76,24 +64,9 @@ class PostController extends Controller
      * @param Request $request
      * @return Post
      */
-    public function store(PostRequest $request){
-        /**
-         * @var $user
-         */
-        $user = auth()->user();
-        $post = $user->posts()->create();
-
-        if ($request->hasFile('files')){
-            $this->storeFile($post ,$request->file('files'));
-        }
-
-        $post->update($request->all());
+    public function store(StorePostRequest $request){
         
-        
-        if(! $post->body && ! $post->files->count()){
-            $post->destory();
-            return response()->error('no content',400);
-        }
+        $post = $request->store();
 
         return response()->success(['post' => $post->load('files')],'New Post');
     }
@@ -106,22 +79,11 @@ class PostController extends Controller
      * @return Post
      */
 
-    public function update(PostRequest $request, Post $post){
+    public function update(UpdatePostRequest $request, Post $post){
 
-        $this->authorize('update', $post);
+        $post = $request->update($post);
 
-        if ($request->hasFile('files') && ! $post->post_id){
-            $this->storeFile($post ,$request->file('files'));
-        }
-
-        $post->update([
-            'body' => $request->body?? $post->body,
-            'can_comment' => isset($request->can_comment)?$request->can_comment:$post->can_comment,
-            'can_sharing' => isset($request->can_sharing)?$request->can_sharing:$post->can_comment,
-        ]);
-        
-        
-        if(! $post->body && ! $post->files->count()){
+        if(! $post->body && ! $post->files->count() && ! $post->post_id){
             $post->destory();
             return response()->error('No content',400);
         }
@@ -156,24 +118,9 @@ class PostController extends Controller
      * @return ''
      */
 
-    public function share(Request $request, Post $post){
+    public function share(SharePostRequest $request, Post $post){
 
-        $this->authorize('share', $post);
-
-        $request->validate(['body' => 'nullable|string', 'can_comment' => 'nullable|boolean']);
-        
-        $post_id = $post->post_id?: $post->id;
-
-        /**
-         * @var $user
-         */
-        $user = auth()->user();
-
-        $new_post = $user->posts()->create([
-            'body' => $request->body,
-            'post_id' => $post_id,
-            'can_comment'=> $request->can_comment??1,
-        ]);
+        $new_post = $request->share($post);
 
         return response()->success(['post' =>$new_post->load('parent')],'Share Post');
     }
@@ -182,23 +129,23 @@ class PostController extends Controller
 
     // helper function
 
-    function storeFile($post, $files){
+    // function storeFile($post, $files){
 
-        foreach($files as $file){
-            $type = explode("/", $file->getMimeType())[0];
-            /**
-             * @ignore cloudinary
-             */
+    //     foreach($files as $file){
+    //         $type = explode("/", $file->getMimeType())[0];
+    //         /**
+    //          * @ignore cloudinary
+    //          */
 
-            $response = cloudinary()->upload($file->getRealPath())->getSecurePath();
+    //         $response = cloudinary()->upload($file->getRealPath())->getSecurePath();
 
-            PostFile::create([
-                'post_id'=> $post->id,
-                'path'=> $response,
-                'type' => $type,
-            ]);
+    //         PostFile::create([
+    //             'post_id'=> $post->id,
+    //             'path'=> $response,
+    //             'type' => $type,
+    //         ]);
 
-        }
-    }
+    //     }
+    // }
 
 }

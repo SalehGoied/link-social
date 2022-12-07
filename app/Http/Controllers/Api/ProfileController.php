@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\UpdateProfileRequest;
 use App\Models\Profile;
 use App\Models\ProfileImage;
+use App\Services\ProfileService;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Intervention\Image\Facades\Image;
@@ -36,7 +37,7 @@ class ProfileController extends Controller
      * @param Profile $profile
      * @return Profile
      */
-    public function show(Request $request, Profile $profile){
+    public function show(Profile $profile){
         return response()->success(['profile' => $profile->load('followers', 'user.following'),], 'Profile');
     }
 
@@ -47,7 +48,7 @@ class ProfileController extends Controller
      * @return User
      */
 
-    public function showUser(Request $request, Profile $profile){
+    public function showUser(Profile $profile){
         return response()->success(['user' => $profile->user,], 'User for Profile');
     }
 
@@ -60,19 +61,19 @@ class ProfileController extends Controller
      * @param Request $request
      * @return Profile
      */
-    public function update(UpdateProfileRequest $request){
+    public function update(UpdateProfileRequest $request, ProfileService $service){
 
         $profile = auth()->user()->profile;
-
+        
         if ($request->hasFile('avatar')){
-            $path_avatat = $this->image($request->file('avatar'), 'avatar', $profile->id);
+            $path_avatat = $service->storeImage($request->file('avatar'), 'avatar', $profile->id);
         }
         else{
             $path_avatat = $profile->avatar;
         }
 
         if ($request->hasFile('cover')){
-            $path_cover = $this->image($request->file('cover'), 'cover', $profile->id);
+            $path_cover = $service->storeImage($request->file('cover'), 'cover', $profile->id);
         }
         else{
             $path_cover = $profile->avatar;
@@ -95,19 +96,22 @@ class ProfileController extends Controller
      * @return $images
      */
     public function showImages(Profile $profile){
-        return response()->success(['images' => $profile->profileImages,], 'profile Images for user: '. $profile->user->user_name);
+        return response()->success(
+            ['images' => $profile->profileImages,], 
+            'profile Images for user: '. $profile->user->user_name
+        );
     }
 
-    function image($image, $type, $profile_id){
+    // function image($image, $type, $profile_id){
 
-        $response = cloudinary()->upload($image->getRealPath())->getSecurePath();
+    //     $response = cloudinary()->upload($image->getRealPath())->getSecurePath();
 
-        ProfileImage::create([
-            'profile_id'=> $profile_id,
-            'path'=> $response,
-            'type' => $type,
-        ]);
+    //     ProfileImage::create([
+    //         'profile_id'=> $profile_id,
+    //         'path'=> $response,
+    //         'type' => $type,
+    //     ]);
         
-        return $response;
-    }
+    //     return $response;
+    // }
 }
