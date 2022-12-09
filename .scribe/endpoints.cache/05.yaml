@@ -41,7 +41,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"status":true,"message":"profile Images for user:Mr. Saige Koelpin","data":{"images":[{"id":1,"profile_id":1,"path":"https:\/\/source.unsplash.com\/random","type":"avatar","created_at":"2022-11-26T15:45:24.000000Z","updated_at":"2022-11-26T15:45:24.000000Z"},{"id":2,"profile_id":1,"path":"https:\/\/source.unsplash.com\/random","type":"cover","created_at":"2022-11-26T15:45:24.000000Z","updated_at":"2022-11-26T15:45:24.000000Z"}]}}'
+        content: '{"status":true,"message":"profile Images for user:Keith Fisher","data":{"images":[{"id":1,"profile_id":1,"path":"https:\/\/picsum.photos\/200","type":"avatar","created_at":"2022-12-09T13:57:02.000000Z","updated_at":"2022-12-09T13:57:02.000000Z"},{"id":2,"profile_id":1,"path":"https:\/\/picsum.photos\/200","type":"cover","created_at":"2022-12-09T13:57:02.000000Z","updated_at":"2022-12-09T13:57:02.000000Z"}]}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -92,7 +92,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"status":true,"message":"Image","data":{"image":{"id":1,"profile_id":1,"path":"https:\/\/source.unsplash.com\/random","type":"avatar","created_at":"2022-11-26T15:45:24.000000Z","updated_at":"2022-11-26T15:45:24.000000Z"}}}'
+        content: '{"status":true,"message":"Image","data":{"image":{"id":1,"profile_id":1,"path":"https:\/\/picsum.photos\/200","type":"avatar","created_at":"2022-12-09T13:57:02.000000Z","updated_at":"2022-12-09T13:57:02.000000Z"}}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -153,7 +153,7 @@ endpoints:
     auth:
       - queryParameters
       - apiKey
-      - bE816kPaca5VfZvg4D3he6d
+      - V61Dag6av5PEZhcf3b8dek4
     controller: null
     method: null
     route: null

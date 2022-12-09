@@ -50,7 +50,7 @@ endpoints:
     auth:
       - queryParameters
       - apiKey
-      - ce3aPEb5k86Vgf4aDdvh1Z6
+      - ZVD1geka83d6fvc6E5hab4P
     controller: null
     method: null
     route: null
@@ -78,11 +78,11 @@ endpoints:
         name: post_id
         description: 'The ID of the post.'
         required: true
-        example: 9
+        example: 10
         type: integer
         custom: []
     cleanUrlParameters:
-      post_id: 9
+      post_id: 10
     queryParameters:
       apiKey:
         name: apiKey
@@ -101,7 +101,7 @@ endpoints:
     auth:
       - queryParameters
       - apiKey
-      - dDag85fbe41hEcP63aVvZ6k
+      - VkhP356Z4D8Ea1fdacebvg6
     controller: null
     method: null
     route: null

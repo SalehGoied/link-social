@@ -7,7 +7,7 @@
 ## resources
 
 - [Database table](https://gitmind.com/app/docs/fsjk7rvx)
-- [route documintation](https://salehgoied.github.io/link-social/public/docs/)
+- [Endpoints documintation](https://salehgoied.github.io/link-social/public/docs/)
 
 # Getting started
 

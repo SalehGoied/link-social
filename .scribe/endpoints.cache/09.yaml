@@ -16,7 +16,7 @@ endpoints:
         APIs for react
       subgroup: ''
       subgroupDescription: ''
-      title: reacts
+      title: 'reacts for post'
       description: ''
       authenticated: false
       custom: []
@@ -41,12 +41,63 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"status":true,"message":"Reacts","data":{"reacts":[{"id":11,"user_id":32,"post_id":1,"type":3,"created_at":"2022-11-26T15:52:46.000000Z","updated_at":"2022-11-26T15:52:46.000000Z"},{"id":12,"user_id":27,"post_id":1,"type":2,"created_at":"2022-11-26T15:52:46.000000Z","updated_at":"2022-11-26T15:52:46.000000Z"},{"id":8,"user_id":39,"post_id":1,"type":4,"created_at":"2022-11-26T15:52:45.000000Z","updated_at":"2022-11-26T15:52:45.000000Z"},{"id":9,"user_id":15,"post_id":1,"type":3,"created_at":"2022-11-26T15:52:45.000000Z","updated_at":"2022-11-26T15:52:45.000000Z"},{"id":10,"user_id":35,"post_id":1,"type":5,"created_at":"2022-11-26T15:52:45.000000Z","updated_at":"2022-11-26T15:52:45.000000Z"},{"id":6,"user_id":50,"post_id":1,"type":5,"created_at":"2022-11-26T15:52:44.000000Z","updated_at":"2022-11-26T15:52:44.000000Z"},{"id":7,"user_id":1,"post_id":1,"type":3,"created_at":"2022-11-26T15:52:44.000000Z","updated_at":"2022-11-26T15:52:44.000000Z"},{"id":3,"user_id":50,"post_id":1,"type":4,"created_at":"2022-11-26T15:52:43.000000Z","updated_at":"2022-11-26T15:52:43.000000Z"},{"id":4,"user_id":13,"post_id":1,"type":5,"created_at":"2022-11-26T15:52:43.000000Z","updated_at":"2022-11-26T15:52:43.000000Z"},{"id":5,"user_id":8,"post_id":1,"type":3,"created_at":"2022-11-26T15:52:43.000000Z","updated_at":"2022-11-26T15:52:43.000000Z"},{"id":1,"user_id":24,"post_id":1,"type":4,"created_at":"2022-11-26T15:52:42.000000Z","updated_at":"2022-11-26T15:52:42.000000Z"},{"id":2,"user_id":2,"post_id":1,"type":1,"created_at":"2022-11-26T15:52:42.000000Z","updated_at":"2022-11-26T15:52:42.000000Z"}]}}'
+        content: '{"status":true,"message":"Reacts","data":{"reacts":[{"id":1,"user_id":12,"reactable_type":"App\\Models\\Post","reactable_id":1,"type":"DisLike","created_at":"2022-12-09T13:57:05.000000Z","updated_at":"2022-12-09T13:57:05.000000Z"},{"id":2,"user_id":13,"reactable_type":"App\\Models\\Post","reactable_id":1,"type":"DisLike","created_at":"2022-12-09T13:57:05.000000Z","updated_at":"2022-12-09T13:57:05.000000Z"},{"id":3,"user_id":25,"reactable_type":"App\\Models\\Post","reactable_id":1,"type":"Like","created_at":"2022-12-09T13:57:05.000000Z","updated_at":"2022-12-09T13:57:05.000000Z"},{"id":4,"user_id":41,"reactable_type":"App\\Models\\Post","reactable_id":1,"type":"Like","created_at":"2022-12-09T13:57:05.000000Z","updated_at":"2022-12-09T13:57:05.000000Z"},{"id":5,"user_id":5,"reactable_type":"App\\Models\\Post","reactable_id":1,"type":"Like","created_at":"2022-12-09T13:57:05.000000Z","updated_at":"2022-12-09T13:57:05.000000Z"},{"id":6,"user_id":25,"reactable_type":"App\\Models\\Post","reactable_id":1,"type":"Like","created_at":"2022-12-09T13:57:05.000000Z","updated_at":"2022-12-09T13:57:05.000000Z"},{"id":7,"user_id":12,"reactable_type":"App\\Models\\Post","reactable_id":1,"type":"Like","created_at":"2022-12-09T13:57:05.000000Z","updated_at":"2022-12-09T13:57:05.000000Z"},{"id":8,"user_id":48,"reactable_type":"App\\Models\\Post","reactable_id":1,"type":"DisLike","created_at":"2022-12-09T13:57:05.000000Z","updated_at":"2022-12-09T13:57:05.000000Z"}]}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
           x-ratelimit-limit: '60'
           x-ratelimit-remaining: '39'
+          vary: Origin
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/reacts/comment/{comment_id}'
+    metadata:
+      groupName: React
+      groupDescription: |-
+
+        APIs for react
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'reacts for comment'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      comment_id:
+        name: comment_id
+        description: 'The ID of the comment.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      comment_id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"status":true,"message":"Reacts","data":{"reacts":[{"id":899,"user_id":5,"reactable_type":"App\\Models\\Comment","reactable_id":1,"type":"DisLike","created_at":"2022-12-09T13:57:08.000000Z","updated_at":"2022-12-09T13:57:08.000000Z"},{"id":900,"user_id":12,"reactable_type":"App\\Models\\Comment","reactable_id":1,"type":"DisLike","created_at":"2022-12-09T13:57:08.000000Z","updated_at":"2022-12-09T13:57:08.000000Z"},{"id":901,"user_id":33,"reactable_type":"App\\Models\\Comment","reactable_id":1,"type":"Like","created_at":"2022-12-09T13:57:08.000000Z","updated_at":"2022-12-09T13:57:08.000000Z"},{"id":902,"user_id":29,"reactable_type":"App\\Models\\Comment","reactable_id":1,"type":"Like","created_at":"2022-12-09T13:57:08.000000Z","updated_at":"2022-12-09T13:57:08.000000Z"},{"id":903,"user_id":27,"reactable_type":"App\\Models\\Comment","reactable_id":1,"type":"Like","created_at":"2022-12-09T13:57:08.000000Z","updated_at":"2022-12-09T13:57:08.000000Z"},{"id":904,"user_id":45,"reactable_type":"App\\Models\\Comment","reactable_id":1,"type":"Like","created_at":"2022-12-09T13:57:08.000000Z","updated_at":"2022-12-09T13:57:08.000000Z"},{"id":905,"user_id":38,"reactable_type":"App\\Models\\Comment","reactable_id":1,"type":"DisLike","created_at":"2022-12-09T13:57:08.000000Z","updated_at":"2022-12-09T13:57:08.000000Z"}]}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '38'
           vary: Origin
         description: null
         custom: []
@@ -92,12 +143,12 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"status":true,"message":"React","data":{"react":{"id":1,"user_id":24,"post_id":1,"type":4,"created_at":"2022-11-26T15:52:42.000000Z","updated_at":"2022-11-26T15:52:42.000000Z"}}}'
+        content: '{"status":true,"message":"React","data":{"react":{"id":1,"user_id":12,"reactable_type":"App\\Models\\Post","reactable_id":1,"type":"DisLike","created_at":"2022-12-09T13:57:05.000000Z","updated_at":"2022-12-09T13:57:05.000000Z"}}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
           x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '38'
+          x-ratelimit-remaining: '37'
           vary: Origin
         description: null
         custom: []
@@ -110,7 +161,7 @@ endpoints:
   -
     httpMethods:
       - POST
-    uri: 'api/v1/reacts/{post_id}'
+    uri: 'api/v1/reacts/post/{post_id}'
     metadata:
       groupName: React
       groupDescription: |-
@@ -118,7 +169,7 @@ endpoints:
         APIs for react
       subgroup: ''
       subgroupDescription: ''
-      title: 'store and unstore react'
+      title: 'store and unstore react for post'
       description: ''
       authenticated: true
       custom: []
@@ -148,20 +199,79 @@ endpoints:
     bodyParameters:
       type:
         name: type
-        description: 'Must be between 1 and 5.'
+        description: 'Must be one of <code>Like</code> or <code>DisLike</code>.'
         required: false
-        example: 2
-        type: integer
+        example: Like
+        type: string
         custom: []
     cleanBodyParameters:
-      type: 2
+      type: Like
     fileParameters: []
     responses: []
     responseFields: []
     auth:
       - queryParameters
       - apiKey
-      - 6EvcPh8bD16aZ3f4gV5deka
+      - vVE348c1d656bZDeghakfPa
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/v1/reacts/comment/{comment_id}'
+    metadata:
+      groupName: React
+      groupDescription: |-
+
+        APIs for react
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'store and unstore react for Comment'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      comment_id:
+        name: comment_id
+        description: 'The ID of the comment.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      comment_id: 1
+    queryParameters:
+      apiKey:
+        name: apiKey
+        description: 'Authentication key.'
+        required: true
+        example: '{YOUR_AUTH_KEY}'
+        type: string
+        custom: []
+    cleanQueryParameters:
+      apiKey: '{YOUR_AUTH_KEY}'
+    bodyParameters:
+      type:
+        name: type
+        description: 'Must be one of <code>Like</code> or <code>DisLike</code>.'
+        required: false
+        example: Like
+        type: string
+        custom: []
+    cleanBodyParameters:
+      type: Like
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - queryParameters
+      - apiKey
+      - Pa6b5fe6vVdZakEg8hc13D4
     controller: null
     method: null
     route: null
@@ -207,20 +317,20 @@ endpoints:
     bodyParameters:
       type:
         name: type
-        description: 'Must be between 1 and 5.'
-        required: false
-        example: 1
-        type: integer
+        description: 'Must be one of <code>Like</code> or <code>DisLike</code>.'
+        required: true
+        example: DisLike
+        type: string
         custom: []
     cleanBodyParameters:
-      type: 1
+      type: DisLike
     fileParameters: []
     responses: []
     responseFields: []
     auth:
       - queryParameters
       - apiKey
-      - 468DhkgPfvdba13cae6EZ5V
+      - fE43P6eaV8ah61vg5DZcdkb
     controller: null
     method: null
     route: null
