@@ -63,26 +63,7 @@ class ProfileController extends Controller
      */
     public function update(UpdateProfileRequest $request, ProfileService $service){
 
-        $profile = auth()->user()->profile;
-        
-        if ($request->hasFile('avatar')){
-            $path_avatat = $service->storeImage($request->file('avatar'), 'avatar', $profile->id);
-        }
-        else{
-            $path_avatat = $profile->avatar;
-        }
-
-        if ($request->hasFile('cover')){
-            $path_cover = $service->storeImage($request->file('cover'), 'cover', $profile->id);
-        }
-        else{
-            $path_cover = $profile->avatar;
-        }
-        auth()->user()->profile->update([
-            'description' => $request->description ? :$profile->description,
-            'avatar' => $path_avatat,
-            'cover' => $path_cover,
-        ]);
+        $profile = $service->update($request->all());
 
         return response()->success(['profile' => $profile,], 'Update Profile');
     }

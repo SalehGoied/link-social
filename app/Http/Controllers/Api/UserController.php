@@ -5,10 +5,10 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UpdateUserRequest;
 use App\Models\User;
+use App\Services\UserService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
 
 
 /**
@@ -29,17 +29,9 @@ class UserController extends Controller
      */
     public function index(Request $request){
 
-        $users = User::with('profile');
-
-        if($request->key){
-            $users->where(function($query) use ($request) {
-                $query->where('user_name', 'LIKE', '%' . $request->key . '%')
-                    ->orWhere('first_name', 'LIKE', '%' . $request->key . '%')
-                    ->orWhere('last_name', 'LIKE', '%' . $request->key . '%');
-            });
-        }
+        $users = (new UserService())->search($request->key);
         
-        return response()->success(['users' => $users->get()], 'Users');
+        return response()->success(['users' => $users], 'Users');
     }
 
     /**
@@ -99,17 +91,7 @@ class UserController extends Controller
             ]);
         }
         
-        User::find($user->id)->update([
-            'user_name' => $request->user_name ? :$user->user_name,
-            'first_name'=>$request->first_name? :$user->first_name,
-            'last_name'=>$request->last_name?  :$user->last_name,
-            'phone'=> $request->phone? :$user->phone,
-            'birthday'=> $request->birthday? :$user->birthday,
-            'country'=> $request->country? :$user->country,
-            'status'=> $request->status? :$user->status,
-            'region'=> $request->region? :$user->region,
-            'gender'=>$request->gender? :$user->gender,
-        ]);
+        User::find($user->id)->update($request->all());
         
         $user = User::find($user->id);
 

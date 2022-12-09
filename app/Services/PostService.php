@@ -4,24 +4,9 @@ namespace App\Services;
 
 use App\Models\Post;
 use App\Models\PostFile;
-use PhpParser\Node\Expr\Cast\String_;
 
 class PostService
 {
-    public function storeFiles($post_id, $files){
-
-        foreach($files as $file){
-            $type = explode("/", $file->getMimeType())[0];
-            
-            $path = cloudinary()->upload($file->getRealPath())->getSecurePath();
-
-            PostFile::create([
-                'post_id'=> $post_id,
-                'path'=> $path,
-                'type' => $type,
-            ]);
-        }
-    }
 
     public function search(String $key = null)
     {
@@ -42,4 +27,19 @@ class PostService
 
         return $posts->get();
     }
+
+
+    public function storeFiles($post_id, $files){
+
+        foreach($files as $file){            
+            $path = cloudinary()->upload($file->getRealPath())->getSecurePath();
+
+            PostFile::create([
+                'post_id'=> $post_id,
+                'path'=> $path,
+                'type' => 'post',
+            ]);
+        }
+    }
+
 }

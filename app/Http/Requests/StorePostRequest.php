@@ -30,7 +30,7 @@ class StorePostRequest extends FormRequest
             'body' => 'required_without:files|string',
             'can_comment' => 'nullable|boolean',
             'can_sharing' => 'nullable|boolean',
-            'files.*'=> 'required_without:body|mimes:mp4,mov,ogg,qt,jpeg,jpg,png,gif|max:20000'
+            'files.*'=> 'required_without:body|mimes:jpeg,jpg,png,gif|max:10000'
         ];
     }
 
