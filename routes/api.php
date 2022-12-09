@@ -117,10 +117,12 @@ Route::prefix('v1')->group(function(){
     });
 
     Route::controller(ReactController::class)->prefix('/reacts')->group(function (){
-        Route::get('/post/{post}', 'index');
+        Route::get('/post/{post}', 'postReacts');
+        Route::get('/comment/{comment}', 'commentReacts');
         Route::get('/{react}', 'show');
         Route::middleware('auth:sanctum')->group(function (){
-            Route::post('/{post}', 'react');
+            Route::post('/post/{post}', 'reactPost');
+            Route::post('/comment/{comment}', 'reactComment');
             Route::put('/{react}', 'update');
             // Route::delete('/{react}', 'delete');
         });

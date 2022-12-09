@@ -26,7 +26,7 @@ class UpdateReactRequest extends FormRequest
     public function rules()
     {
         return [
-            'type'=>'nullable|integer|between:1,5'
+            'type'=>'required|in:Like,DisLike'
         ];
     }
 }

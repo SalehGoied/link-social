@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreReactRequest;
 use App\Http\Requests\UpdateReactRequest;
+use App\Models\Comment;
 use App\Models\Post;
 use App\Models\React;
+use App\Services\ReactService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -20,13 +22,23 @@ class ReactController extends Controller
 {
 
     /**
-     * reacts
+     * reacts for post
      * 
      * @param Post $post
      * @return $reacts
      */
-    public function index(Post $post){
+    public function postReacts(Post $post){
         return response()->success(['reacts' => $post->reacts,], 'Reacts');
+    }
+
+    /**
+     * reacts for comment
+     * 
+     * @param Comment $comment
+     * @return $reacts
+     */
+    public function commentReacts(Comment $comment){
+        return response()->success(['reacts' => $comment->reacts,], 'Reacts');
     }
 
     /**
@@ -42,30 +54,47 @@ class ReactController extends Controller
 
 
     /**
-     * store and unstore react
+     * store and unstore react for post
      * 
      * @authenticated
      * @param Post $post
      * @param StoreReactRequest $request
      * @return $reacts
      */
-    public function react(StoreReactRequest $request, Post $post){
+    public function reactPost(StoreReactRequest $request, Post $post){
         
-        /**
-         * @var $user
-         */
-        $user = auth()->user();
-        $react = React::where('user_id', $user->id)->where('post_id', $post->id)->first();
-        if($react){
-            $react->delete();
-        }
-        else{
-            $react = $user->reacts()->create([
-                'post_id'=> $post->id,
-                'type'=> $request->type?? 1,
-            ]);
-        }
-        return response()->success(['reacts' => $post->reacts,], 'New react');
+        $reacts = (new ReactService())->store($post, $request->all());
+
+        // /**
+        //  * @var $user
+        //  */        
+        // $user = auth()->user();
+        // $react = React::where('user_id', $user->id)->where('post_id', $post->id)->first();
+        // if($react){
+        //     $react->delete();
+        // }
+        // else{
+        //     $react = $user->reacts()->create([
+        //         'post_id'=> $post->id,
+        //         'type'=> $request->type?? 1,
+        //     ]);
+        // }
+        return response()->success(['reacts' => $reacts,], 'New react');
+    }
+
+    /**
+     * store and unstore react for Comment
+     * 
+     * @authenticated
+     * @param Comment $comment
+     * @param StoreReactRequest $request
+     * @return $reacts
+     */
+    public function reactComment(StoreReactRequest $request, Comment $comment){
+        
+        $reacts = (new ReactService())->store($comment, $request->all());
+
+        return response()->success(['reacts' => $reacts,], 'New react');
     }
 
 

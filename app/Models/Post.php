@@ -35,7 +35,7 @@ class Post extends Model
 
     public function reacts()
     {
-        return $this->hasMany(React::class)->latest();
+        return $this->morphMany(React::class, 'reactable');
     }
 
     public function saved_posts()

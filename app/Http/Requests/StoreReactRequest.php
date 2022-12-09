@@ -24,7 +24,7 @@ class StoreReactRequest extends FormRequest
     public function rules()
     {
         return [
-            'type'=>'nullable|integer|between:1,5'
+            'type'=>'nullable|in:Like,DisLike'
         ];
     }
 }
