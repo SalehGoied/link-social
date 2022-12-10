@@ -44,7 +44,7 @@ class PostController extends Controller
      * @return $posts
      */
     public function showUserPosts(User $user){
-        return response()->success(['posts' => $user->posts->load('comments', 'files'),],'posts');
+        return response()->success(['posts' => $user->posts->load('comments', 'photos'),],'posts');
     }
 
     /**
@@ -53,7 +53,7 @@ class PostController extends Controller
      * @return Post
      */
     public function show(Post $post){
-        return response()->success(['posts' =>$post->load('comments', 'files', 'parent')],'post');
+        return response()->success(['posts' =>$post->load('comments', 'photos', 'parent')],'post');
     }
 
 
@@ -88,7 +88,7 @@ class PostController extends Controller
             return response()->error('No content',400);
         }
 
-        return response()->success(['post' =>$post->load('files')],'Update Post');
+        return response()->success(['post' =>$post->load('photos')],'Update Post');
     }
 
 

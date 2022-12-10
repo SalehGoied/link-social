@@ -9,7 +9,7 @@ class PostService
 
     public function search(String $key = null)
     {
-        $posts = Post::with('files');
+        $posts = Post::with('photos');
 
         if($key){
             $posts->where('body', 'LIKE', '%' . $key. '%');

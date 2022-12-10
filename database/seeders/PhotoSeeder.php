@@ -42,7 +42,7 @@ class PhotoSeeder extends Seeder
 
         foreach(Post::all() as $post){
             
-            for($i = 0; $i < range(1, 3); $i++){
+            for($i = random_int(1, 3); $i < 4; $i++){
                 $post->photos()->create([
                     'path'=> 'https://picsum.photos/200',
                     'type'=> 'post',
@@ -52,7 +52,7 @@ class PhotoSeeder extends Seeder
 
         foreach(Comment::all() as $comment){
             
-            for($i = 0; $i < range(0, 3); $i++){
+            for($i = random_int(1, 3); $i < 3; $i++){
                 $comment->photos()->create([
                     'path'=> 'https://picsum.photos/200',
                     'type'=> 'post',

@@ -7,8 +7,12 @@ use App\Models\Comment;
 use App\Models\Photo;
 use App\Models\Post;
 use App\Models\Profile;
-use Illuminate\Http\Request;
 
+/**
+ * @group Photo
+ *
+ * APIs for photo
+ */
 class PhotoController extends Controller
 {
     /**
