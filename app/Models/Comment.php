@@ -29,4 +29,9 @@ class Comment extends Model
     {
         return $this->morphMany(React::class, 'reactable');
     }
+
+    public function photos()
+    {
+        return $this->morphMany(Photo::class, 'photoable');
+    }
 }

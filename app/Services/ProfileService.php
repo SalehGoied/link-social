@@ -7,24 +7,18 @@ use App\Models\ProfileImage;
 class ProfileService
 {
 
-    public function update(array $coulmns = []){
+    public function update(array $columns = []){
 
         $profile = auth()->user()->profile;
         
-        isset($coulmns['avatar'])?
-            $path_avatat = $this->storeImage($coulmns['avatar'], 'avatar', $profile->id)
-            : $path_avatat = $profile->avatar;
+        if(isset($columns['avatar']))
+            $columns['avatar'] = $this->storeImage($columns['avatar'], 'avatar', $profile->id);
 
 
-        isset($coulmns['cover'])?
-            $path_cover = $this->storeImage($coulmns['cover'], 'cover', $profile->id)
-            : $path_cover = $profile->avatar;
+        if(isset($columns['cover']))
+            $columns['cover'] = $this->storeImage($columns['cover'], 'cover', $profile->id);
 
-        $profile->update([
-            'description' => isset($coulmns['description']) ? $coulmns['description']: $profile->description,
-            'avatar' => $path_avatat,
-            'cover' => $path_cover,
-        ]);
+        $profile->update($columns);
 
         return $profile;
     }

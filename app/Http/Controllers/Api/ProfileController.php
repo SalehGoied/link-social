@@ -6,13 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UpdateProfileRequest;
 use App\Models\Profile;
-use App\Models\ProfileImage;
 use App\Services\ProfileService;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Validator;
-use Intervention\Image\Facades\Image;
-
-
 /**
  * @group profile
  *

@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Models\User;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\TestController;
@@ -18,7 +16,7 @@ use App\Http\Controllers\TestController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::post('test', [TestController::class, 'testUploadeImages']);
+Route::get('test', [TestController::class, 'test']);
 
 Route::get('/', function(){
     return 'hello (~.~) go to /v1';
@@ -96,12 +94,20 @@ Route::prefix('v1')->group(function(){
     });
 
 
-    // post file 
-    Route::controller(PostFileController::class)->prefix('/files')->group(function (){
+    // // post file 
+    // Route::controller(PostFileController::class)->prefix('/files')->group(function (){
 
-        Route::get('/post/{post}', 'index');
-        Route::get('/{postFile}', 'show');
-        Route::delete('/{postFile}', 'delete')->middleware('auth:sanctum');
+    //     Route::get('/post/{post}', 'index');
+    //     Route::get('/{postFile}', 'show');
+    //     Route::delete('/{postFile}', 'delete')->middleware('auth:sanctum');
+    // });
+
+    // post file 
+    Route::controller(PhotoController::class)->prefix('/photos')->group(function (){
+        Route::get('/post/{post}', 'postPhotos');
+        Route::get('/comment/{comment}', 'commentPhotos');
+        Route::get('/{photo}', 'show');
+        Route::delete('/{photo}', 'delete')->middleware('auth:sanctum');
     });
 
     // comments 

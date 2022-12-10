@@ -26,7 +26,8 @@ class UpdateCommentRequest extends FormRequest
     public function rules()
     {
         return [
-            'body'=>'nullable|string'
+            'body'=>'required_without:photos|string',
+            'photos.*'=> 'required_without:body|mimes:jpeg,jpg,png,gif|max:10000'
         ];
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use App\Models\Post;
+use App\Services\PhotoService;
 use App\Services\PostService;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -31,14 +32,16 @@ class UpdatePostRequest extends FormRequest
             'body' => 'nullable|string',
             'can_comment' => 'nullable|boolean',
             'can_sharing' => 'nullable|boolean',
-            'files.*'=> 'nullable|mimes:mp4,mov,ogg,qt,jpeg,jpg,png,gif|max:20000'
+            'photos.*'=> 'nullable|mimes:mp4,mov,ogg,qt,jpeg,jpg,png,gif|max:20000'
         ];
     }
 
     public function update(Post $post)
     {
-        if ($this->hasFile('files') && ! $post->post_id){
-            (new PostService())->storeFiles($post->id ,$this->file('files'));
+        if ($this->hasFile('photos') && ! $post->post_id){
+            foreach($this->file('photos') as $photo){
+                (new PhotoService())->store($post, $photo, 'post');
+            }
         }
 
         $post->update($this->all());

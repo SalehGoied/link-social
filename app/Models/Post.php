@@ -33,6 +33,11 @@ class Post extends Model
         return $this->hasMany(PostFile::class);
     }
 
+    public function photos()
+    {
+        return $this->morphMany(Photo::class, 'photoable');
+    }
+
     public function reacts()
     {
         return $this->morphMany(React::class, 'reactable');

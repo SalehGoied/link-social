@@ -18,9 +18,11 @@ class DatabaseSeeder extends Seeder
         $this->call(UserSeeder::class);
         $this->call(ProfileSeeder::class);
         $this->call(PostSeeder::class);
-        $this->call(PostFileSeeder::class);
+        // $this->call(PostFileSeeder::class);
         $this->call(CommentSeeder::class);
         $this->call(ReactSeeder::class);
+        $this->call(PhotoSeeder::class);
+        
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([

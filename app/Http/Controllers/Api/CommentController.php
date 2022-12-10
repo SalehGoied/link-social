@@ -7,9 +7,8 @@ use App\Http\Requests\StoreCommentRequest;
 use App\Http\Requests\UpdateCommentRequest;
 use App\Models\Comment;
 use App\Models\Post;
+use App\Services\CommentService;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
-
 
 /**
  * @group Comment
@@ -43,21 +42,14 @@ class CommentController extends Controller
      * Create Comment
      * 
      * @authenticated
-     * @param Request $request, Post $post
+     * @param StoreCommentRequest $request, Post $post
      * @return Comment
      */
     public function store(StoreCommentRequest $request, Post $post){
 
-        /**
-         * @var $user
-         */
-        $user = auth()->user();
-        $comment = $user->comments()->create([
-            'post_id'=> $post->id,
-            'body'=> $request->body,
-        ]);
+        $comment = (new CommentService())->store($request->validated(), $post->id);
 
-        return response()->success(['comment' => $comment],'New comment');
+        return response()->success(['comment' => $comment->load('photos')],'New comment');
     }
 
 
@@ -65,13 +57,13 @@ class CommentController extends Controller
      * Update Comment
      * 
      * @authenticated
-     * @param Request $request
+     * @param UpdateCommentRequest $request
      * @param Comment $comment
      * @return Comment
      */
     public function update(UpdateCommentRequest $request, Comment $comment){
 
-        $comment->update(['body'=> $request->body,]);
+        $comment = (new CommentService())->update($request->validated(), $comment);
 
         return response()->success(['comment' => $comment],'Comment updated successfuly');
 

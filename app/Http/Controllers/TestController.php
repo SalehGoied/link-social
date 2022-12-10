@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Photo;
 use App\Models\ProfileImage;
 use Illuminate\Http\Request;
 
@@ -38,6 +39,10 @@ class TestController extends Controller
 
         public function test(Request $request){
             // dd('12323');
+
+            $photo = Photo::with('photoable')->first();
+
+            return $photo;
             if ($request->hasFile('file'))
             {
 

@@ -14,7 +14,7 @@ class ReactService
      * @param $coulmans
      * @return $reacts
      */
-    public function store($model, $coulmans = []){
+    public function store($model, $columns = []){
         
         $react = $model->reacts()->where('user_id', auth()->id())->first();
 
@@ -22,7 +22,7 @@ class ReactService
             $react->delete();
         }
         else{
-            $model->reacts()->create($coulmans+['user_id'=> auth()->id()]);
+            $model->reacts()->create($columns+['user_id'=> auth()->id()]);
         }
 
         return $model->reacts;

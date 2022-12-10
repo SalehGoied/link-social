@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Services\PhotoService;
 use App\Services\PostService;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -12,12 +13,10 @@ class StorePostRequest extends FormRequest
      *
      * @return bool
      */
-    // public function authorize()
-    // {
-    //     $post = $this->route('post');
-
-    //     return $post->user_id == auth()->id();
-    // }
+    public function authorize()
+    {
+        return true;
+    }
 
     /**
      * Get the validation rules that apply to the request.
@@ -30,7 +29,7 @@ class StorePostRequest extends FormRequest
             'body' => 'required_without:files|string',
             'can_comment' => 'nullable|boolean',
             'can_sharing' => 'nullable|boolean',
-            'files.*'=> 'required_without:body|mimes:jpeg,jpg,png,gif|max:10000'
+            'photos.*'=> 'required_without:body|mimes:jpeg,jpg,png,gif|max:10000'
         ];
     }
 
@@ -42,8 +41,10 @@ class StorePostRequest extends FormRequest
         $user = auth()->user();
         $post = $user->posts()->create($this->all());
 
-        if ($this->hasFile('files')){
-            (new PostService())->storeFiles($post->id ,$this->file('files'));
+        if ($this->hasFile('photos')){
+            foreach($this->file('photos') as $photo){
+                (new PhotoService())->store($post, $photo, 'post');
+            }
         }
 
         return $post;

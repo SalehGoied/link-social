@@ -68,7 +68,7 @@ class PostController extends Controller
         
         $post = $request->store();
 
-        return response()->success(['post' => $post->load('files')],'New Post');
+        return response()->success(['post' => $post->load('photos')],'New Post');
     }
 
     /**
@@ -124,28 +124,5 @@ class PostController extends Controller
 
         return response()->success(['post' =>$new_post->load('parent')],'Share Post');
     }
-
-
-
-    // helper function
-
-    // function storeFile($post, $files){
-
-    //     foreach($files as $file){
-    //         $type = explode("/", $file->getMimeType())[0];
-    //         /**
-    //          * @ignore cloudinary
-    //          */
-
-    //         $response = cloudinary()->upload($file->getRealPath())->getSecurePath();
-
-    //         PostFile::create([
-    //             'post_id'=> $post->id,
-    //             'path'=> $response,
-    //             'type' => $type,
-    //         ]);
-
-    //     }
-    // }
 
 }

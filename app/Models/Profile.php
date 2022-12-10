@@ -26,4 +26,9 @@ class Profile extends Model
     public function profileImages(){
         return $this->hasMany(ProfileImage::class);
     }
+
+    public function photos()
+    {
+        return $this->morphMany(Photo::class, 'photoable');
+    }
 }
