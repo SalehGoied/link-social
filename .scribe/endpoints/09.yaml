@@ -1,157 +1,56 @@
-name: React
+name: 'saved post'
 description: |-
 
-  APIs for react
+  APIs for save and unsave post and show it
 endpoints:
   -
     httpMethods:
       - GET
-    uri: 'api/v1/reacts/post/{post_id}'
+    uri: api/v1/saved-posts
     metadata:
-      groupName: React
+      groupName: 'saved post'
       groupDescription: |-
 
-        APIs for react
+        APIs for save and unsave post and show it
       subgroup: ''
       subgroupDescription: ''
-      title: 'reacts for post'
+      title: 'show save post'
       description: ''
-      authenticated: false
+      authenticated: true
       custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
-    urlParameters:
-      post_id:
-        name: post_id
-        description: 'The ID of the post.'
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters:
+      apiKey:
+        name: apiKey
+        description: 'Authentication key.'
         required: true
-        example: 1
-        type: integer
+        example: '{YOUR_AUTH_KEY}'
+        type: string
         custom: []
-    cleanUrlParameters:
-      post_id: 1
-    queryParameters: []
-    cleanQueryParameters: []
+    cleanQueryParameters:
+      apiKey: '{YOUR_AUTH_KEY}'
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
     responses:
       -
-        status: 200
-        content: '{"status":true,"message":"Reacts","data":{"reacts":[{"id":1,"user_id":12,"reactable_type":"App\\Models\\Post","reactable_id":1,"type":"DisLike","created_at":"2022-12-09T13:57:05.000000Z","updated_at":"2022-12-09T13:57:05.000000Z"},{"id":2,"user_id":13,"reactable_type":"App\\Models\\Post","reactable_id":1,"type":"DisLike","created_at":"2022-12-09T13:57:05.000000Z","updated_at":"2022-12-09T13:57:05.000000Z"},{"id":3,"user_id":25,"reactable_type":"App\\Models\\Post","reactable_id":1,"type":"Like","created_at":"2022-12-09T13:57:05.000000Z","updated_at":"2022-12-09T13:57:05.000000Z"},{"id":4,"user_id":41,"reactable_type":"App\\Models\\Post","reactable_id":1,"type":"Like","created_at":"2022-12-09T13:57:05.000000Z","updated_at":"2022-12-09T13:57:05.000000Z"},{"id":5,"user_id":5,"reactable_type":"App\\Models\\Post","reactable_id":1,"type":"Like","created_at":"2022-12-09T13:57:05.000000Z","updated_at":"2022-12-09T13:57:05.000000Z"},{"id":6,"user_id":25,"reactable_type":"App\\Models\\Post","reactable_id":1,"type":"Like","created_at":"2022-12-09T13:57:05.000000Z","updated_at":"2022-12-09T13:57:05.000000Z"},{"id":7,"user_id":12,"reactable_type":"App\\Models\\Post","reactable_id":1,"type":"Like","created_at":"2022-12-09T13:57:05.000000Z","updated_at":"2022-12-09T13:57:05.000000Z"},{"id":8,"user_id":48,"reactable_type":"App\\Models\\Post","reactable_id":1,"type":"DisLike","created_at":"2022-12-09T13:57:05.000000Z","updated_at":"2022-12-09T13:57:05.000000Z"}]}}'
+        status: 401
+        content: '{"message":"Unauthenticated."}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '39'
           vary: Origin
         description: null
         custom: []
     responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - GET
-    uri: 'api/v1/reacts/comment/{comment_id}'
-    metadata:
-      groupName: React
-      groupDescription: |-
-
-        APIs for react
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'reacts for comment'
-      description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      comment_id:
-        name: comment_id
-        description: 'The ID of the comment.'
-        required: true
-        example: 1
-        type: integer
-        custom: []
-    cleanUrlParameters:
-      comment_id: 1
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        status: 200
-        content: '{"status":true,"message":"Reacts","data":{"reacts":[{"id":899,"user_id":5,"reactable_type":"App\\Models\\Comment","reactable_id":1,"type":"DisLike","created_at":"2022-12-09T13:57:08.000000Z","updated_at":"2022-12-09T13:57:08.000000Z"},{"id":900,"user_id":12,"reactable_type":"App\\Models\\Comment","reactable_id":1,"type":"DisLike","created_at":"2022-12-09T13:57:08.000000Z","updated_at":"2022-12-09T13:57:08.000000Z"},{"id":901,"user_id":33,"reactable_type":"App\\Models\\Comment","reactable_id":1,"type":"Like","created_at":"2022-12-09T13:57:08.000000Z","updated_at":"2022-12-09T13:57:08.000000Z"},{"id":902,"user_id":29,"reactable_type":"App\\Models\\Comment","reactable_id":1,"type":"Like","created_at":"2022-12-09T13:57:08.000000Z","updated_at":"2022-12-09T13:57:08.000000Z"},{"id":903,"user_id":27,"reactable_type":"App\\Models\\Comment","reactable_id":1,"type":"Like","created_at":"2022-12-09T13:57:08.000000Z","updated_at":"2022-12-09T13:57:08.000000Z"},{"id":904,"user_id":45,"reactable_type":"App\\Models\\Comment","reactable_id":1,"type":"Like","created_at":"2022-12-09T13:57:08.000000Z","updated_at":"2022-12-09T13:57:08.000000Z"},{"id":905,"user_id":38,"reactable_type":"App\\Models\\Comment","reactable_id":1,"type":"DisLike","created_at":"2022-12-09T13:57:08.000000Z","updated_at":"2022-12-09T13:57:08.000000Z"}]}}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '38'
-          vary: Origin
-        description: null
-        custom: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - GET
-    uri: 'api/v1/reacts/{react_id}'
-    metadata:
-      groupName: React
-      groupDescription: |-
-
-        APIs for react
-      subgroup: ''
-      subgroupDescription: ''
-      title: react
-      description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      react_id:
-        name: react_id
-        description: 'The ID of the react.'
-        required: true
-        example: 1
-        type: integer
-        custom: []
-    cleanUrlParameters:
-      react_id: 1
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        status: 200
-        content: '{"status":true,"message":"React","data":{"react":{"id":1,"user_id":12,"reactable_type":"App\\Models\\Post","reactable_id":1,"type":"DisLike","created_at":"2022-12-09T13:57:05.000000Z","updated_at":"2022-12-09T13:57:05.000000Z"}}}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '37'
-          vary: Origin
-        description: null
-        custom: []
-    responseFields: []
-    auth: []
+    auth:
+      - queryParameters
+      - apiKey
+      - DabdfgevV8cE63P45ah16Zk
     controller: null
     method: null
     route: null
@@ -159,15 +58,15 @@ endpoints:
   -
     httpMethods:
       - POST
-    uri: 'api/v1/reacts/post/{post_id}'
+    uri: 'api/v1/saved-posts/{post_id}'
     metadata:
-      groupName: React
+      groupName: 'saved post'
       groupDescription: |-
 
-        APIs for react
+        APIs for save and unsave post and show it
       subgroup: ''
       subgroupDescription: ''
-      title: 'store and unstore react for post'
+      title: 'Toggle save post'
       description: ''
       authenticated: true
       custom: []
@@ -179,11 +78,11 @@ endpoints:
         name: post_id
         description: 'The ID of the post.'
         required: true
-        example: 1
+        example: 20
         type: integer
         custom: []
     cleanUrlParameters:
-      post_id: 1
+      post_id: 20
     queryParameters:
       apiKey:
         name: apiKey
@@ -194,141 +93,15 @@ endpoints:
         custom: []
     cleanQueryParameters:
       apiKey: '{YOUR_AUTH_KEY}'
-    bodyParameters:
-      type:
-        name: type
-        description: 'Must be one of <code>Like</code> or <code>DisLike</code>.'
-        required: false
-        example: Like
-        type: string
-        custom: []
-    cleanBodyParameters:
-      type: Like
+    bodyParameters: []
+    cleanBodyParameters: []
     fileParameters: []
     responses: []
     responseFields: []
     auth:
       - queryParameters
       - apiKey
-      - vVE348c1d656bZDeghakfPa
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - POST
-    uri: 'api/v1/reacts/comment/{comment_id}'
-    metadata:
-      groupName: React
-      groupDescription: |-
-
-        APIs for react
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'store and unstore react for Comment'
-      description: ''
-      authenticated: true
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      comment_id:
-        name: comment_id
-        description: 'The ID of the comment.'
-        required: true
-        example: 1
-        type: integer
-        custom: []
-    cleanUrlParameters:
-      comment_id: 1
-    queryParameters:
-      apiKey:
-        name: apiKey
-        description: 'Authentication key.'
-        required: true
-        example: '{YOUR_AUTH_KEY}'
-        type: string
-        custom: []
-    cleanQueryParameters:
-      apiKey: '{YOUR_AUTH_KEY}'
-    bodyParameters:
-      type:
-        name: type
-        description: 'Must be one of <code>Like</code> or <code>DisLike</code>.'
-        required: false
-        example: Like
-        type: string
-        custom: []
-    cleanBodyParameters:
-      type: Like
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth:
-      - queryParameters
-      - apiKey
-      - Pa6b5fe6vVdZakEg8hc13D4
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - PUT
-    uri: 'api/v1/reacts/{react_id}'
-    metadata:
-      groupName: React
-      groupDescription: |-
-
-        APIs for react
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'update react'
-      description: ''
-      authenticated: true
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      react_id:
-        name: react_id
-        description: 'The ID of the react.'
-        required: true
-        example: 1
-        type: integer
-        custom: []
-    cleanUrlParameters:
-      react_id: 1
-    queryParameters:
-      apiKey:
-        name: apiKey
-        description: 'Authentication key.'
-        required: true
-        example: '{YOUR_AUTH_KEY}'
-        type: string
-        custom: []
-    cleanQueryParameters:
-      apiKey: '{YOUR_AUTH_KEY}'
-    bodyParameters:
-      type:
-        name: type
-        description: 'Must be one of <code>Like</code> or <code>DisLike</code>.'
-        required: true
-        example: DisLike
-        type: string
-        custom: []
-    cleanBodyParameters:
-      type: DisLike
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth:
-      - queryParameters
-      - apiKey
-      - fE43P6eaV8ah61vg5DZcdkb
+      - Z1dbkPh4Dg3af586Vavc6Ee
     controller: null
     method: null
     route: null

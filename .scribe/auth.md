@@ -1,6 +1,6 @@
 # Authenticating requests
 
-This API is authenticated by sending a query parameter **`apiKey`** in the request.
+Authenticate requests to this API's endpoints by sending a query parameter **`apiKey`** in the request.
 
 All authenticated endpoints are marked with a `requires authentication` badge in the documentation below.
 

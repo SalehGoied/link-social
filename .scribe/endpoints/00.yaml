@@ -4,6 +4,47 @@ endpoints:
   -
     httpMethods:
       - GET
+    uri: api/test
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"id":1,"photoable_type":"App\\Models\\Post","photoable_id":104,"path":"https:\/\/res.cloudinary.com\/dgfmyypte\/image\/upload\/v1670671344\/otlnvj66aitmhs15qicv.jpg","type":"post","created_at":"2022-12-10T11:22:25.000000Z","updated_at":"2022-12-10T11:22:25.000000Z","photoable":{"id":104,"user_id":52,"body":null,"can_sharing":1,"can_comment":1,"post_id":0,"created_at":"2022-12-10T11:22:24.000000Z","updated_at":"2022-12-10T11:22:24.000000Z"}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '59'
+          vary: Origin
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
     uri: api/v1
     metadata:
       groupName: Endpoints
@@ -32,12 +73,208 @@ endpoints:
           content-type: 'text/html; charset=UTF-8'
           cache-control: 'no-cache, private'
           x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-remaining: '58'
           vary: Origin
         description: null
         custom: []
     responseFields: []
     auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/photos/post/{post_id}'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Photos for post'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      post_id:
+        name: post_id
+        description: 'The ID of the post.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      post_id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"status":true,"message":"Photos","data":{"photos":[]}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '42'
+          vary: Origin
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/photos/comment/{comment_id}'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Photos for comment'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      comment_id:
+        name: comment_id
+        description: 'The ID of the comment.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      comment_id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"status":true,"message":"Photos","data":{"photos":[]}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '41'
+          vary: Origin
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/photos/{photo_id}'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'show one file'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      photo_id:
+        name: photo_id
+        description: 'The ID of the photo.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      photo_id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"status":true,"message":"Photo","data":{"photo":{"id":1,"photoable_type":"App\\Models\\Post","photoable_id":104,"path":"https:\/\/res.cloudinary.com\/dgfmyypte\/image\/upload\/v1670671344\/otlnvj66aitmhs15qicv.jpg","type":"post","created_at":"2022-12-10T11:22:25.000000Z","updated_at":"2022-12-10T11:22:25.000000Z"}}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '40'
+          vary: Origin
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/v1/photos/{photo_id}'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'delete photo'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      photo_id:
+        name: photo_id
+        description: 'The ID of the photo.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      photo_id: 1
+    queryParameters:
+      apiKey:
+        name: apiKey
+        description: 'Authentication key.'
+        required: true
+        example: '{YOUR_AUTH_KEY}'
+        type: string
+        custom: []
+    cleanQueryParameters:
+      apiKey: '{YOUR_AUTH_KEY}'
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - queryParameters
+      - apiKey
+      - Pk6fcV8ahDbg341aE5d6eZv
     controller: null
     method: null
     route: null

@@ -44,7 +44,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '48'
+          x-ratelimit-remaining: '47'
           vary: Origin
         description: null
         custom: []
@@ -95,7 +95,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '47'
+          x-ratelimit-remaining: '46'
           vary: Origin
         description: null
         custom: []
@@ -151,7 +151,7 @@ endpoints:
     auth:
       - queryParameters
       - apiKey
-      - V61Dag6av5PEZhcf3b8dek4
+      - cVbae81va63DdkhZfE56g4P
     controller: null
     method: null
     route: null

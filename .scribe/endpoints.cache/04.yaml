@@ -51,7 +51,7 @@ endpoints:
     auth:
       - queryParameters
       - apiKey
-      - 854Vkavdc31DbaEP6f6eghZ
+      - aVhkv6eb3f8a1d5ZgD4c6EP
     controller: null
     method: null
     route: null
@@ -111,7 +111,7 @@ endpoints:
     auth:
       - queryParameters
       - apiKey
-      - aD1e8kdhVb4c5Zg3aE6v6Pf
+      - 684cVEP3vk5daeZhDbga6f1
     controller: null
     method: null
     route: null
@@ -157,7 +157,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '50'
+          x-ratelimit-remaining: '49'
           vary: Origin
         description: null
         custom: []
@@ -208,7 +208,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '49'
+          x-ratelimit-remaining: '48'
           vary: Origin
         description: null
         custom: []
