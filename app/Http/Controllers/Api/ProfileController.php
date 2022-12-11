@@ -57,7 +57,7 @@ class ProfileController extends Controller
      */
     public function update(UpdateProfileRequest $request, ProfileService $service){
 
-        $profile = $service->update($request->all());
+        $profile = $service->update($request->validated());
 
         return response()->success(['profile' => $profile,], 'Update Profile');
     }

@@ -77,6 +77,6 @@ class PhotoController extends Controller
 
         $message = "Photo deleted sucessfully";
 
-        return response()->success($model, $message);
+        return response()->success(['photos' => $model->photos], $message);
     }
 }

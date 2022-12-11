@@ -28,11 +28,6 @@ class Post extends Model
         return $this->hasMany(Comment::class);
     }
 
-    public function files()
-    {
-        return $this->hasMany(PostFile::class);
-    }
-
     public function photos()
     {
         return $this->morphMany(Photo::class, 'photoable');
@@ -61,14 +56,7 @@ class Post extends Model
     public function destory()
     {
 
-        foreach ($this->files as $file) {
-            // $path = $file->path;
-            $file->delete();
-
-            // if(File::exists($path)){
-            //     File::delete($path);
-            // }
-        }
+        $this->photos()->delete();
 
         foreach ($this->comments as $comment) {
             $comment->delete();

@@ -3,7 +3,7 @@
 namespace App\Services;
 
 use App\Models\Post;
-use App\Models\PostFile;
+
 class PostService
 {
 
@@ -27,18 +27,35 @@ class PostService
         return $posts->get();
     }
 
+    public function store(array $columns)
+    {
+        /**
+         * @var $user
+         */
+        $user = auth()->user();
+        $post = $user->posts()->create($columns);
 
-    public function storeFiles($post_id, $files){
-
-        foreach($files as $file){            
-            $path = cloudinary()->upload($file->getRealPath())->getSecurePath();
-
-            PostFile::create([
-                'post_id'=> $post_id,
-                'path'=> $path,
-                'type' => 'post',
-            ]);
+        if (isset($columns['photos'])){
+            foreach($columns['photos'] as $photo){
+                (new PhotoService())->store($post, $photo, 'post');
+            }
         }
+
+        return $post;
+    }
+
+    public function update(array $columns, Post $post)
+    {
+
+        if (isset($columns['photos']) && ! $post->post_id){
+            foreach($columns['photos'] as $photo){
+                (new PhotoService())->store($post, $photo, 'post');
+            }
+        }
+
+        $post->update($columns);
+
+        return $post;
     }
 
 }

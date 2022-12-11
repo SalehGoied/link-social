@@ -18,7 +18,6 @@ class DatabaseSeeder extends Seeder
         $this->call(UserSeeder::class);
         $this->call(ProfileSeeder::class);
         $this->call(PostSeeder::class);
-        // $this->call(PostFileSeeder::class);
         $this->call(CommentSeeder::class);
         $this->call(ReactSeeder::class);
         $this->call(PhotoSeeder::class);

@@ -63,22 +63,8 @@ class ReactController extends Controller
      */
     public function reactPost(StoreReactRequest $request, Post $post){
         
-        $reacts = (new ReactService())->store($post, $request->all());
+        $reacts = (new ReactService())->store($post, $request->validated());
 
-        // /**
-        //  * @var $user
-        //  */        
-        // $user = auth()->user();
-        // $react = React::where('user_id', $user->id)->where('post_id', $post->id)->first();
-        // if($react){
-        //     $react->delete();
-        // }
-        // else{
-        //     $react = $user->reacts()->create([
-        //         'post_id'=> $post->id,
-        //         'type'=> $request->type?? 1,
-        //     ]);
-        // }
         return response()->success(['reacts' => $reacts,], 'New react');
     }
 
@@ -92,7 +78,7 @@ class ReactController extends Controller
      */
     public function reactComment(StoreReactRequest $request, Comment $comment){
         
-        $reacts = (new ReactService())->store($comment, $request->all());
+        $reacts = (new ReactService())->store($comment, $request->validated());
 
         return response()->success(['reacts' => $reacts,], 'New react');
     }

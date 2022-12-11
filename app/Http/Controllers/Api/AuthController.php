@@ -9,7 +9,6 @@ use App\Http\Requests\LoginUSerRequest;
 use App\Http\Requests\RegisterUserRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
 
 /**
  * @group Auth
@@ -28,7 +27,7 @@ class AuthController extends Controller
     public function registerUser(RegisterUserRequest $request)
     {
         try {
-            $user = User::create(array_merge($request->all() ,[
+            $user = User::create(array_merge($request->validated() ,[
                 'password' => Hash::make($request->password)
             ]));
 

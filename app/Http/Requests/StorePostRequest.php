@@ -26,27 +26,12 @@ class StorePostRequest extends FormRequest
     public function rules()
     {
         return [
-            'body' => 'required_without:files|string',
+            'body' => 'required_without:photos|string',
             'can_comment' => 'nullable|boolean',
             'can_sharing' => 'nullable|boolean',
             'photos.*'=> 'required_without:body|mimes:jpeg,jpg,png,gif|max:10000'
         ];
     }
 
-    public function store()
-    {
-        /**
-         * @var $user
-         */
-        $user = auth()->user();
-        $post = $user->posts()->create($this->all());
-
-        if ($this->hasFile('photos')){
-            foreach($this->file('photos') as $photo){
-                (new PhotoService())->store($post, $photo, 'post');
-            }
-        }
-
-        return $post;
-    }
+    
 }

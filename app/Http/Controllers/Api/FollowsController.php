@@ -21,7 +21,7 @@ class FollowsController extends Controller
      * 
      * @authenticated
      * @param Profile $profile
-     * @return [$profile, 'following']
+     * @return $following
      */
     public function store(Profile $profile){
         /**
@@ -31,8 +31,8 @@ class FollowsController extends Controller
         $user->following()->toggle($profile);
 
         return response()->success(
-            ['profile' => $profile, 'following'=> $user->following->contains($profile->id),]
-            , 'toggel follow');
+            ['following'=> $user->following->contains($profile->id),]
+            , 'Toggel follow');
     }
 
     /**
@@ -40,12 +40,12 @@ class FollowsController extends Controller
      * 
      * @authenticated
      * @param Profile $profile
-     * @return [$profile, 'following']
+     * @return $following
      */
     public function show(Profile $profile){
 
         return response()->success(
-            ['profile' => $profile, auth()->user()->following->contains($profile->id)]
+            ['following'=> auth()->user()->following->contains($profile->id)]
             , 'Follow');
     }
 
@@ -56,7 +56,7 @@ class FollowsController extends Controller
      * @return $followers
      */
     public function followers(Profile $profile){
-        return response()->success(['followers'=> $profile->followers->load('profile'),],'followers');
+        return response()->success(['followers'=> $profile->followers->load('profile'),],'Followers');
     }
 
     /**
@@ -66,6 +66,6 @@ class FollowsController extends Controller
      * @return $following
      */
     public function following(Profile $profile){
-        return response()->success(['following'=> $profile->user->following,],'following');
+        return response()->success(['following'=> $profile->user->following,],'Following');
     }
 }

@@ -8,7 +8,6 @@ use App\Http\Requests\UpdateCommentRequest;
 use App\Models\Comment;
 use App\Models\Post;
 use App\Services\CommentService;
-use Illuminate\Http\Request;
 
 /**
  * @group Comment

@@ -91,7 +91,7 @@ class UserController extends Controller
             ]);
         }
         
-        User::find($user->id)->update($request->all());
+        User::find($user->id)->update($request->validated());
         
         $user = User::find($user->id);
 

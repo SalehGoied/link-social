@@ -34,4 +34,13 @@ class Comment extends Model
     {
         return $this->morphMany(Photo::class, 'photoable');
     }
+
+    public function destory()
+    {
+        $this->reacts()->delete();
+
+        $this->photos()->delete();
+
+        $this->delete();
+    }
 }

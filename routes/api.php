@@ -93,15 +93,6 @@ Route::prefix('v1')->group(function(){
         });
     });
 
-
-    // // post file 
-    // Route::controller(PostFileController::class)->prefix('/files')->group(function (){
-
-    //     Route::get('/post/{post}', 'index');
-    //     Route::get('/{postFile}', 'show');
-    //     Route::delete('/{postFile}', 'delete')->middleware('auth:sanctum');
-    // });
-
     // post file 
     Route::controller(PhotoController::class)->prefix('/photos')->group(function (){
         Route::get('/post/{post}', 'postPhotos');

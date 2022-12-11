@@ -66,7 +66,8 @@ class PostController extends Controller
      */
     public function store(StorePostRequest $request){
         
-        $post = $request->store();
+
+        $post = (new PostService())->store($request->validated());
 
         return response()->success(['post' => $post->load('photos')],'New Post');
     }
@@ -81,11 +82,11 @@ class PostController extends Controller
 
     public function update(UpdatePostRequest $request, Post $post){
 
-        $post = $request->update($post);
+        $post = (new PostService())->update($request->validated(), $post);
 
-        if(! $post->body && ! $post->files->count() && ! $post->post_id){
+        if(! $post->body && ! $post->photos->count() && ! $post->post_id){
             $post->destory();
-            return response()->error('No content',400);
+            return response()->success('Post have No content, Post deleted');
         }
 
         return response()->success(['post' =>$post->load('photos')],'Update Post');

@@ -35,17 +35,4 @@ class UpdatePostRequest extends FormRequest
             'photos.*'=> 'nullable|mimes:mp4,mov,ogg,qt,jpeg,jpg,png,gif|max:20000'
         ];
     }
-
-    public function update(Post $post)
-    {
-        if ($this->hasFile('photos') && ! $post->post_id){
-            foreach($this->file('photos') as $photo){
-                (new PhotoService())->store($post, $photo, 'post');
-            }
-        }
-
-        $post->update($this->all());
-
-        return $post;
-    }
 }
