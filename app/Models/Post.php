@@ -58,13 +58,17 @@ class Post extends Model
 
         $this->photos()->delete();
 
-        foreach ($this->comments as $comment) {
-            $comment->delete();
-        }
+        $this->comments()->destory();
 
-        foreach ($this->reacts as $react) {
-            $react->delete();
-        }
+        $this->reacts()->delete();
+
+        // foreach ($this->comments as $comment) {
+        //     $comment->delete();
+        // }
+
+        // foreach ($this->reacts as $react) {
+        //     $react->delete();
+        // }
 
         $this->delete();
     }
