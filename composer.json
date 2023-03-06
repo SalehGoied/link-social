@@ -62,7 +62,7 @@
         }
     },
 
-    
+
 
     "config": {
         "optimize-autoloader": true,
