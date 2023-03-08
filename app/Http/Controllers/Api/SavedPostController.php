@@ -18,7 +18,7 @@ class SavedPostController extends Controller
 
     /**
      * show save post
-     * 
+     *
      * @authenticated
      * @return $saved_posts
      */
@@ -29,9 +29,9 @@ class SavedPostController extends Controller
 
     /**
      * Toggle save post
-     * 
+     *
      * @authenticated
-     * 
+     *
      * @param Post $post
      * @return $saved_posts
      */
