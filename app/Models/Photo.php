@@ -18,4 +18,9 @@ class Photo extends Model
     {
         return $this->morphTo();
     }
+
+    public function pathOnly()
+    {
+        return $this->select('path');
+    }
 }

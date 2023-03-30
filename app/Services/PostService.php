@@ -7,9 +7,9 @@ use App\Models\Post;
 class PostService
 {
 
-    public function search(String $key = null)
+    public function search(String $key = null, int $limit = null)
     {
-        $posts = Post::with('photos');
+        $posts = Post::with('photos', 'user.profile', 'parent.user.profile')->withCount( 'comments', 'reacts');
 
         if($key){
             $posts->where('body', 'LIKE', '%' . $key. '%');
@@ -24,7 +24,7 @@ class PostService
             $posts->whereIn('user_id', $users)->latest();
         }
 
-        return $posts->get();
+        return $posts->latest()->take($limit)->get();
     }
 
     public function store(array $columns)

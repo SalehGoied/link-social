@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\IndexPostRequest;
 use App\Http\Requests\SharePostRequest;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
@@ -24,15 +25,16 @@ class PostController extends Controller
 
     /**
      * posts with files
-     * 
+     *
      * @bodyParam key string The key for search.
-     * 
+     * @bodyParam limit intger The Limit of posts.
+     *
      * @param Request $request
      * @return $posts
      */
-    public function index(Request $request, PostService $service){
+    public function index(IndexPostRequest $request, PostService $service){
 
-        $posts = $service->search($request->key);
+        $posts = $service->search($request->key, $request->limit);
 
         return response()->success(['posts' =>$posts],'posts');
     }
@@ -44,7 +46,7 @@ class PostController extends Controller
      * @return $posts
      */
     public function showUserPosts(User $user){
-        return response()->success(['posts' => $user->posts->load('comments', 'photos'),],'posts');
+        return response()->success(['posts' => $user->posts->load('comments', 'photos', 'user.profile'),],'posts');
     }
 
     /**
@@ -53,19 +55,20 @@ class PostController extends Controller
      * @return Post
      */
     public function show(Post $post){
-        return response()->success(['posts' =>$post->load('comments', 'photos', 'parent')],'post');
+        $post = Post::with('photos', 'user.profile', 'parent.user.profile')->withCount('comments', 'reacts')->find($post->id);
+        return response()->success(['posts' =>$post],'post');
     }
 
 
     /**
      * create post
-     * 
+     *
      * @authenticated
      * @param Request $request
      * @return Post
      */
     public function store(StorePostRequest $request){
-        
+
 
         $post = (new PostService())->store($request->validated());
 
@@ -74,7 +77,7 @@ class PostController extends Controller
 
     /**
      * update post
-     * 
+     *
      * @authenticated
      * @param Request $request, Post $post
      * @return Post
@@ -95,7 +98,7 @@ class PostController extends Controller
 
     /**
      * delete post
-     * 
+     *
      * @authenticated
      * @param Post $post
      * @return ''
@@ -112,7 +115,7 @@ class PostController extends Controller
 
     /**
      * share post
-     * 
+     *
      * @authenticated
      * @param Post $post
      * @param Request $request

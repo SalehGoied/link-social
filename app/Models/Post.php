@@ -10,6 +10,8 @@ class Post extends Model
 {
     use HasFactory;
 
+    protected $appends = ['is_react'];
+
     protected $fillable = [
         'user_id',
         'body',
@@ -17,6 +19,20 @@ class Post extends Model
         'can_comment',
         'post_id',
     ];
+
+    public function getIsReactAttribute()
+    {
+        if($this->reacts->where('user_id', auth('sanctum')->id())->count())
+            return true;
+        return false;
+    }
+
+    // public function IsReact()
+    // {
+
+    //     return $this->morphMany(React::class, 'reactable')->where('user_id', auth()->id());
+    // }
+
 
     public function user()
     {
@@ -38,6 +54,16 @@ class Post extends Model
         return $this->morphMany(React::class, 'reactable');
     }
 
+    public function commentsCount()
+    {
+        return $this->comments->count();
+    }
+
+    public function reactsCount()
+    {
+        return $this->reacts->count();
+    }
+
     public function saved_posts()
     {
         return $this->hasMany(SavedPost::class)->latest();
@@ -47,6 +73,7 @@ class Post extends Model
     {
         return $this->belongsTo(Post::class, 'post_id');
     }
+
 
     public function children()
     {

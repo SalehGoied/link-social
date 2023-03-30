@@ -25,8 +25,9 @@ class IndexPostRequest extends FormRequest
     {
         return [
             'key'=> 'nullable|string',
+            'limit'=> 'nullable|integer',
         ];
     }
 
-    
+
 }
