@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use App\Models\Photo;
 use App\Models\ProfileImage;
 use Illuminate\Http\Request;
@@ -11,7 +12,7 @@ class TestController extends Controller
     // public function testUploadeImages(Request $request){
 
     //     foreach($request->file('image') as $file){
-            
+
     //             $type = explode("/", $file->getMimeType())[0];
     //             return response()->json([
     //                 'req'=> $type,
@@ -27,7 +28,7 @@ class TestController extends Controller
     //             return response()->json([
     //                 'req'=> $filevalidate,
     //             ], 200);
-            
+
     //         return response()->json([
     //             'req'=> $file,
     //         ], 200);
@@ -39,6 +40,8 @@ class TestController extends Controller
 
         public function test(Request $request){
             // dd('12323');
+            $comment = Comment::find(28)->userdata;
+            dd($comment);
 
             $photo = Photo::with('photoable')->first();
 
@@ -75,7 +78,7 @@ class TestController extends Controller
                 //         });
                 // // Storage::put($image, $path);
                 // Storage::disk('local')->put('public/images/'.$filename, $img, 'public');
-                
+
                 // Image::make($image)->save($src);
 
                 return 'storage/avatars/'. $filename;

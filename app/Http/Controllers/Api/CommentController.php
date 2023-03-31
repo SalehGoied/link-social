@@ -24,7 +24,7 @@ class CommentController extends Controller
      */
     public function index(Post $post){
 
-        return response()->success(['comments' => $post->comments],'Comments');
+        return response()->success(['comments' => $post->comments->load('user', 'photos')],'Comments');
     }
 
     /**
@@ -33,13 +33,15 @@ class CommentController extends Controller
      * @return Comment
      */
     public function show(Comment $comment){
-        return response()->success(['comment' => $comment],'Comment');
+        return Comment::with('user')->find(28);
+        return $comment;
+        return response()->success(['comment' => $comment->load('user', 'photos')],'Comment');
     }
 
 
     /**
      * Create Comment
-     * 
+     *
      * @authenticated
      * @param StoreCommentRequest $request, Post $post
      * @return Comment
@@ -48,13 +50,13 @@ class CommentController extends Controller
 
         $comment = (new CommentService())->store($request->validated(), $post->id);
 
-        return response()->success(['comment' => $comment->load('photos')],'New comment');
+        return response()->success(['comment' => $comment->load('user.profile','photos')],'New comment');
     }
 
 
     /**
      * Update Comment
-     * 
+     *
      * @authenticated
      * @param UpdateCommentRequest $request
      * @param Comment $comment
@@ -64,18 +66,18 @@ class CommentController extends Controller
 
         $comment = (new CommentService())->update($request->validated(), $comment);
 
-        return response()->success(['comment' => $comment],'Comment updated successfuly');
+        return response()->success(['comment' => $comment->load('user.profile', 'photos')],'Comment updated successfuly');
 
     }
-    
+
 
     /**
      * delete Comment
-     * 
+     *
      * <aside class="notice">Deleting a comment is by the owner of the comment or post.😕</aside>
-     * 
+     *
      * @authenticated
-     * 
+     *
      * @param Comment $comment
      * @return ''
      */

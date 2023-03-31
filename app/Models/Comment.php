@@ -22,7 +22,8 @@ class Comment extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class)->select('id', 'user_name', 'email')
+        ->with('profile:user_id,cover,avatar,description');
     }
 
     public function reacts()
@@ -32,7 +33,7 @@ class Comment extends Model
 
     public function photos()
     {
-        return $this->morphMany(Photo::class, 'photoable');
+        return $this->morphMany(Photo::class, 'photoable')->select('photoable_id','path');
     }
 
     public function destory()

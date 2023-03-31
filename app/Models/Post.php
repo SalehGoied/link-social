@@ -27,16 +27,10 @@ class Post extends Model
         return false;
     }
 
-    // public function IsReact()
-    // {
-
-    //     return $this->morphMany(React::class, 'reactable')->where('user_id', auth()->id());
-    // }
-
-
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class)->select('id', 'user_name', 'email')
+        ->with('profile:user_id,cover,avatar,description');
     }
 
     public function comments()
@@ -46,7 +40,7 @@ class Post extends Model
 
     public function photos()
     {
-        return $this->morphMany(Photo::class, 'photoable');
+        return $this->morphMany(Photo::class, 'photoable')->select('photoable_id','path');
     }
 
     public function reacts()
@@ -88,14 +82,6 @@ class Post extends Model
         $this->comments()->destory();
 
         $this->reacts()->delete();
-
-        // foreach ($this->comments as $comment) {
-        //     $comment->delete();
-        // }
-
-        // foreach ($this->reacts as $react) {
-        //     $react->delete();
-        // }
 
         $this->delete();
     }

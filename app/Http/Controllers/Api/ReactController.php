@@ -23,70 +23,70 @@ class ReactController extends Controller
 
     /**
      * reacts for post
-     * 
+     *
      * @param Post $post
      * @return $reacts
      */
     public function postReacts(Post $post){
-        return response()->success(['reacts' => $post->reacts,], 'Reacts');
+        return response()->success(['reacts' => $post->reacts->load('user.profile'),], 'Reacts');
     }
 
     /**
      * reacts for comment
-     * 
+     *
      * @param Comment $comment
      * @return $reacts
      */
     public function commentReacts(Comment $comment){
-        return response()->success(['reacts' => $comment->reacts,], 'Reacts');
+        return response()->success(['reacts' => $comment->reacts->load('user.profile'),], 'Reacts');
     }
 
     /**
      * react
-     * 
+     *
      * @param React $react
      * @return $react
      */
 
     public function show(React $react){
-        return response()->success(['react' => $react,], 'React');
+        return response()->success(['react' => $react->load('user.profile'),], 'React');
     }
 
 
     /**
      * store and unstore react for post
-     * 
+     *
      * @authenticated
      * @param Post $post
      * @param StoreReactRequest $request
      * @return $reacts
      */
     public function reactPost(StoreReactRequest $request, Post $post){
-        
+
         $reacts = (new ReactService())->store($post, $request->validated());
 
-        return response()->success(['reacts' => $reacts,], 'New react');
+        return response()->success(['reacts' => $reacts->load('user.profile'),], 'New react');
     }
 
     /**
      * store and unstore react for Comment
-     * 
+     *
      * @authenticated
      * @param Comment $comment
      * @param StoreReactRequest $request
      * @return $reacts
      */
     public function reactComment(StoreReactRequest $request, Comment $comment){
-        
+
         $reacts = (new ReactService())->store($comment, $request->validated());
 
-        return response()->success(['reacts' => $reacts,], 'New react');
+        return response()->success(['reacts' => $reacts->load('user.profile'),], 'New react');
     }
 
 
     /**
      * update react
-     * 
+     *
      * @authenticated
      * @param React $react
      * @param UpdateReactRequest $request
@@ -98,7 +98,7 @@ class ReactController extends Controller
             'type'=> $request->type,
         ]);
 
-        return response()->success(['react' => $react,], 'React updated successfully');
+        return response()->success(['react' => $react->load('user.profile'),], 'React updated successfully');
     }
 
     // public function delete(React $react){

@@ -20,7 +20,8 @@ class React extends Model
     }
 
     public function user(){
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class)->select('id', 'user_name', 'email')
+        ->with('profile:user_id,cover,avatar,description');
     }
 
     public function reactable(){
