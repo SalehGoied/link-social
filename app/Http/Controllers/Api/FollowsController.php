@@ -18,7 +18,7 @@ class FollowsController extends Controller
 
     /**
      * Toggle follow
-     * 
+     *
      * @authenticated
      * @param Profile $profile
      * @return $following
@@ -37,7 +37,7 @@ class FollowsController extends Controller
 
     /**
      * Show if is  follow
-     * 
+     *
      * @authenticated
      * @param Profile $profile
      * @return $following
@@ -51,17 +51,17 @@ class FollowsController extends Controller
 
     /**
      * Show followers
-     * 
+     *
      * @param Profile $profile
      * @return $followers
      */
     public function followers(Profile $profile){
-        return response()->success(['followers'=> $profile->followers->load('profile'),],'Followers');
+        return response()->success(['followers'=> $profile->followers->load('profile.user'),],'Followers');
     }
 
     /**
      * Show following
-     * 
+     *
      * @param Profile $profile
      * @return $following
      */
