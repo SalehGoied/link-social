@@ -56,7 +56,7 @@ class FollowsController extends Controller
      * @return $followers
      */
     public function followers(Profile $profile){
-        return response()->success(['followers'=> $profile->followers->load('profile.user'),],'Followers');
+        return response()->success(['followers'=> $profile->followers->load('profile'),],'Followers');
     }
 
     /**
@@ -66,6 +66,6 @@ class FollowsController extends Controller
      * @return $following
      */
     public function following(Profile $profile){
-        return response()->success(['following'=> $profile->user->following,],'Following');
+        return response()->success(['following'=> $profile->user->following->load('user'),],'Following');
     }
 }
