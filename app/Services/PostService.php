@@ -25,7 +25,7 @@ class PostService
             $posts->whereIn('user_id', $users)->latest();
         }
 
-        return $posts->latest()->take($limit)->get();
+        return $posts->latest()->paginate($limit?:10);
     }
 
     public function store(array $columns)
