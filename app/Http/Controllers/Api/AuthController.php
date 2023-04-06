@@ -20,9 +20,9 @@ class AuthController extends Controller
 {
     /**
      * Create User
-     * 
+     *
      * @param Request $request
-     * @return User 
+     * @return User
      */
     public function registerUser(RegisterUserRequest $request)
     {
@@ -33,12 +33,12 @@ class AuthController extends Controller
 
             return response()->success(
                 [
-                    'user' => $user,
+                    'user' => $user->load('profile'),
                     'token' => $user->createToken("API TOKEN")->plainTextToken
                 ],
                 'User Created Successfully'
             );
-            
+
         } catch (\Throwable $th) {
             return response()->error($th->getMessage(),500);
         }
@@ -60,7 +60,7 @@ class AuthController extends Controller
             $user = User::where('email', $request->email)->with('profile')->first();
             return response()->success(
                 [
-                    'user' => $user,
+                    'user' => $user->load('profile'),
                     'token' => $user->createToken("API TOKEN")->plainTextToken
                 ],
                 'User Logged In Successfully'
@@ -74,10 +74,10 @@ class AuthController extends Controller
 
     /**
      * Logout User
-     * 
+     *
      * @authenticated
      * @param Request $request
-     * @return '' 
+     * @return ''
      */
     public function logout(Request $request) {
 
@@ -85,10 +85,10 @@ class AuthController extends Controller
             $token = $request->user()->currentAccessToken()->delete();
 
             return response()->success([],'User Logout Successfully');
-                
+
         }catch(\Throwable $th){
             return response()->error($th->getMessage(),500);
         }
-        
+
     }
 }

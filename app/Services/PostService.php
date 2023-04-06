@@ -9,7 +9,8 @@ class PostService
 
     public function search(String $key = null, int $limit = null)
     {
-        $posts = Post::with('photos', 'user.profile', 'parent.user.profile')->withCount( 'comments', 'reacts');
+        $posts = Post::with('photos', 'user.profile', 'parent.user.profile')
+                ->withCount( 'comments', 'reacts', 'children');
 
         if($key){
             $posts->where('body', 'LIKE', '%' . $key. '%');

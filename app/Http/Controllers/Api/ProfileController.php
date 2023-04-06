@@ -17,8 +17,8 @@ class ProfileController extends Controller
 
     /**
      * profiles
-     * 
-     * 
+     *
+     *
      * @return $profiles
      */
     public function index(){
@@ -27,7 +27,7 @@ class ProfileController extends Controller
 
     /**
      * show profile
-     * 
+     *
      * @param Profile $profile
      * @return Profile
      */
@@ -37,7 +37,7 @@ class ProfileController extends Controller
 
     /**
      * show user for profile
-     * 
+     *
      * @param Profile $profile
      * @return User
      */
@@ -49,8 +49,8 @@ class ProfileController extends Controller
 
     /**
      * update profile
-     * 
-     * 
+     *
+     *
      * @authenticated
      * @param Request $request
      * @return Profile
@@ -59,20 +59,20 @@ class ProfileController extends Controller
 
         $profile = $service->update($request->validated());
 
-        return response()->success(['profile' => $profile,], 'Update Profile');
+        return response()->success(['user' => $profile->user->load('profile'),], 'Update Profile');
     }
 
 
     /**
      * show images for profile
-     * 
-     * 
+     *
+     *
      * @param Profile $profile
      * @return $images
      */
     public function showImages(Profile $profile){
         return response()->success(
-            ['images' => $profile->profileImages,], 
+            ['images' => $profile->profileImages,],
             'profile Images for user: '. $profile->user->user_name
         );
     }
@@ -86,7 +86,7 @@ class ProfileController extends Controller
     //         'path'=> $response,
     //         'type' => $type,
     //     ]);
-        
+
     //     return $response;
     // }
 }

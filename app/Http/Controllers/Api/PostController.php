@@ -46,7 +46,9 @@ class PostController extends Controller
      * @return $posts
      */
     public function showUserPosts(User $user){
-        return response()->success(['posts' => $user->posts->load('comments', 'photos', 'user.profile'),],'posts');
+        $posts = $user->posts()->with('comments', 'photos', 'user.profile', 'parent.user.profile')
+            ->withCount(['comments', 'reacts', 'children'])->get();
+        return response()->success(['posts' => $posts,],'posts');
     }
 
     /**
@@ -55,7 +57,8 @@ class PostController extends Controller
      * @return Post
      */
     public function show(Post $post){
-        $post = Post::with('photos', 'user.profile', 'parent.user.profile')->withCount('comments', 'reacts')->find($post->id);
+        $post = Post::with('photos', 'user.profile', 'parent.user.profile')
+            ->withCount('comments', 'reacts', 'children')->find($post->id);
         return response()->success(['posts' =>$post],'post');
     }
 

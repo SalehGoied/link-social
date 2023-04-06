@@ -9,7 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
-{ 
+{
     use HasApiTokens, HasFactory, Notifiable;
 
     /**
@@ -46,7 +46,10 @@ class User extends Authenticatable
         parent::boot();
 
         static::created(function ($user){
-            $user->profile()->create();
+            $user->profile()->create([
+                'avatar'=> url('images/avatar.jpg'),
+                'cover'=> url('images/cover.png')
+            ]);
         });
     }
 

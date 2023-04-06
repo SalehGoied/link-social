@@ -21,22 +21,22 @@ class UserController extends Controller
 
     /**
      * users
-     * 
+     *
      * @bodyParam key string The key for search.
-     * 
+     *
      * @param Request $request
      * @return $users
      */
     public function index(Request $request){
 
         $users = (new UserService())->search($request->key);
-        
+
         return response()->success(['users' => $users], 'Users');
     }
 
     /**
      * show user
-     * 
+     *
      * @param User $user
      * @return User
      */
@@ -47,7 +47,7 @@ class UserController extends Controller
 
     /**
      * show profile for user
-     * 
+     *
      * @param User $user
      * @return Profile
      */
@@ -57,7 +57,7 @@ class UserController extends Controller
 
     /**
      * show posts for user
-     * 
+     *
      * @param User $user
      * @return $posts
      */
@@ -68,7 +68,7 @@ class UserController extends Controller
 
     /**
      * update User
-     * 
+     *
      * @authenticated
      * @param Request $request
      * @return User
@@ -90,12 +90,12 @@ class UserController extends Controller
                 'password' =>Hash::make($request->new_password),
             ]);
         }
-        
+
         User::find($user->id)->update($request->validated());
-        
+
         $user = User::find($user->id);
 
-        return response()->success(['user' => $user,], 'User Updated Successfully');
+        return response()->success(['user' => $user->load('profile'),], 'User Updated Successfully');
     }
 
     // public function search(Request $request){

@@ -25,6 +25,7 @@ class UpdateUserRequest extends FormRequest
     {
         return [
             'user_name' => 'nullable|string|unique:users,user_name,'. auth()->id(),
+            'email' => 'nullable|string|unique:users,email,'. auth()->id(),
             'current_password'=> 'nullable|string',
             'new_password' => 'nullable|confirmed|min:8',
             'first_name'=>'nullable|string',
