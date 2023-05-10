@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Api\ChatController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\TestController;
@@ -34,7 +35,7 @@ Route::prefix('v1')->group(function(){
         Route::post('/login', 'loginUser')->name('auth.login');     //login
         Route::post('/logout', 'logout')->middleware('auth:sanctum')->name('auth.logout');  // logout
     });
-    
+
     // user
     Route::controller(UserController::class)->prefix('/users')->group(function (){
         Route::get('/', 'index')->name('users.index');  // get all users or search in it with $request->key
@@ -45,7 +46,7 @@ Route::prefix('v1')->group(function(){
         // todo after asking on it
         // Route::delete('/', 'delete')->middleware('auth:sanctum');
     });
-    
+
 
     // profile
     Route::controller(ProfileController::class)->prefix('/profiles')->group(function (){
@@ -66,9 +67,9 @@ Route::prefix('v1')->group(function(){
         Route::get('/{profile}', 'show')->middleware('auth:sanctum');
         Route::get('/{profile}/followers', 'followers');
         Route::get('/{profile}/following', 'following');
-        
+
     });
-    
+
 
     // profile image
     Route::controller(ProfileImageController::class)->prefix('/images')->group(function (){
@@ -93,7 +94,7 @@ Route::prefix('v1')->group(function(){
         });
     });
 
-    // post file 
+    // post file
     Route::controller(PhotoController::class)->prefix('/photos')->group(function (){
         Route::get('/post/{post}', 'postPhotos');
         Route::get('/comment/{comment}', 'commentPhotos');
@@ -101,7 +102,7 @@ Route::prefix('v1')->group(function(){
         Route::delete('/{photo}', 'delete')->middleware('auth:sanctum');
     });
 
-    // comments 
+    // comments
     Route::controller(CommentController::class)->prefix('/comments')->group(function (){
 
         Route::get('/post/{post}', 'index');
@@ -129,5 +130,7 @@ Route::prefix('v1')->group(function(){
         Route::get('', 'index');
         Route::post('/{post}', 'store');
     });
+
+    Route::get('chat', [ChatController::class, 'index']);
 
 });

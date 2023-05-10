@@ -72,7 +72,7 @@ class PostController extends Controller
      */
     public function store(StorePostRequest $request){
 
-
+        // return $request;
         $post = (new PostService())->store($request->validated());
 
         return response()->success(['post' => $post->load('photos')],'New Post');
@@ -129,7 +129,7 @@ class PostController extends Controller
 
         $new_post = $request->share($post);
 
-        return response()->success(['post' =>$new_post->load('parent')],'Share Post');
+        return response()->success(['post' =>$new_post->load('parent.user.profile', 'parent.photos', 'user.profile')],'Share Post');
     }
 
 }

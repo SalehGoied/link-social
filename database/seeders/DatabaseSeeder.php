@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
         $this->call(CommentSeeder::class);
         $this->call(ReactSeeder::class);
         $this->call(PhotoSeeder::class);
-        
+
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([
